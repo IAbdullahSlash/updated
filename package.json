@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  },
+  "name": "project-dumb",
+  "version": "1.0.0",
+  "main": "script.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katyayaniRK/SafeBrowse.git"
+  },
+  "bugs": {
+    "url": "https://github.com/katyayaniRK/SafeBrowse/issues"
+  },
+  "homepage": "https://github.com/katyayaniRK/SafeBrowse#readme"
+}
