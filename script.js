@@ -1,7 +1,7 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import * as readline from 'node:readline/promises';
 
-const API_KEY = "AIzaSyCqc3zIUa59r7UvNbn7gy6rhRXbsZ6NcxE"; 
+const API_KEY = "modified"; 
 
 const genAI = new GoogleGenerativeAI(API_KEY);
 
