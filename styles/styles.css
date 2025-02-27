@@ -234,28 +234,32 @@ body {
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
-  width: 90%;
+  width: 51vw;
   max-width: 600px;
   background-color: white;
   border-radius: 2rem;
   padding: 1rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  
 }
 
 .form {
   display: flex;
-  gap: 0.5rem;
+  gap: 3px;
   align-items: center;
 }
 
 .chat-input {
   flex: 1;
+  width:36vw;
   padding: 0.75rem 1.5rem;
   border: 1px solid #ccc;
   border-radius: 2rem;
   font-size: 1rem;
+  overflow: hidden;
   transition: all 0.3s ease;
+  resize: none;
 }
 
 .chat-input:focus {
@@ -334,6 +338,9 @@ body {
   .chat-box {
     width: 95%;
   }
+  .chat-input{
+    width: 63vw;
+  }
 }
 
 @keyframes fadeIn {
@@ -351,7 +358,7 @@ body {
 
 .chat-background {
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 80%;
@@ -397,4 +404,62 @@ body {
   color: #333;
   text-align: left;
   align-self: flex-start;
+}
+/* Scrollbar styles */
+
+.chat-messages{
+  display: block;
+  width: 80%;
+  overflow: auto;
+  height: 80%;
+  padding: 1em;
+  margin: 1em auto;
+}
+.chat-messages::-webkit-scrollbar {
+  width: 4px;
+  height: 8px;
+  background-color: #aaa; /* or add it to the track */
+}
+.chat-messages::-webkit-scrollbar-thumb {
+  background: #000;
+}
+/* catch-box styling */
+.chat-box{
+  gap:50rem;
+}
+.chat-box .form {
+    position: relative;
+}
+.chat-box .button-group {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 10px;
+}
+.chat-box .attach-btn,
+.chat-box .submit-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+.chat-box .attach-btn:hover,
+.chat-box .submit-btn:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+.chat-box .attach-btn svg,
+.chat-box .submit-btn svg {
+    width: 20px;
+    height: 20px;
 }

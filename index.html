@@ -7,45 +7,7 @@
     <link rel="stylesheet" href="styles/styles.css">
 
     <script src="https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=YOUR_API_KEY"></script>
-    <style>
-
-    .chat-box .form {
-        position: relative;
-    }
-    .chat-box .button-group {
-        position: absolute;
-        right: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-        display: flex;
-        gap: 10px;
-    }
-    .chat-box .attach-btn,
-    .chat-box .submit-btn {
-        background-color: var(--primary-color);
-        color: white;
-        border: none;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0;
-        transition: all 0.3s ease;
-    }
-    .chat-box .attach-btn:hover,
-    .chat-box .submit-btn:hover {
-        background-color: var(--secondary-color);
-        transform: scale(1.05);
-    }
-    .chat-box .attach-btn svg,
-    .chat-box .submit-btn svg {
-        width: 20px;
-        height: 20px;
-    }
-</style>
+   
 </head>
 <body>
     <div class="overlay"></div>
@@ -103,6 +65,7 @@
 
     <div class="chat-box fade-in">
         <form class="form" id="chatForm">
+            <div class="search">
             <input 
                 type="text" 
                 class="chat-input" 
@@ -110,6 +73,7 @@
                 placeholder="Type your message..."
                 required
             >
+            </div>
             <div class="button-group">
                 <button type="button" class="attach-btn" aria-label="Attach file">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
