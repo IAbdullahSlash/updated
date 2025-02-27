@@ -103,7 +103,7 @@ form.sign-in-form {
 }
 
 .social-text {
-  padding: 0.7rem 0;
+  
   font-size: 1rem;
 }
 
@@ -126,6 +126,7 @@ form.sign-in-form {
   font-size: 1.1rem;
   transition: 0.3s;
   text-decoration: none;
+  margin-top: 7px;
 }
 
 .social-icon:hover {
@@ -399,3 +400,5 @@ form.sign-in-form {
     left: 50%;
   }
 }
+
+
