@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeBrowse</title>
+    <link rel="stylesheet" href="styles/style2.css">
+    <!-- Remove the previous script tag and add this one -->
+    <script src="https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=YOUR_API_KEY"></script>
+    <style>
+    /* Include the entire content of the provided styles.css file here */
+    /* (Omitted for brevity, but assume all styles from the attachment are included) */
+
+    /* Additional styles to ensure buttons are visible */
+    html {
+      scroll-behavior: smooth;
+    }
+    .chat-box .form {
+        position: relative;
+    }
+    .chat-box .button-group {
+        margin-top: 34px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        gap: 10px;
+    }
+    .chat-box .attach-btn,
+    .chat-box .submit-btn {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        transition: all 0.3s ease;
+    }
+    .chat-box .attach-btn:hover,
+    .chat-box .submit-btn:hover {
+        background-color: var(--secondary-color);
+        transform: scale(1.05);
+    }
+    .chat-box .attach-btn svg,
+    .chat-box .submit-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+</style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="sidebar">
+        <button class="new-chat">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            New chat
+        </button>
+        <div class="recent-label">Recent</div>
+        <ul class="chat-list">
+            <li><a href="#" class="chat-item">What is harmful content?</a></li>
+            <li><a href="#" class="chat-item">Classify harmful content</a></li>
+            <li><a href="#" class="chat-item">How does AI detect and recognize such content?</a></li>
+        </ul>
+        <div class="show-more">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+            Show more
+        </div>
+    </div>
+
+    <header class="header">
+        <nav class="nav">
+            <div style="display: flex; align-items: center;">
+                <svg class="sidebar-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <span class="title">SafeBrowse</span>
+            </div>
+            <div class="nav-links">
+                <a href="page1.html">Home</a>
+                
+                <a href="page1.html" onclick="scrollToAbout()">About us</a>
+                <a href="login.html" class="btn-register">Register now</a>
+
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <h1 class="main-title">Hello there!</h1>
+        <p class="subtitle">How may I help you?</p>
+        <div class="chat-background" style="display: none;">
+            <div class="chat-messages">
+                <div class="message-wrapper">
+                    <!-- Your chat content will go here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="chat-box fade-in">
+        <form class="form" id="chatForm">
+            <input 
+                type="text" 
+                class="chat-input" 
+                id="chatInput"
+                placeholder="Type your message..."
+                required
+            >
+            <div class="button-group">
+                
+                   
+                <button type="submit" class="submit-btn" aria-label="Send">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+        </form>
+        <div class="attachment-options">
+            <button type="button" class="attachment-option" data-type="file">File</button>
+            <button type="button" class="attachment-option" data-type="image">Image</button>
+        </div>
+    </div>
+    <input type="file" id="fileInput" style="display: none;" accept=".txt,.pdf,.doc,.docx">
+    <input type="file" id="imageInput" style="display: none;" accept="image/*">
+
+    <script>
+
+    function scrollToAbout() {
+       window.location.href = "page1.html";
+       window.location.hash = "#about";
+    }
+        // Sidebar toggle functionality
+        const sidebarIcon = document.querySelector('.sidebar-icon');
+        const sidebar = document.querySelector('.sidebar');
+        const overlay = document.querySelector('.overlay');
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('open');
+            overlay.classList.toggle('open');
+        }
+
+        sidebarIcon.addEventListener('click', toggleSidebar);
+        overlay.addEventListener('click', toggleSidebar);
+
+        // Replace the Google AI initialization code with this:
+        const API_KEY = "AIzaSyCqc3zIUa59r7UvNbn7gy6rhRXbsZ6NcxE";
+
+        async function initializeChat() {
+            const history = [];
+            const systemInstruction = "Your name is SafeBrowse. You are an AI agent responsible for detecting and recognizing harmful content, including misinformation, hate speech, and cyberbullying, from given data. You should highlight such content, provide corrections, and suggest appropriate actions accordingly. You were made by the team 404 fixers. If data has been given with the intention not related to your main mission, you should just explain why it's not from your expertise. Also, tell about yourself only when asked.";
+
+            // Add system instruction to history
+            history.push({ role: 'system', content: systemInstruction });
+
+            return { history };
+        }
+
+        let chatState;
+
+        // Initialize chat when the page loads
+        window.addEventListener('load', async () => {
+            chatState = await initializeChat();
+        });
+
+        // Modify the form submission event listener
+        document.getElementById('chatForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const message = document.getElementById('chatInput').value;
+            document.querySelector('.main-title').style.display = 'none';
+            document.querySelector('.subtitle').style.display = 'none';
+            
+            document.querySelector('.chat-background').style.display = 'block';
+
+            // Create a new message element
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', 'sender-message');
+            messageElement.innerHTML = 'YOU:<br>' + message;
+
+            // Add the message element to the chat messages container
+            const messageWrapper = document.querySelector('.message-wrapper');
+            messageWrapper.appendChild(messageElement);
+
+            // Clear input after sending
+            document.getElementById('chatInput').value = ''; 
+
+            try {
+                // Add user message to history
+                chatState.history.push({ role: 'user', content: message });
+
+                // Prepare the request body
+                const requestBody = {
+                    contents: [
+                        {
+                            parts: [
+                                { text: chatState.history.map(msg => `${msg.role}: ${msg.content}`).join('\n') }
+                            ]
+                        }
+                    ]
+                };
+
+                console.log('Request body:', JSON.stringify(requestBody, null, 2));
+
+                // Generate response
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(requestBody),
+                });
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
+                }
+
+                const result = await response.json();
+                console.log('API response:', JSON.stringify(result, null, 2));
+
+                if (!result.candidates || result.candidates.length === 0) {
+                    throw new Error('No response generated from the AI.');
+                }
+
+                const botResponse = result.candidates[0].content.parts[0].text;
+
+                // Add bot response to history
+                chatState.history.push({ role: 'assistant', content: botResponse });
+
+                // Create and add bot response element
+                const responseElement = document.createElement('div');
+                responseElement.classList.add('message', 'receiver-message');
+                responseElement.innerHTML = 'SB:<br>' + botResponse;
+                
+                // Add the response element to the chat messages container
+                messageWrapper.appendChild(responseElement);
+            } catch (error) {
+                console.error('Error:', error);
+                const errorElement = document.createElement('div');
+                errorElement.classList.add('message', 'error-message');
+                errorElement.innerHTML = `Error: ${error.message || 'Unable to get response from the AI.'}`;
+                messageWrapper.appendChild(errorElement);
+            }
+        });
+
+        // ... (rest of the JavaScript content remains the same) ...
+
+        // File handling
+        const fileInput = document.getElementById('fileInput');
+        const imageInput = document.getElementById('imageInput');
+
+        // Attachment button functionality
+        const attachBtn = document.querySelector('.attach-btn');
+        const attachmentOptions = document.querySelector('.attachment-options');
+
+        attachBtn.addEventListener('click', () => {
+            attachmentOptions.classList.toggle('show');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!attachBtn.contains(e.target) && !attachmentOptions.contains(e.target)) {
+                attachmentOptions.classList.remove('show');
+            }
+        });
+
+        const attachmentOptionBtns = document.querySelectorAll('.attachment-option');
+        attachmentOptionBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const type = btn.dataset.type;
+                if (type === 'file') {
+                    fileInput.click();
+                } else if (type === 'image') {
+                    imageInput.click();
+                }
+                attachmentOptions.classList.remove('show');
+            });
+        });
+
+        fileInput.addEventListener('change', handleFileUpload);
+        imageInput.addEventListener('change', handleImageUpload);
+
+        async function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = async (e) => {
+                const fileContent = e.target.result;
+                await sendFileToAI(file.name, fileContent);
+            };
+            reader.readAsText(file);
+        }
+
+        async function handleImageUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = async (e) => {
+                const imageContent = e.target.result;
+                await sendImageToAI(file.name, imageContent);
+            };
+            reader.readAsDataURL(file);
+        }
+
+        async function sendFileToAI(fileName, fileContent) {
+            try {
+                const message = `Please review this file: ${fileName}\n\nFile content:\n${fileContent}`;
+                await sendMessageToAI(message, `Sent a file: ${fileName}`);
+            } catch (error) {
+                console.error('Error sending file to AI:', error);
+                displayErrorMessage(error);
+            }
+        }
+
+        async function sendImageToAI(fileName, imageContent) {
+            try {
+                const message = `Please analyze this image: ${fileName}`;
+                const requestBody = {
+                    contents: [
+                        {
+                            parts: [
+                                { text: message },
+                                { inline_data: { mime_type: "image/jpeg", data: imageContent.split(',')[1] } }
+                            ]
+                        }
+                    ]
+                };
+                await sendRequestToAI(requestBody, `Sent an image: ${fileName}`);
+            } catch (error) {
+                console.error('Error sending image to AI:', error);
+                displayErrorMessage(error);
+            }
+        }
+
+        async function sendMessageToAI(message, displayMessage) {
+            chatState.history.push({ role: 'user', content: message });
+            const requestBody = {
+                contents: [
+                    {
+                        parts: [
+                            { text: chatState.history.map(msg => `${msg.role}: ${msg.content}`).join('\n') }
+                        ]
+                    }
+                ]
+            };
+            await sendRequestToAI(requestBody, displayMessage);
+        }
+
+        async function sendRequestToAI(requestBody, displayMessage) {
+            // Create a new message element for the file/image
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', 'sender-message');
+            messageElement.innerHTML = `YOU:<br>${displayMessage}`;
+
+            // Add the message element to the chat messages container
+            const messageWrapper = document.querySelector('.message-wrapper');
+            messageWrapper.appendChild(messageElement);
+
+            console.log('Request body:', JSON.stringify(requestBody, null, 2));
+
+            // Generate response
+            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(requestBody),
+            });
+
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
+            }
+
+            const result = await response.json();
+            console.log('API response:', JSON.stringify(result, null, 2));
+
+            if (!result.candidates || result.candidates.length === 0) {
+                throw new Error('No response generated from the AI.');
+            }
+
+            const botResponse = result.candidates[0].content.parts[0].text;
+
+            // Add bot response to history
+            chatState.history.push({ role: 'assistant', content: botResponse });
+
+            // Create and add bot response element
+            const responseElement = document.createElement('div');
+            responseElement.classList.add('message', 'receiver-message');
+            responseElement.innerHTML = 'SB:<br>' + botResponse;
+            
+            // Add the response element to the chat messages container
+            messageWrapper.appendChild(responseElement);
+        }
+
+        function displayErrorMessage(error) {
+            const errorElement = document.createElement('div');
+            errorElement.classList.add('message', 'error-message');
+            errorElement.innerHTML = `Error: ${error.message || 'Unable to get response from the AI.'}`;
+            const messageWrapper = document.querySelector('.message-wrapper');
+            messageWrapper.appendChild(errorElement);
+        }
+
+        // Add fade-in effect to main content
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
+
