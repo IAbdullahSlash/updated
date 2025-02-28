@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LEGO Popup Window</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    
+    body {
+      min-height: 100vh;
+      background: linear-gradient(to right, #a5b4fc, #c4b5fd);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    
+    .popup-container {
+      width: 100%;
+      max-width: 900px;
+      background-color: #ddd;
+      border-radius: 12px;
+      padding: 1rem;
+      position: relative;
+    }
+    
+    .popup-content {
+      display: flex;
+      flex-direction: column;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    @media (min-width: 768px) {
+      .popup-content {
+        flex-direction: row;
+      }
+    }
+
+    .left-side {
+      background-color: #ceb6b6;
+      color: white;
+      padding: 2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+    }
+    
+    .right-side {
+      background-color: #311a1b;
+      padding: 2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+    }
+    
+    h2 {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
+    
+    .icon-container {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    
+    p {
+      margin-bottom: 0.25rem;
+    }
+    
+    .text-container p:last-child {
+      margin-bottom: 1.5rem;
+    }
+    
+    button {
+      background-color: white;
+      color: #311a1b;
+      border: none;
+      padding: 0.5rem 2rem;
+      border-radius: 4px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    
+    button:hover {
+      background-color: #f0f0f0;
+    }
+    
+    .play-button {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .cookie-notice {
+      color: white;
+      font-size: 0.75rem;
+      text-align: center;
+      margin-top: 1rem;
+      padding: 0 1rem;
+    }
+    
+    .cookie-notice a {
+      color: white;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="popup-container">
+    <div class="popup-content">
+      <!-- Left Side - LEGO.com -->
+      <div class="left-side">
+        <div>
+          <h2>LEGO.com</h2>
+          
+          <div class="icon-container">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </div>
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
+            </div>
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-container">
+        <div class="withoutLogin">
+            <div class="point-column">
+                <div class="point">
+                    <i class="fa-solid fa-xmark"></i>
+                    No chat limit</div>
+                <div class="point">
+                    <i class="fa-solid fa-xmark"></i>
+                    Attach files</div>
+                <div class="point">
+                    <i class="fa-solid fa-xmark"></i>
+                    Attach images</div>
+                <div class="point">
+                    <i class="fa-solid fa-check"></i>
+                    Check URL</div>
+            </div>
+           <button id="continueWithoutLoginBtn" class="continue-button" onclick="continueWithoutLogin()">Continue without Login</button>
+        </div>
+        </div>
+      </div>
+      
+      <!-- Right Side - Play Zone -->
+      <div class="right-side">
+        <div>
+          <h2>THE PLAY ZONE</h2>
+          <div class="withoutLogin">
+            <div class="point-column">
+                <div class="point">
+                    <i class="fa-solid fa-xmark"></i>
+                    No chat limit</div>
+                <div class="point">
+                    <i class="fa-solid fa-xmark"></i>
+                    Attach files</div>
+                <div class="point">
+                    <i class="fa-solid fa-xmark"></i>
+                    Attach images</div>
+                <div class="point">
+                    <i class="fa-solid fa-check"></i>
+                    Check URL</div>
+            </div>
+        </div>
+      </div>
+        
+        <div class="text-container">
+          <p>Expandable</p>
+          
+          <button class="play-button">
+            Continue with Login
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
