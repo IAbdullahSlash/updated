@@ -12,13 +12,20 @@
 <body>
     <header>
         <nav class="navbar">
+            <li class="menu-button" onclick=showSidebar()><a href="#" ><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26" ><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a></li>
             <!-- <img class="logo" src="New_Logo.png"> -->
             <span class="SB">SafeBrowse</span>
-            <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#about">About Us</a>
-                <a href="#footer">Contacts</a>
-            </div>
+            <ul class="navham">
+                <li onclick = hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26" ><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#footer">Contacts</a></li>
+            </ul>
+            <ul class="nav-links">
+                <li class="hideOnMobile"></li><a href="#home">Home</a>
+                <li class="hideOnMobile"></li><a href="#about">About Us</a>
+                <li class="hideOnMobile"></li><a href="#footer">Contacts</a>
+            </ul>
             <button class="get-started-btn" onclick="redirectToLogin()">Register now!</button>
         </nav>
     </header>
@@ -50,7 +57,8 @@
                         from documents of various formats and user provided links and also from
                         the uploaded pdfs and images. In SafeBrowse you can use the power of text prompt of any news
                         article, research paper or just a rumour and check if it contains any false, misinformation or
-                        any type of harmful content.</p>
+                        any type of harmful content.
+                    </p>
                 </div>
             </div>
         </section>
@@ -91,7 +99,7 @@
                 <img src="img4.jpg">
                 <div class="media-class">
                     <p1>
-                        <strong>Uploading attachments: </strong>Users can attach files or media
+                        <strong>Uploading attachments: </strong>Users can attach files or media
                         <ul>
                             <li>Images</li>
                             <li>Documents(PDFs, Word, etc)</li>
@@ -134,8 +142,8 @@
                 <i class="fa-brands fa-github"></i><br><br><br>
                 <hr>
                 <div class="git_a">
-                <p><a href="https://github.com/Darakhshan-dev">Darakhshan-dev</a> | </p>
-                <p><a href="https://github.com/IAbdullahSlash"> Abdullahslash</a> | </p>
+                <p><a href="https://github.com/Darakhshan-dev">Darakhshan-dev</a></p>
+                <p><a href="https://github.com/IAbdullahSlash"> Abdullahslash</a></p>
                 <p><a href="https://github.com/katyayaniRK"> katyayaniRK </a></p>
                 </div>
             </div>
