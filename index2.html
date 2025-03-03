@@ -50,6 +50,22 @@
         width: 20px;
         height: 20px;
     }
+    
+    /* Add styles for disabled button */
+    .chat-box .submit-btn:disabled {
+        background-color: #cccccc;
+        cursor: not-allowed;
+        transform: none;
+    }
+    
+    /* Add styles for message limit notification */
+    .message-limit-notification {
+        color: #ff3333;
+        font-size: 14px;
+        margin-top: 8px;
+        text-align: center;
+        display: none;
+    }
 </style>
 </head>
 <body>
@@ -118,9 +134,7 @@
                 required
             >
             <div class="button-group">
-                
-                   
-                <button type="submit" class="submit-btn" aria-label="Send">
+                <button type="submit" class="submit-btn" id="submitBtn" aria-label="Send">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="22" y1="2" x2="11" y2="13"></line>
                         <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
@@ -128,6 +142,10 @@
                 </button>
             </div>
         </form>
+        <div class="message-limit-notification" id="messageLimitNotification">
+            You've reached the maximum limit of 4 messages.
+            Please Login/Register for more messeges!
+        </div>
         <div class="attachment-options">
             <button type="button" class="attachment-option" data-type="file">File</button>
             <button type="button" class="attachment-option" data-type="image">Image</button>
@@ -137,6 +155,11 @@
     <input type="file" id="imageInput" style="display: none;" accept="image/*">
 
     <script>
+    // Track message count
+    let messageCount = 0;
+    const MAX_MESSAGES = 4;
+    const submitBtn = document.getElementById('submitBtn');
+    const messageLimitNotification = document.getElementById('messageLimitNotification');
 
     function scrollToAbout() {
        window.location.href = "page1.html";
@@ -175,6 +198,17 @@
             chatState = await initializeChat();
         });
 
+        // Function to check and update message limit
+        function checkMessageLimit() {
+            messageCount++;
+            
+            if (messageCount >= MAX_MESSAGES) {
+                submitBtn.disabled = true;
+                messageLimitNotification.style.display = 'block';
+                document.getElementById('chatInput').placeholder = "Message limit reached";
+            }
+        }
+
         // Modify the form submission event listener
         document.getElementById('chatForm').addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -196,6 +230,9 @@
             // Clear input after sending
             document.getElementById('chatInput').value = ''; 
 
+            // Check message limit after sending
+            checkMessageLimit();
+
             try {
                 // Add user message to history
                 chatState.history.push({ role: 'user', content: message });
@@ -214,7 +251,7 @@
                 console.log('Request body:', JSON.stringify(requestBody, null, 2));
 
                 // Generate response
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`, {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -265,12 +302,14 @@
         const attachBtn = document.querySelector('.attach-btn');
         const attachmentOptions = document.querySelector('.attachment-options');
 
-        attachBtn.addEventListener('click', () => {
-            attachmentOptions.classList.toggle('show');
-        });
+        if (attachBtn) {
+            attachBtn.addEventListener('click', () => {
+                attachmentOptions.classList.toggle('show');
+            });
+        }
 
         document.addEventListener('click', (e) => {
-            if (!attachBtn.contains(e.target) && !attachmentOptions.contains(e.target)) {
+            if (attachBtn && !attachBtn.contains(e.target) && !attachmentOptions.contains(e.target)) {
                 attachmentOptions.classList.remove('show');
             }
         });
@@ -346,6 +385,15 @@
         }
 
         async function sendMessageToAI(message, displayMessage) {
+            // Check message limit before sending
+            if (messageCount >= MAX_MESSAGES) {
+                displayErrorMessage(new Error("Message limit reached. You cannot send more messages."));
+                return;
+            }
+            
+            // Increment message count and check limit
+            checkMessageLimit();
+            
             chatState.history.push({ role: 'user', content: message });
             const requestBody = {
                 contents: [
@@ -423,7 +471,27 @@
                 }, index * 200);
             });
         });
+        
+        // Add event listener for "New chat" button to reset message count
+        document.querySelector('.new-chat').addEventListener('click', function() {
+            messageCount = 0;
+            submitBtn.disabled = false;
+            messageLimitNotification.style.display = 'none';
+            document.getElementById('chatInput').placeholder = "Type your message...";
+            
+            // Clear chat messages
+            document.querySelector('.message-wrapper').innerHTML = '';
+            
+            // Reset chat state
+            initializeChat().then(state => {
+                chatState = state;
+            });
+            
+            // Show main title and subtitle
+            document.querySelector('.main-title').style.display = 'block';
+            document.querySelector('.subtitle').style.display = 'block';
+            document.querySelector('.chat-background').style.display = 'none';
+        });
     </script>
 </body>
 </html>
-
