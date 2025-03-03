@@ -1,6 +1,5 @@
 function redirectToLogin() {
     window.location.href = 'login.html';
-<<<<<<< HEAD
    }
    function continueWithoutLogin() {
     window.location.href = 'index2.html';
@@ -38,8 +37,7 @@ function redirectToLogin() {
       popupModal.style.display = 'none'; // Hide the popup after selecting an option
     });
 
-=======
-}
+
 function hideSidebar(){
     const navham = document.querySelector('.navham')
     navham.style.display = 'none'
@@ -48,4 +46,3 @@ function hideSidebar(){
     const navham = document.querySelector('.navham')
     navham.style.display = 'flex'
 }
->>>>>>> bc6823fcd74c49788aa591b58329f197118bd148
