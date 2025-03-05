@@ -161,7 +161,7 @@ nav {
     color: rgb(31, 28, 28);
     font-style: oblique;
     justify-content: center;
-    animation: typing 2s steps(20) 1s forwards,blink-carat 0.65s step-end infinite ;
+    animation: typing 2s steps(20) 1s forwards;
     white-space: nowrap;
     overflow: hidden;
     border-right: 4px solid #333;
@@ -361,8 +361,9 @@ nav {
 
 
 .media-div{
+    margin-top: 5rem;
     display:flex;
-    padding: 4rem 2rem;
+    padding: 4rem 4rem;
     height:600px;
     background-color: rgb(245, 234, 234);
 
@@ -376,20 +377,21 @@ nav {
     height:74vh;
 }
 
-.media-class p1{
+.media-class p{
     color:#625d5d;
-    width:30vw;
+    width:45vw;
     height:auto;
-    margin-left: 120px;
-    margin-top:80px;
+    margin-left: 2rem;
+    margin-top:1rem;
     font-size: 18px;
     line-height: 1.4;
 }
-
+.media-class-div{
+    margin-left:2rem ;
+}
 .media-class{
-    display:flex;
     width:70vw;
-    height:45vh;
+    height:60vh;
 }
 .media-class ul{
     color:#625d5d;
@@ -405,7 +407,7 @@ footer {
     background-color: rgb(27, 26, 26);
     color: white;
     padding: 2rem;
-    height: 300px;
+    height: 200px;
     width:100%;
 
 }
