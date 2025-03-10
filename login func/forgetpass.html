@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forgot Password</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: #ceb6b6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    
+    .container {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 450px;
+      overflow: hidden;
+    }
+    
+    .header {
+      background-color: #311a1b;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .header h1 {
+      font-size: 24px;
+      font-weight: 600;
+    }
+    
+    .form-container {
+      padding: 30px;
+    }
+    
+    .step {
+      display: none;
+    }
+    
+    .step.active {
+      display: block;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: #333;
+    }
+    
+    input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+    
+    input:focus {
+      border-color: #ceb6b6;
+      outline: none;
+    }
+    
+    .otp-inputs {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+    
+    .otp-inputs input {
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      font-size: 20px;
+    }
+    
+    button {
+      background-color: #311a1b;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 12px 20px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s;
+    }
+    
+    button:hover {
+      background-color: #ceb6b6;
+    }
+    
+    .info-text {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #666;
+      line-height: 1.5;
+    }
+    
+    .back-link {
+      display: inline-block;
+      margin-top: 15px;
+      color: #4361ee;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    
+    .back-link:hover {
+      text-decoration: underline;
+    }
+    
+    .success-icon {
+      text-align: center;
+      font-size: 60px;
+      color: #4CAF50;
+      margin: 20px 0;
+    }
+    
+    .password-requirements {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #666;
+    }
+    
+    .password-requirements ul {
+      padding-left: 20px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Forgot Password</h1>
+    </div>
+    
+    <div class="form-container">
+      <!-- Step 1: Email Entry -->
+      <div class="step active" id="step1">
+        <p class="info-text">Enter your email address and we'll send you a verification code to reset your password.</p>
+        
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
+        
+        <button onclick="goToStep(2)">Send Verification Code</button>
+        
+        <div style="text-align: center; margin-top: 20px;">
+          <a href="login.html" class="back-link">Back to Login</a>
+        </div>
+      </div>
+      
+      <!-- Step 2: OTP Verification -->
+      <div class="step" id="step2">
+        <p class="info-text">We've sent a verification code to your email. Please enter the 4-digit code below.</p>
+        
+        <div class="form-group">
+          <div class="otp-inputs">
+            <input type="text" maxlength="1" class="otp-input" autofocus>
+            <input type="text" maxlength="1" class="otp-input">
+            <input type="text" maxlength="1" class="otp-input">
+            <input type="text" maxlength="1" class="otp-input">
+          </div>
+        </div>
+        
+        <div style="text-align: center; margin-bottom: 20px;">
+          <span id="timer">Resend code in 30s</span>
+        </div>
+        
+        <button onclick="goToStep(3)">Verify Code</button>
+        
+        <div style="text-align: center; margin-top: 20px;">
+          <a href="#" class="back-link" onclick="goToStep(1); return false;">Back to Email Entry</a>
+        </div>
+      </div>
+      
+      <!-- Step 3: New Password -->
+      <div class="step" id="step3">
+        <p class="info-text">Create a new password for your account.</p>
+        
+        <div class="form-group">
+          <label for="new-password">New Password</label>
+          <input type="password" id="new-password" placeholder="Enter new password" required>
+          <div class="password-requirements">
+            Password must contain:
+            <ul>
+              <li>At least 8 characters</li>
+              <li>At least one uppercase letter</li>
+              <li>At least one number</li>
+              <li>At least one special character</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="confirm-password">Confirm Password</label>
+          <input type="password" id="confirm-password" placeholder="Confirm new password" required>
+        </div>
+        
+        <button onclick="goToStep(4)">Reset Password</button>
+      </div>
+      
+      <!-- Step 4: Success -->
+      <div class="step" id="step4">
+        <div class="success-icon">✓</div>
+        <p class="info-text">Your password has been reset successfully!</p>
+        <p class="info-text">You can now log in with your new password.</p>
+        
+        <button onclick="window.location.href='login.html'">Go to Login</button>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Function to navigate between steps
+    function goToStep(stepNumber) {
+      // Hide all steps
+      document.querySelectorAll('.step').forEach(step => {
+        step.classList.remove('active');
+      });
+      
+      // Show the requested step
+      document.getElementById('step' + stepNumber).classList.add('active');
+      
+      // Start timer if going to step 2
+      if (stepNumber === 2) {
+        startTimer(30);
+      }
+    }
+    
+    // OTP input handling - move to next input after entry
+    document.querySelectorAll('.otp-input').forEach((input, index) => {
+      input.addEventListener('keyup', function(e) {
+        // If a number is entered
+        if (e.key >= 0 && e.key <= 9) {
+          // Move to the next input field if available
+          if (index < 3) {
+            document.querySelectorAll('.otp-input')[index + 1].focus();
+          }
+        } else if (e.key === 'Backspace') {
+          // Move to the previous input field on backspace if available
+          if (index > 0) {
+            document.querySelectorAll('.otp-input')[index - 1].focus();
+          }
+        }
+      });
+    });
+    
+    // Timer function for OTP resend
+    function startTimer(seconds) {
+      const timerElement = document.getElementById('timer');
+      let timeLeft = seconds;
+      
+      const countdown = setInterval(() => {
+        timeLeft--;
+        timerElement.textContent = `Resend code in ${timeLeft}s`;
+        
+        if (timeLeft <= 0) {
+          clearInterval(countdown);
+          timerElement.innerHTML = '<a href="#" class="back-link">Resend code</a>';
+          timerElement.querySelector('a').addEventListener('click', function(e) {
+            e.preventDefault();
+            startTimer(30);
+          });
+        }
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
