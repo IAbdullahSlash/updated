@@ -8,9 +8,9 @@ html {
     scroll-behavior: smooth;
 }
 :root {
-    --primary-color: #3a86ff;
-    --secondary-color: #8338ec;
-    --background-color:#f8f9fa;
+    --primary-color: #311a1b;
+    --secondary-color: #ceb6b6;
+    --background-color: #f8f9fa;
 }
 /* Navigation */
 nav {
@@ -81,8 +81,8 @@ nav {
     color: white;
     margin: 2px 0 0 0.5px;
     font-family: arial;
-  font-weight: bold;
-  font-style: italic;
+    font-weight: bold;
+    font-style: italic;
     font-size: 2rem;
     margin-left: 10px;
 }
@@ -161,7 +161,7 @@ nav {
     color: rgb(31, 28, 28);
     font-style: oblique;
     justify-content: center;
-    animation: typing 2s steps(20) 1s forwards;
+    animation: typing 2s steps(25) 1s forwards, cursorBlink 1s infinite 1s, cursorFade 0.5s ease-out 3s forwards; /* Add animation to fade out cursor */
     white-space: nowrap;
     overflow: hidden;
     border-right: 4px solid #333;
@@ -169,8 +169,6 @@ nav {
     text-align: center;
     display: inline-block,flex;
     margin-left: 10%;
-    
-    
 }
 
 @keyframes typing {
@@ -182,6 +180,15 @@ nav {
     }
 }
 
+@keyframes cursorFade {
+    from {
+      border-right-color: var(--primary-color);
+    }
+    to {
+      border-right-color: transparent;
+    }
+  }
+
 
 
 .hero p {
@@ -191,7 +198,6 @@ nav {
     line-height: 1.69;
     font-family: "Nunito Sans", serif, sans-serif;
     font-optical-sizing: auto;
-  
 }
 .get-started-btn {
     font-weight: 600;
@@ -221,7 +227,6 @@ nav {
      padding: 4rem 2rem;
     position: relative;
     height: 800px;
-    
 }
 .what-we-do img{
     width:auto;
@@ -404,7 +409,7 @@ nav {
 }
 /* Footer */
 footer {
-    background-color: rgb(27, 26, 26);
+    background-color: #201c1c;
     color: white;
     padding: 2rem;
     height: 200px;
@@ -528,56 +533,56 @@ hr{
     height: auto;
   }
 }
-        /* Popup Modal Styles */
-        .container{
-            padding-top: 50px;
-        }
-        .popup-modal {
-          display: none;
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-color: rgba(0, 0, 0, 0.5);
-          justify-content: center;
-          align-items: center;
-          z-index: 1000;
-        }
-    
-        .popup-content {
-          background-color: white;
-          padding: 20px;
-          border-radius: 10px;
-          text-align: center;
-          width: 300px;
-        }
-    
-        button {
-          margin: 10px;
-          padding: 10px;
-          font-size: 16px;
-          cursor: pointer;
-          border: none;
-          border-radius: 5px;
-        }
-    
-        /*popup*/
-        .container{
-        display: flex;
-        margin-top: auto;
-        justify-content: space-around;
-        height:300px;
-        
-    }
-    h2{
-        color:black;
-        font-size: 28px;
-        
-        font-family: arial;
-        font-weight: bold;
-        font-style: italic;
-    }
+/* Popup Modal Styles */
+.container{
+    padding-top: 50px;
+}
+.popup-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+}
+
+button {
+  margin: 10px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+/*popup*/
+.container{
+display: flex;
+margin-top: auto;
+justify-content: space-around;
+height:300px;
+
+}
+h2{
+color:black;
+font-size: 28px;
+
+font-family: arial;
+font-weight: bold;
+font-style: italic;
+}
       
     .modal {
       display: none; /* Hidden by default */  
@@ -597,7 +602,6 @@ hr{
       padding: 20px;
       border: 1px solid #888;
       box-shadow: 0 0 25px rgba(167, 165, 165, 0.8);
-
       border-radius: 70px;
       width: 50%;
       height:60%;
@@ -667,3 +671,143 @@ hr{
      color:black;
      padding-right: 15px;
    }
+
+   .cursor {
+    display: none;
+  } 
+
+  /* FAQ Section Styles */
+  .faq-section {
+    background-color: #ceb6b6;
+    padding: 4rem 2rem;
+    color: white;
+  }
+
+  .faq-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .faq-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .faq-header h2 {
+    color: #845656;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .faq-header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .faq-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .faq-item {
+    background-color: #201c1c;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .faq-item.active {
+    box-shadow: 0 0 15px rgba(132, 86, 86, 0.3);
+  }
+
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    cursor: pointer;
+  }
+
+  .faq-question h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .faq-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item .plus {
+    display: block;
+  }
+
+  .faq-item .minus {
+    display: none;
+  }
+
+  .faq-item.active .plus {
+    display: none;
+  }
+
+  .faq-item.active .minus {
+    display: block;
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .faq-answer p {
+    padding: 0 1.5rem 1.5rem;
+    color: #d1d1d1;
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+
+  /* Responsive styles for FAQ section */
+  @media (max-width: 768px) {
+    .faq-header h1 {
+      font-size: 2rem;
+    }
+    
+    .faq-question h3 {
+      font-size: 1.1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .faq-section {
+      padding: 3rem 1rem;
+    }
+    
+    .faq-header h1 {
+      font-size: 1.8rem;
+    }
+    
+    .faq-question {
+      padding: 1.2rem;
+    }
+    
+    .faq-question h3 {
+      font-size: 1rem;
+    }
+  }

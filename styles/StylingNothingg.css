@@ -293,7 +293,7 @@ body {
 
 .chat-box {
   position: fixed;
-  bottom: 2rem;
+  bottom: 3.5rem;
   left: 50%;
   transform: translateX(-50%);
   width: 51vw;
@@ -374,6 +374,10 @@ body {
   .chat-input {
     width: 63vw;
   }
+  
+  .disclaimer {
+    width: 95%;
+  }
 }
 
 @keyframes fadeIn {
@@ -414,30 +418,72 @@ body {
 .message-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   padding: 10px;
 }
 
 .message {
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 10px;
-  width: fit-content;
-  max-width: 50%;
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
 }
 
-.sender-message {
-  background-color: #311a1b;
-  color: #fff;
+/* Message content styling */
+.message-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  max-width: 80%;
+}
+
+/* Sender message (user) styling */
+.sender-message .message-content {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+/* Receiver message (bot) styling */
+.receiver-message .message-content {
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.message-text {
+  padding: 12px 16px;
+  border-radius: 12px;
+}
+
+.sender-message .message-text {
+  background-color: var(--primary-color);
+  color: white;
+  border-top-right-radius: 4px;
   text-align: right;
-  align-self: flex-end;
 }
 
-.receiver-message {
+.receiver-message .message-text {
   background-color: #f0f0f0;
-  color: #333;
+  color: var(--text-color);
+  border-top-left-radius: 4px;
   text-align: left;
-  align-self: flex-start;
+}
+
+.message-sender {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.user-avatar,
+.bot-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.bot-avatar {
+  background-color: white;
+  padding: 2px;
+  border: 1px solid #eee;
 }
 
 /* Scrollbar styles */
@@ -518,9 +564,7 @@ body {
   display: none;
 }
 
-
-/* chat-box styling */
-
+/* Attachment options styling */
 .attachment-options {
   position: absolute;
   bottom: calc(100% + 10px);  /* Changed position to appear above the button */
@@ -597,9 +641,9 @@ body {
   color: #777;
   margin-bottom: 8px;
   padding: 0 12px;
-
 }
 
+/* Disclaimer styling */
 .disclaimer {
   position: fixed;
   bottom: 0.5rem;
@@ -614,4 +658,61 @@ body {
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 0.5rem;
   z-index: 4;
+}
+
+/* Error message styling */
+.error-message {
+  background-color: #ffebee;
+  color: #c62828;
+  border-left: 3px solid #c62828;
+  align-self: center;
+  width: 80%;
+}
+
+.message {
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+}
+
+.sender-message {
+  justify-content: flex-end;
+}
+
+.receiver-message {
+  justify-content: flex-start;
+}
+
+.message-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  max-width: 80%;
+}
+
+.sender-message .message-content {
+  flex-direction: row-reverse;
+}
+
+.receiver-message .message-content {
+  flex-direction: row;
+}
+
+.message-text {
+  padding: 12px 16px;
+  border-radius: 12px;
+}
+
+.sender-message .message-text {
+  background-color: var(--primary-color);
+  color: white;
+  border-top-right-radius: 4px;
+  text-align: right;
+}
+
+.receiver-message .message-text {
+  background-color: #f0f0f0;
+  color: var(--text-color);
+  border-top-left-radius: 4px;
+  text-align: left;
 }

@@ -121,21 +121,94 @@
             </div>
         </section>
 
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="faq-container">
+                <div class="faq-header">
+                    <h2>FAQs</h2>
+                    <h1>Frequently Asked Questions</h1>
+                </div>
+
+                <div class="faq-items">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>what do you mean by harmful content?</h3>
+                            <button class="faq-toggle">
+                                <span class="minus">−</span>
+                                <span class="plus">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Harmful content refers to any material—whether text, images, videos, or audio—that can cause physical, emotional, psychological, or societal harm to individuals or communities. This includes content that promotes violence, abuse, hate speech, discrimination, or harassment, as well as misinformation that misleads people on critical issues such as health, politics, or safety.  </p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What service does SafeBrowse provide?</h3>
+                            <button class="faq-toggle">
+                                <span class="minus">−</span>
+                                <span class="plus">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>SafeBrowse provides AI-powered content analysis for text, images, and files to detect and identify any type of harmful content. Our platform offers real-time scanning and detailed reports to help users make informed decisions about online content.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Is there any cost associated in using the platform?</h3>
+                            <button class="faq-toggle">
+                                <span class="minus">−</span>
+                                <span class="plus">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>No, Safebrowse is a completely free platfrom which is build for the benefit of public and a fact checker tool against the malicious content online. </p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What file types does SafeBrowse support?</h3>
+                            <button class="faq-toggle">
+                                <span class="minus">−</span>
+                                <span class="plus">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>SafeBrowse supports a wide range of file types including images (JPG, PNG, GIF), documents (PDF, DOCX, PPT, TXT), spreadsheets (XLSX, CSV), and other common file formats. Maximum file size is 7MB per file</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Is my data secure with SafeBrowse?</h3>
+                            <button class="faq-toggle">
+                                <span class="minus">−</span>
+                                <span class="plus">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we take data security very seriously. All uploaded content is encrypted during transmission and storage. We do not store your content longer than necessary for analysis, and we never share your data with third parties without your explicit consent.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
         <div id= "footer" class="footer-content">
             <div class="footer-section2">
                 <h3>Support</h3>
-                <p>FAQ</p>
+                <p>FAQs</p>
             </div>
 
 
             <div class="footer-section">
-               
-                    <h3>Contact Us</h3>
-                    <p>Email: contact@safebrowse.com</p>
-                
+              <h3>Contact Us</h3>
+              <p>Email: contact@safebrowse.com</p>
             </div>
 
             <div class="git">
@@ -193,10 +266,38 @@
       </div>
     </div>
   </div>
+</footer>
 
-    </footer>
+<script src="scripts/page1.js"></script>
+    
+    <!-- FAQ JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
 
-    <script src="scripts/page1.js"></script>
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const toggle = item.querySelector('.faq-toggle');
+                const answer = item.querySelector('.faq-answer');
+                
+                toggle.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all FAQ items
+                    faqItems.forEach(faqItem => {
+                        faqItem.classList.remove('active');
+                        faqItem.querySelector('.faq-answer').style.maxHeight = null;
+                    });
+                    
+                    // If the clicked item wasn't active, open it
+                    if (!isActive) {
+                        item.classList.add('active');
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    }
+                });
+            });
+        });
+    </script>
       
 </body>
 

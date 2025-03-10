@@ -52,6 +52,7 @@ async function runChat() {
             history.push({ role: 'model', parts: [{ text: modelResponse }] });
 
             promptUser();
+            
         } catch (error) {
             console.error("Error during conversation:", error);
             rl.close();
