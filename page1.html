@@ -12,8 +12,10 @@
 <body>
     <header>
         <nav class="navbar">
-            <li class="menu-button" onclick=showSidebar()><a href="#" ><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26" ><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a></li>
-            <!-- <img class="logo" src="New_Logo.png"> -->
+            <!-- Hamburger Icon -->
+        <div class="menu-icon" id="hamburger-icon" onclick="showSidebar()">
+            &#9776; <!-- Hamburger icon -->
+        </div>
             <span class="SB">SafeBrowse</span>
             <ul class="navham">
                 <li onclick = hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26" ><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
@@ -22,9 +24,9 @@
                 <li><a href="#footer">Contacts</a></li>
             </ul>
             <ul class="nav-links">
-                <li class="hideOnMobile"></li><a href="#home">Home</a>
-                <li class="hideOnMobile"></li><a href="#about">About Us</a>
-                <li class="hideOnMobile"></li><a href="#footer">Contacts</a>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#footer">Contacts</a></li>
             </ul>
             <button class="get-started-btn" onclick="redirectToLogin()">Register now!</button>
         </nav>
@@ -49,7 +51,9 @@
         </section>
         <section class="username">
             <div class="U1">
-                <img src="img3.jpg">
+                <div class="image">
+                  <img src="img3.jpg">
+                </div>
                 <div class="user">
                     <p>SafeBrowse is an Artificial Intelligence integrated platform which provides real time chatbox interface. SafeBrowse
                         provides you with a tool that generate text from a prompt that a user provides. It can process and extracts information 
@@ -69,8 +73,10 @@
                     hate
                     speech, misinformation, cyberbullying, and explicit material. SafeBrowse provides real-time
                     corrections, content moderation suggestions, and actionable insights to ensure a safer digital environment.</p>
-                <img src="img1.png">
-            </div>
+            </div> 
+              <div class="why-needed-img">     
+                    <img src="img1.png">
+              </div>
         </section>
 
         <section id="about" class="about">
@@ -112,12 +118,15 @@
         </section>
         <section>
             <div class="what-we-do">
-                <img src="img5.jpg">
-
-                <p>SafeBrowse is a URL analysis tool to evaluate, analyze and provide detailed <br> reports
-                    about any URL. We provide a comprehensive view of the webpage <br> by scanning it with
-                    various online resources and checking it against malware and <br> phishing databases.
-                    Our tool helps users make informed decisions about <br> the safety of websites they visit.</p>
+                <div class="what-we-do-img">
+                  <img src="img5.jpg">
+                </div>
+                <div class="wat-we-do-p">
+                  <p>SafeBrowse is a URL analysis tool to evaluate, analyze and provide detailed reports
+                    about any URL. We provide a comprehensive view of the webpage by scanning it with
+                    various online resources and checking it against malware and phishing databases.
+                    Our tool helps users make informed decisions about the safety of websites they visit.</p>
+                </div>
             </div>
         </section>
 
@@ -204,13 +213,10 @@
                 <h3>Support</h3>
                 <p>FAQs</p>
             </div>
-
-
             <div class="footer-section">
               <h3>Contact Us</h3>
               <p>Email: contact@safebrowse.com</p>
             </div>
-
             <div class="git">
                 <i class="fa-brands fa-github"></i><br><br><br>
                 <hr>
