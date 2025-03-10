@@ -47,3 +47,5 @@ function hideSidebar(){
     const navham = document.querySelector('.navham')
     navham.style.display = 'flex'
 }
+
+
