@@ -11,7 +11,7 @@ function redirectToLogin() {
 
 
 
-         const getStartedBtn = document.getElementById('getStartedBtn');
+    const getStartedBtn = document.getElementById('getStartedBtn');
     const popupModal = document.getElementById('popupModal');
     const closePopupBtn = document.getElementById('closePopupBtn');
     const continueWithLoginBtn = document.getElementById('continueWithLoginBtn');
