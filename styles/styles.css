@@ -241,7 +241,6 @@ body {
   width:2px;
 }
 .typing-text {
-
   display: inline-block,flex;
   white-space: nowrap;
   overflow: hidden;
@@ -498,7 +497,7 @@ body {
     top: 50%;
     transform: translateY(-50%);
     display: flex;
-    gap: 10px;
+    gap: 15px;
 }
 .chat-box .attach-btn,
 .chat-box .submit-btn {
