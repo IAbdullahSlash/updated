@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <title>SafeBrowse </title>
+    
     <link rel="stylesheet" href="styles/page1.css">
 </head>
 
@@ -50,7 +51,7 @@
 
         </section>
         <section class="username">
-            <div class="U1">
+            <div class="U1  reveal">
                 <div class="image">
                   <img src="img3.jpg">
                 </div>
@@ -66,7 +67,7 @@
             </div>
         </section>
 
-        <section class="why-needed">
+        <section class="why-needed  reveal">
             <div class="why-needed-1">
                 <p>SafeBrowse is an AI-powered platform designed to detect and identify harmful content across
                     text, images, and files. Using cutting-edge machine learning algorithms, it analyzes content for
@@ -74,15 +75,15 @@
                     speech, misinformation, cyberbullying, and explicit material. SafeBrowse provides real-time
                     corrections, content moderation suggestions, and actionable insights to ensure a safer digital environment.</p>
             </div> 
-              <div class="why-needed-img">     
+              <div class="why-needed-img ">     
                     <img src="img1.png">
               </div>
         </section>
 
         <section id="about" class="about">
-            <div class="about-content">
+            <div class="about-content reveal">
                     <div class="AC">
-                    <img src="final_logo.jpg">
+                        <img src="final_logo.jpg">
                     </div>
                     <div class="A">
                     <div class="about-title">
@@ -98,7 +99,7 @@
             </div>
         </section>
         <section class="media">
-            <div class="media-div">
+            <div class="media-div reveal">
                 <img src="img4.jpg">
                 <div class="media-class">
                     <p>Providing you with features such as image and file upload, text prompt, and AI-powered content analysis.</p>
@@ -117,7 +118,7 @@
             </div>
         </section>
         <section>
-            <div class="what-we-do">
+            <div class="what-we-do reveal">
                 <div class="what-we-do-img">
                   <img src="img5.jpg">
                 </div>
@@ -132,7 +133,7 @@
 
         <!-- FAQ Section -->
         <section class="faq-section">
-            <div class="faq-container">
+            <div class="faq-container reveal">
                 <div class="faq-header">
                     <h2>FAQs</h2>
                     <h1>Frequently Asked Questions</h1>
@@ -276,9 +277,33 @@
 
 <script src="scripts/page1.js"></script>
     
-    <!-- FAQ JavaScript -->
+   
+
+    
+    <script type="text/javascript">
+        
+        window.addEventListener("scroll",reveal);
+        function reveal(){
+          var reveals =document.querySelectorAll('.reveal');
+        
+          for(var i=0;i<reveals.length;i++){
+            var windowheight = window.innerHeight;
+            var revealtop = reveals[i].getBoundingClientRect().top;
+            var revealpoint =150;
+        
+            if(revealtop < windowheight - revealpoint){
+              reveals[i].classList.add('active');
+            }
+            else{
+              reveals[i].classList.remove('active');
+            }
+        }
+        }
+    </script>
+             <!-- FAQ JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+
 
             const faqItems = document.querySelectorAll('.faq-item');
             
@@ -304,6 +329,7 @@
             });
         });
     </script>
+
       
 </body>
 
