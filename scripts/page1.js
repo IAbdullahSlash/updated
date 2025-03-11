@@ -9,8 +9,6 @@ function redirectToLogin() {
     window.location.href = 'login.html';
    }
 
-
-
     const getStartedBtn = document.getElementById('getStartedBtn');
     const popupModal = document.getElementById('popupModal');
     const closePopupBtn = document.getElementById('closePopupBtn');
@@ -37,7 +35,6 @@ function redirectToLogin() {
       alert('Continuing without Login...');
       popupModal.style.display = 'none'; // Hide the popup after selecting an option
     });
-
 
 function hideSidebar(){
     const navham = document.querySelector('.navham')
