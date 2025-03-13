@@ -44,6 +44,7 @@
         }
         
         .title {
+            text-decoration: none;
             font-size: 1.5rem;
             font-weight: bold;
             color: var(--primary-color);
@@ -96,11 +97,48 @@
             text-align: center;
         }
         
+        /* Added typing animation for main title */
+        .typing-text {
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 2s steps(40) 1s forwards, cursorBlink 1s infinite 1s, cursorFade 0.5s ease-out 3s forwards; /* Add animation to fade out cursor */
+            border-right: 4px solid var(--primary-color);
+            position: relative;
+            transform: translateY(-40%);
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+            /* Add new animation for cursor fade out */
+        @keyframes cursorFade {
+            from {
+                border-right-color: var(--primary-color);
+            }
+            to {
+                border-right-color: transparent;
+            }
+        }
+        
         .subtitle {
             font-size: 1.2rem;
             color: #6b7280;
             margin-bottom: 2rem;
             text-align: center;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards 3.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .chat-background {
@@ -124,7 +162,7 @@
             height: 100%;
             overflow-y: auto;
             padding: 15px;
-            padding-bottom: 100px; /* Add extra padding at the bottom to prevent messages from being hidden */
+            padding-bottom: 50px; /* Add extra padding at the bottom to prevent messages from being hidden */
             scrollbar-width: thin;
             scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
         }
@@ -184,6 +222,11 @@
         
         .sender-message {
             align-self: flex-end;
+        }
+        
+        /* Modified to move user avatar to the right */
+        .sender-message .message-content {
+            flex-direction: row-reverse;
         }
         
         .sender-message .message-text {
@@ -341,12 +384,6 @@
             background-color: #b71c1c !important;
         }
         
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
         /* Responsive styles */
         @media (max-width: 1200px) {
             .chat-background {
@@ -443,7 +480,7 @@
     <header class="header">
         <nav class="nav">
             <div style="display: flex; align-items: center;">
-                <span class="title">SafeBrowse</span>
+                <span><a href="page1.html" class="title">SafeBrowse</a></span>
             </div>
             <div class="nav-links">
                 <a href="page1.html">Home</a>
@@ -454,7 +491,9 @@
     </header>
 
     <main class="main">
-        <h1 class="main-title">Hello there!</h1>
+        <h1 class="main-title">
+            <span class="typing-text">Hello there!</span>
+        </h1>
         <p class="subtitle">How may I help you?</p>
         <div class="chat-background" style="display: none;">
             <div class="chat-messages">
