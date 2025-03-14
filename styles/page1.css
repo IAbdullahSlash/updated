@@ -83,6 +83,7 @@ nav {
 }
 
 .SB {
+  text-decoration: none;
   color: white;
   margin: 2px 0 0 0.5px;
   font-family: arial;
