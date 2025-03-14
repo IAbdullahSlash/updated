@@ -328,6 +328,7 @@ nav {
   padding: 4rem 2rem;
   width:100vw;
   height:90vh;
+  
   justify-content: center;
   align-items: center;
   
@@ -366,6 +367,7 @@ nav {
 .itemRight {
   align-items: center;
   padding:2px;
+ 
   color:white;
   width: 270px;
   height: 170px;
@@ -443,66 +445,221 @@ nav {
   align-items: center;
 
 }
-
-
 /* About Section */
 .about {
-height:80vh;
-width:100vw;
-}
-
-.about-content {
-  height:80vh;
-  width:95vw;
-  display:flex;
-}
-.AC{
-  width:50vw;
-  height:90vh;
-}
-.about-content img{
-  height:60vh;
-  width:30vw;
-  margin-left: 10vw;
-  margin-top: 10vh;
-}
-.A{
-  width:45vw;
-  height:80vh;
-  margin-top: 40vh;
-}
-.about-title h2 {
-  font-size: 5rem;
-  color: black;
-  width:50vw;
-  height:10vh;
-}
-.about-content p {
-  color: black;
-  line-height: 1.6;
-  font-size: 20px;
-  width:40vw;
-  height:40vh;
+  height:100vh;
+  width:100%;
   
+  
+  }
+  
+  .about-content {
+      top:0;
+      width:100%;
+  
+  
+  }
+  
+  .about-title{
+      
+      align-items: center;
+  }
+  
+  .about-title h2 {
+      font-family: "Pacifico", cursive;
+      margin-top: 0.5em;
+      
+      font-size: 5rem;
+      color: black;
+      width:100%;
+      margin-left: 40%;
+      font-weight: 800;
+      color: transparent;
+      background: linear-gradient(
+      90deg,
+      #f9ebea 0%,
+      #f2d7d5 7%,
+      #e6b0aa 14%,
+      #d98880 21%,
+      #cd6155 28%,
+      #c0392b 35%,
+      #671e18 42%,
+      #461612 49%,
+      #c0392b 56%,
+      #cd6155 63%,
+      #d98880 70%,
+      #e6b0aa 77%,
+      #f2d7d5 84%,
+      #cd6155 91%,
+      #c0392b 97%,
+      #922b21 100%
+    );
+  
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-size: 500%;
+    animation: color 10s linear infinite;
+  
+  }
+  @keyframes color {
+      from {
+        background-position: 0% 50%;
+      }
+      to {
+        background-position: 100% 50%;
+      }
+    }
+
+/*puzzle-section*/
+.container {
+  display: flex;
+ 
 }
 
-/*
-.AC {
-  margin-left: 9em;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 10%;
+.puzzle-container {
+  width: 25rem;
+  height: 16rem;
+  position: relative;
+  box-sizing: border-box;
+  margin-left: 35%;
+}
+
+.puzzle-piece {
+  position: absolute;
+  background-color: rgb(76, 42, 44);
+  border: 2px solid white;
+  box-sizing: border-box;
+  opacity: 0;
+}
+
+/* Puzzle pieces layout */
+.piece-1 {
+  top: 0;
+  left: 0;
+  width: 33.33%;
+  height: 33.33%;
+  animation: fadeIn 3.0s ease forwards infinite;
+  animation-delay: 1.9s;
+  border-radius: 0 40% 40% 40%;
+}
+
+.piece-2 {
+  top: 0;
+  left: 33.33%;
+  width: 33.33%;
+  height: 33.33%;
+  animation: fadeIn 3s ease forwards infinite;
+  animation-delay: 2.4s;
+  border-radius: 40% 0 40% 40%;
+}
+
+.piece-3 {
+  top: 0;
+  right: 0;
+  width: 33.33%;
+  height: 33.33%;
+  animation: fadeIn 3.0s ease forwards infinite;
+  animation-delay: 2.9s;
+  border-radius: 40% 40% 40% 0;
+}
+
+.piece-4 {
+  top: 33.33%;
+  left: 0;
+  width: 33.33%;
+  height: 33.33%;
+  animation: fadeIn 3.0s ease forwards infinite;
+  animation-delay: 3.3s;
+  border-radius: 40% 40% 0 40%;
+}
+
+.piece-5 {
+  top: 33.33%;
+  left: 33.33%;
+  width: 33.33%;
+  height: 33.33%;
+  animation: fadeIn 3.0s ease forwards infinite;
+  animation-delay: 3.9s;
+  border-radius: 40%;
+}
+
+.piece-6 {
+  top: 33.33%;
+  right: 0;
+  width: 33.33%;
+  height: 33.33%;
+  animation: fadeIn 3.0s ease forwards infinite;
+  animation-delay: 4.3s;
+  border-radius: 40% 40% 40% 0;
+}
+
+.piece-7 {
+  bottom: 0;
+  left: 0;
+  width: 33.33%;
+  height: 33.33%;
+  animation: fadeIn 3.0s ease forwards infinite;
+  animation-delay: 4.9s;
+  border-radius: 40% 0 40% 40%;
+}
+
+.piece-8 {
+  bottom: 0;
+  left: 33.33%;
+  width: 33.33%;
+  height: 33.33%;
+  animation: fadeIn 3.0s ease forwards infinite;
+  animation-delay: 5.3s;
+  border-radius: 0 40% 40% 40%;
+}
+
+.piece-9 {
+  bottom: 0;
+  right: 0;
+  width: 33.33%;
+  height: 33.33%;
+  animation: fadeIn 3s ease forwards infinite;
+  animation-delay: 5.9s;
+  border-radius: 40% 40% 0 40%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.solid-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
-  object-fit: cover;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  font-weight: 500;
+  color: white;
+  font-family: "Pacifico", cursive;
+  background: linear-gradient(to top, rgb(76, 42, 44), #ceb6b6);
+  opacity: 0;
+  border-radius: 0 10% 0 10%;
+  box-shadow: 0 0 25px rgba(167, 165, 165, 0.8);
+  animation: fadeIn 5.0s ease forwards infinite;
+  animation-delay: 8.5s;
 }
-.A{
- height:500px;
- width:500px;
- left: 0;
-
+.solid-box::after{
+  opacity: 0.5;
 }
-*/
+.solid-box::after{
+  opacity: 1;
+}
+
+
 /*boxes*/
 .media{
   height:90vh;
