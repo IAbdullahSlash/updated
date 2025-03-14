@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SafeBrowse</title>
     <link rel="stylesheet" href="styles/StylingNothingg.css">
+    <!-- Added libraries for file text extraction -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.0/mammoth.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
     <style>
         /* Styles remain the same - keeping your existing styling */
         /* Additional styles for loading animation and stop button */
@@ -185,6 +189,11 @@
     <input type="file" id="audioInput" style="display: none;" accept="audio/*">
 
     <script>
+        // Initialize PDF.js
+        if (window.pdfjsLib) {
+            window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.worker.min.js';
+        }
+
         // Sidebar toggle functionality
         const sidebarIcon = document.querySelector('.sidebar-icon');
         const sidebar = document.querySelector('.sidebar');
@@ -198,7 +207,6 @@
         sidebarIcon.addEventListener('click', toggleSidebar);
         overlay.addEventListener('click', toggleSidebar);
 
-        // Replace the Google AI initialization code with this:
         const API_KEY = "AIzaSyCqc3zIUa59r7UvNbn7gy6rhRXbsZ6NcxE";
         
         // Variable to store the current fetch controller for aborting requests
@@ -208,8 +216,8 @@
             const history = [];
             const systemInstruction = "Your name is SafeBrowse. You are an AI agent responsible for detecting and recognizing all types of harmful content from whatever user provide. You should highlight such content, provide corrections, and suggest appropriate actions accordingly. You were made by the team 404 fixers. If data has been given with the intention not related to your main mission, you should just explain why it's not from your expertise. Also, tell about yourself only when asked.";
 
-            // Add system instruction to history
-            history.push({ role: 'system', content: systemInstruction });
+            // system instruction to history
+            history.push({ role: 'SafeBrowse', content: systemInstruction });
 
             return { history };
         }
@@ -225,7 +233,6 @@
             handleWindowResize();
             window.addEventListener('resize', handleWindowResize);
             
-            // Add fade-in effect to main content
             const fadeElements = document.querySelectorAll('.fade-in');
             fadeElements.forEach((element, index) => {
                 setTimeout(() => {
@@ -234,7 +241,6 @@
             });
         });
         
-        // Function to handle window resize for better responsiveness
         function handleWindowResize() {
             const isMobile = window.innerWidth <= 768;
             const chatBackground = document.querySelector('.chat-background');
@@ -248,7 +254,6 @@
             }
         }
 
-        // Function to simulate typing effect with improved animation from index2.html
         function typeMessage(element, text, speed = 30) {
             let i = 0;
             element.innerHTML = 'SB:<br>'; // Start with just the prefix
@@ -345,7 +350,6 @@
             document.querySelector('.subtitle').style.display = 'none';
             document.querySelector('.chat-background').style.display = 'block';
             
-            // Adjust main height for better mobile experience
             handleWindowResize();
 
             // Create a new message element
@@ -364,7 +368,6 @@
             const messageWrapper = document.querySelector('.message-wrapper');
             messageWrapper.appendChild(messageElement);
             
-            // Scroll to bottom after adding user message
             scrollToBottom();
 
             // Clear input after sending
@@ -555,7 +558,129 @@
             return `<span class="file-icon ${iconClass}">${extension.toUpperCase()}</span>`;
         }
 
-        // UPDATED: File upload handler that works with binary files
+        // Function to extract text from DOCX files
+        async function extractTextFromDOCX(arrayBuffer) {
+            try {
+                if (!window.mammoth) {
+                    console.error("Mammoth.js library not loaded");
+                    return "Error: Text extraction library not loaded. Please refresh the page.";
+                }
+                
+                const result = await window.mammoth.extractRawText({ arrayBuffer });
+                return result.value;
+            } catch (error) {
+                console.error("Error extracting DOCX text:", error);
+                return "Error extracting text from DOCX file: " + error.message;
+            }
+        }
+
+        // Function to extract text from PDF files
+        async function extractTextFromPDF(arrayBuffer) {
+            try {
+                if (!window.pdfjsLib) {
+                    console.error("PDF.js library not loaded");
+                    return "Error: PDF extraction library not loaded. Please refresh the page.";
+                }
+                
+                const pdf = await window.pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+                let text = "";
+                
+                for (let i = 1; i <= pdf.numPages; i++) {
+                    const page = await pdf.getPage(i);
+                    const content = await page.getTextContent();
+                    const pageText = content.items.map(item => item.str).join(" ");
+                    text += pageText + "\n\n";
+                }
+                
+                return text;
+            } catch (error) {
+                console.error("Error extracting PDF text:", error);
+                return "Error extracting text from PDF file: " + error.message;
+            }
+        }
+
+        // Function to extract text from PPTX files
+        async function extractTextFromPPTX(arrayBuffer) {
+            try {
+                if (!window.JSZip) {
+                    console.error("JSZip library not loaded");
+                    return "Error: PPTX extraction library not loaded. Please refresh the page.";
+                }
+                
+                const zip = await window.JSZip.loadAsync(arrayBuffer);
+                let text = "";
+                
+                // PPTX files store slide content in ppt/slides/slide*.xml files
+                const slideFiles = Object.keys(zip.files).filter(name => 
+                    name.startsWith("ppt/slides/slide") && name.endsWith(".xml")
+                );
+                
+                for (const slideFile of slideFiles) {
+                    const content = await zip.file(slideFile).async("string");
+                    // Extract text from XML (simplified - actual implementation would be more robust)
+                    const textMatches = content.match(/<a:t>([^<]*)<\/a:t>/g) || [];
+                    const slideText = textMatches
+                        .map(match => match.replace(/<a:t>|<\/a:t>/g, ""))
+                        .join(" ");
+                    
+                    text += "Slide " + slideFile.match(/slide(\d+)/)[1] + ":\n" + slideText + "\n\n";
+                }
+                
+                return text || "No text content found in PPTX file";
+            } catch (error) {
+                console.error("Error extracting PPTX text:", error);
+                return "Error extracting text from PPTX file: " + error.message;
+            }
+        }
+
+        // Function to extract text from DOC files
+        async function extractTextFromDOC(arrayBuffer) {
+            const uint8Array = new Uint8Array(arrayBuffer);
+            let text = "";
+            
+            // text chunks in the binary data
+            for (let i = 0; i < uint8Array.length; i++) {
+                if (uint8Array[i] >= 32 && uint8Array[i] <= 126) {
+                    text += String.fromCharCode(uint8Array[i]);
+                } else if (uint8Array[i] === 13 || uint8Array[i] === 10) {
+                    text += "\n";
+                }
+            }
+            
+            // Clean up the text by removing non-word sequences
+            text = text.replace(/[^\w\s.,;:!?'"()\[\]{}\-–—]/g, " ")
+                    .replace(/\s+/g, " ")
+                    .trim();
+            
+            return text || "Limited text extraction from DOC file. Consider converting to DOCX for better results.";
+        }
+
+        // Main function to handle file extraction based on type
+        async function extractTextFromFile(file) {
+            const arrayBuffer = await file.arrayBuffer();
+            const fileExtension = file.name.split('.').pop().toLowerCase();
+            
+            console.log(`Extracting text from ${fileExtension.toUpperCase()} file: ${file.name}`);
+            
+            switch (fileExtension) {
+                case 'docx':
+                    return extractTextFromDOCX(arrayBuffer);
+                case 'doc':
+                    return extractTextFromDOC(arrayBuffer);
+                case 'pptx':
+                    return extractTextFromPPTX(arrayBuffer);
+                case 'ppt':
+                    return "PPT files (older PowerPoint format) have limited support. Consider converting to PPTX for better results.";
+                case 'pdf':
+                    return extractTextFromPDF(arrayBuffer);
+                case 'txt':
+                    return new TextDecoder().decode(arrayBuffer);
+                default:
+                    return `Unsupported file type: ${fileExtension}`;
+            }
+        }
+
+        // File upload handler that works with binary files
         async function handleFileUpload(event) {
             const file = event.target.files[0];
             if (!file) return;
@@ -588,17 +713,73 @@
             scrollToBottom();
             
             const progressBar = uploadElement.querySelector('.file-progress-bar');
+            progressBar.style.width = '30%';
             
             try {
                 // Determine how to handle the file based on its type
                 const fileExtension = file.name.split('.').pop().toLowerCase();
                 
-                if (fileExtension === 'txt') {
+                // Update progress
+                progressBar.style.width = '60%';
+                
+                let fileContent;
+                
+                if (['doc', 'docx', 'ppt', 'pptx', 'pdf'].includes(fileExtension)) {
+                    // Extract text using our new functions
+                    fileContent = await extractTextFromFile(file);
+                    
+                    // Update progress
+                    progressBar.style.width = '100%';
+                    
+                    // Update the upload message
+                    uploadElement.innerHTML = `
+                        <div class="message-content">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lop2WBke5jRLJead2R60matgDD3rJf.png" alt="User"  alt="User" class="user-avatar">
+                            <div class="message-text">
+                                YOU:<br>Sent a file: ${fileIcon} ${file.name}
+                            </div>
+                        </div>
+                    `;
+                    
+                    // Send the extracted text to the AI
+                    const message = `Please review this ${fileExtension.toUpperCase()} file: ${file.name}\n\nExtracted content:\n${fileContent}`;
+                    await sendMessageToAI(message, `Sent a file: ${fileIcon} ${file.name}`);
+                } else if (fileExtension === 'txt') {
                     // For text files, use the text reader
                     await readFileAsText(file, progressBar, uploadElement);
                 } else {
-                    // For binary files (PDF, PPTX, DOC, etc.), use the binary reader
-                    await readFileAsBinary(file, progressBar, uploadElement);
+                    const reader = new FileReader();
+                    
+                    reader.onprogress = (event) => {
+                        if (event.lengthComputable) {
+                            const progress = (event.loaded / event.total) * 100;
+                            progressBar.style.width = `${progress}%`;
+                        }
+                    };
+                    
+                    reader.onload = async (e) => {
+                        progressBar.style.width = '100%';
+                        
+                        // Update the upload message
+                        uploadElement.innerHTML = `
+                            <div class="message-content">
+                                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lop2WBke5jRLJead2R60matgDD3rJf.png" alt="User" class="user-avatar">
+                                <div class="message-text">
+                                    YOU:<br>Sent a file: ${fileIcon} ${file.name}
+                                </div>
+                            </div>
+                        `;
+                        
+                        // Send a generic message for unsupported file types
+                        const message = `I've uploaded a file: ${file.name} (${fileExtension.toUpperCase()} format). Please analyze it if possible.`;
+                        await sendMessageToAI(message, `Sent a file: ${fileIcon} ${file.name}`);
+                    };
+                    
+                    reader.onerror = () => {
+                        throw new Error('Error reading the file');
+                    };
+                    
+                    reader.readAsArrayBuffer(file);
                 }
             } catch (error) {
                 console.error('Error processing file:', error);
@@ -658,91 +839,6 @@
                 reader.readAsText(file);
             });
         }
-        
-        // Function to read binary files (PDF, PPTX, etc.)
-        async function readFileAsBinary(file, progressBar, uploadElement) {
-            return new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                
-                reader.onprogress = (event) => {
-                    if (event.lengthComputable) {
-                        const progress = (event.loaded / event.total) * 100;
-                        progressBar.style.width = `${progress}%`;
-                    }
-                };
-                
-                reader.onload = async (e) => {
-                    try {
-                        progressBar.style.width = '100%';
-                        const arrayBuffer = e.target.result;
-                        
-                        // Convert ArrayBuffer to Base64
-                        const bytes = new Uint8Array(arrayBuffer);
-                        let binary = '';
-                        for (let i = 0; i < bytes.byteLength; i++) {
-                            binary += String.fromCharCode(bytes[i]);
-                        }
-                        const base64Data = btoa(binary);
-                        
-                        // Determine MIME type based on file extension
-                        const fileExtension = file.name.split('.').pop().toLowerCase();
-                        let mimeType = 'application/octet-stream'; // Default
-                        
-                        if (fileExtension === 'pdf') {
-                            mimeType = 'application/pdf';
-                        } else if (['doc', 'docx'].includes(fileExtension)) {
-                            mimeType = 'application/msword';
-                        } else if (['ppt', 'pptx'].includes(fileExtension)) {
-                            mimeType = 'application/vnd.ms-powerpoint';
-                        }
-                        
-                        // Update the upload message
-                        const fileIcon = getFileTypeIcon(file.name);
-                        uploadElement.innerHTML = `
-                            <div class="message-content">
-                                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lop2WBke5jRLJead2R60matgDD3rJf.png" alt="User" class="user-avatar">
-                                <div class="message-text">
-                                    YOU:<br>Sent a file: ${fileIcon} ${file.name}
-                                </div>
-                            </div>
-                        `;
-                        
-                        // Create a message for the binary file
-                        const message = `Please analyze this ${fileExtension.toUpperCase()} file: ${file.name}. Extract any text content if possible and analyze it for harmful content, misinformation, or concerning elements.`;
-                        
-                        // Create request body with file data
-                        const requestBody = {
-                            contents: [
-                                {
-                                    parts: [
-                                        { text: message },
-                                        { inline_data: { mime_type: mimeType, data: base64Data } }
-                                    ]
-                                }
-                            ]
-                        };
-                        
-                        // Add to chat history
-                        chatState.history.push({ 
-                            role: 'user', 
-                            content: `[Uploaded ${fileExtension.toUpperCase()} file: ${file.name}] ${message}` 
-                        });
-                        
-                        // Send to AI
-                        await sendRequestToAI(requestBody, `Sent a file: ${fileIcon} ${file.name}`);
-                        resolve();
-                    } catch (error) {
-                        reject(error);
-                    }
-                };
-                
-                reader.onerror = () => {
-                    reject(new Error('Error reading the file'));
-                };
-                
-                reader.readAsArrayBuffer(file);
-            });
-        }
 
         async function handleImageUpload(event) {
             const file = event.target.files[0];
@@ -759,21 +855,6 @@
         async function handleAudioUpload(event) {
             const file = event.target.files[0];
             if (!file) return;
-
-            // Show loading message
-            const messageWrapper = document.querySelector('.message-wrapper');
-            const loadingElement = document.createElement('div');
-            loadingElement.classList.add('message', 'sender-message');
-            loadingElement.innerHTML = `
-                <div class="message-content">
-                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lop2WBke5jRLJead2R60matgDD3rJf.png" alt="User" class="user-avatar">
-                    <div class="message-text">
-                        YOU:<br>Sent an audio file: ${file.name} (Processing...)
-                    </div>
-                </div>
-            `;
-            messageWrapper.appendChild(loadingElement);
-            scrollToBottom();
 
             try {
                 const reader = new FileReader();
@@ -882,20 +963,11 @@
             // Create a new message element for the file/image/audio
             const messageElement = document.createElement('div');
             messageElement.classList.add('message', 'sender-message');
-            messageElement.innerHTML = `
-                <div class="message-content">
-                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lop2WBke5jRLJead2R60matgDD3rJf.png" alt="User" class="user-avatar">
-                    <div class="message-text">
-                        YOU:<br>${displayMessage}
-                    </div>
-                </div>
-            `;
-
+     
             // Add the message element to the chat messages container
             const messageWrapper = document.querySelector('.message-wrapper');
             messageWrapper.appendChild(messageElement);
             
-            // Scroll to bottom after adding user message
             scrollToBottom();
             
             // Create loading message with typing effect
