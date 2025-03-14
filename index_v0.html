@@ -344,7 +344,7 @@
             if (isGenerating) return; // Prevent multiple submissions
             
             const message = document.getElementById('chatInput').value;
-            if (!message.trim()) return; // Don't submit empty messages
+            if (!message.trim()) return; // prevent empty messages
             
             document.querySelector('.main-title').style.display = 'none';
             document.querySelector('.subtitle').style.display = 'none';
@@ -462,7 +462,6 @@
                 const messageTextElement = responseElement.querySelector('.message-text');
                 typeMessage(messageTextElement, botResponse);
                 
-                // Scroll to bottom after adding bot response
                 scrollToBottom();
             } catch (error) {
                 // Only display error if it's not an abort error
@@ -483,7 +482,6 @@
                     `;
                     messageWrapper.appendChild(errorElement);
                     
-                    // Scroll to bottom after adding error message
                     scrollToBottom();
                 }
                 
@@ -1045,7 +1043,6 @@
                 const messageTextElement = responseElement.querySelector('.message-text');
                 typeMessage(messageTextElement, botResponse);
                 
-                // Scroll to bottom after adding bot response
                 scrollToBottom();
             } catch (error) {
                 // Only display error if it's not an abort error
@@ -1066,11 +1063,9 @@
                     `;
                     messageWrapper.appendChild(errorElement);
                     
-                    // Scroll to bottom after adding error message
                     scrollToBottom();
                 }
                 
-                // Reset the send button
                 resetSendButton();
             }
         }
@@ -1088,11 +1083,10 @@
             const messageWrapper = document.querySelector('.message-wrapper');
             messageWrapper.appendChild(errorElement);
             
-            // Scroll to bottom after adding error message
             scrollToBottom();
         }
 
-        // Helper function to scroll chat to bottom - improved for smoother scrolling
+        // function to scroll chat to bottom
         function scrollToBottom() {
             const chatMessages = document.querySelector('.chat-messages');
             if (chatMessages) {
