@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SafeBrowse</title>
     <link rel="stylesheet" href="styles/StylingNothingg.css">
-    <!-- Added libraries for file text extraction -->
+    <!--  text extraction libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.0/mammoth.browser.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
     <style>
-        /* Styles remain the same - keeping your existing styling */
-        /* Additional styles for loading animation and stop button */
+
         .loading-dots {
             display: inline-block;
         }
@@ -42,7 +41,6 @@
             background-color: #b71c1c !important;
         }
         
-        /* File upload progress indicator */
         .file-progress {
             margin-top: 5px;
             height: 4px;
@@ -59,7 +57,6 @@
             transition: width 0.3s ease;
         }
         
-        /* File type indicator icons */
         .file-icon {
             display: inline-block;
             margin-right: 5px;
@@ -85,12 +82,57 @@
         .file-icon.txt {
             background-color: #546e7a;
         }
-        
-        /* Your existing styles remain here */
+
+        /* Copy button styles */
+        .message-content {
+            position: relative;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: opacity 0.2s;
+            color: #555;
+            display: none;
+            padding: 4px;
+            border-radius: 4px;
+        }
+
+        .message-content:hover .copy-btn {
+            display: block;
+        }
+
+        .copy-btn:hover {
+            opacity: 1;
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .copy-success-message {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #4caf50;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            z-index: 1000;
+            animation: fadeInOut 2s ease-in-out;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; }
+            15% { opacity: 1; }
+            85% { opacity: 1; }
+            100% { opacity: 0; }
+        }
     </style>
 </head>
 <body>
-    <!-- HTML structure remains the same - keeping your existing HTML -->
     <div class="overlay"></div>
     <div class="sidebar">
         <button class="new-chat">
@@ -142,7 +184,6 @@
         <div class="chat-background" style="display: none;">
             <div class="chat-messages">
                 <div class="message-wrapper">
-                    <!-- Your chat content will go here -->
                 </div>
             </div>
         </div>
@@ -189,7 +230,6 @@
     <input type="file" id="audioInput" style="display: none;" accept="audio/*">
 
     <script>
-        // Initialize PDF.js
         if (window.pdfjsLib) {
             window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.worker.min.js';
         }
@@ -211,6 +251,30 @@
         
         // Variable to store the current fetch controller for aborting requests
         let currentController = null;
+
+        // Copy to clipboard functionality
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text)
+                .then(() => {
+                    showCopySuccess();
+                })
+                .catch(err => {
+                    console.error('Failed to copy text: ', err);
+                });
+        }
+
+        function showCopySuccess() {
+            // success message
+            const successMsg = document.createElement('div');
+            successMsg.textContent = 'Copied to clipboard!';
+            successMsg.className = 'copy-success-message';
+            document.body.appendChild(successMsg);
+            
+            // Remove after 2 seconds
+            setTimeout(() => {
+                successMsg.remove();
+            }, 2000);
+        }
 
         async function initializeChat() {
             const history = [];
@@ -256,7 +320,7 @@
 
         function typeMessage(element, text, speed = 30) {
             let i = 0;
-            element.innerHTML = 'SB:<br>'; // Start with just the prefix
+            element.innerHTML = 'SB:<br>'; 
             
             function type() {
                 if (i < text.length && isGenerating) {
@@ -271,6 +335,29 @@
                 } else if (i >= text.length) {
                     // Typing is complete, reset the button
                     resetSendButton();
+                    
+                    // Add copy button after typing is complete
+                    const messageContent = element.closest('.message-content');
+                    if (messageContent && !messageContent.querySelector('.copy-btn')) {
+                        const copyBtn = document.createElement('button');
+                        copyBtn.className = 'copy-btn';
+                        copyBtn.setAttribute('aria-label', 'Copy to clipboard');
+                        copyBtn.innerHTML = `
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        `;
+                        
+                        // Store the full text for copying (without the "SB:" prefix)
+                        const fullText = text;
+                        
+                        copyBtn.addEventListener('click', () => {
+                            copyToClipboard(fullText);
+                        });
+                        
+                        messageContent.appendChild(copyBtn);
+                    }
                 }
             }
             
@@ -385,7 +472,6 @@
                 </div>
             `;
             
-            // Add the loading message to the chat
             messageWrapper.appendChild(loadingElement);
             scrollToBottom();
             
@@ -597,7 +683,7 @@
             }
         }
 
-        // Function to extract text from PPTX files
+        // ppt & error handling 
         async function extractTextFromPPTX(arrayBuffer) {
             try {
                 if (!window.JSZip) {
@@ -615,7 +701,7 @@
                 
                 for (const slideFile of slideFiles) {
                     const content = await zip.file(slideFile).async("string");
-                    // Extract text from XML (simplified - actual implementation would be more robust)
+                    // Extract text from XML 
                     const textMatches = content.match(/<a:t>([^<]*)<\/a:t>/g) || [];
                     const slideText = textMatches
                         .map(match => match.replace(/<a:t>|<\/a:t>/g, ""))
@@ -645,7 +731,7 @@
                 }
             }
             
-            // Clean up the text by removing non-word sequences
+            // removing non word sequence
             text = text.replace(/[^\w\s.,;:!?'"()\[\]{}\-–—]/g, " ")
                     .replace(/\s+/g, " ")
                     .trim();
@@ -729,7 +815,6 @@
                     // Update progress
                     progressBar.style.width = '100%';
                     
-                    // Update the upload message
                     uploadElement.innerHTML = `
                         <div class="message-content">
                             <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lop2WBke5jRLJead2R60matgDD3rJf.png" alt="User"  alt="User" class="user-avatar">
@@ -758,7 +843,6 @@
                     reader.onload = async (e) => {
                         progressBar.style.width = '100%';
                         
-                        // Update the upload message
                         uploadElement.innerHTML = `
                             <div class="message-content">
                                 <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lop2WBke5jRLJead2R60matgDD3rJf.png" alt="User" class="user-avatar">
@@ -810,7 +894,6 @@
                         progressBar.style.width = '100%';
                         const fileContent = e.target.result;
                         
-                        // Update the upload message
                         const fileIcon = getFileTypeIcon(file.name);
                         uploadElement.innerHTML = `
                             <div class="message-content">
@@ -913,7 +996,7 @@
                 // Determine the MIME type from the data URL
                 const mimeType = audioContent.match(/data:(.*?);/)[1] || "audio/mpeg";
                 
-                const message = `Please analyze this audio file: ${fileName}. Identify any harmful content, misinformation, or concerning elements in the audio.`;
+                const message = `Please analyze this audio file: ${fileName}. Identify any harmful content, or concerning elements in the audio.`;
                 
                 // Create request body with audio data
                 const requestBody = {
@@ -961,6 +1044,14 @@
             // Create a new message element for the file/image/audio
             const messageElement = document.createElement('div');
             messageElement.classList.add('message', 'sender-message');
+            messageElement.innerHTML = `
+                <div class="message-content">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lop2WBke5jRLJead2R60matgDD3rJf.png" alt="User" class="user-avatar">
+                    <div class="message-text">
+                        YOU:<br>${displayMessage}
+                    </div>
+                </div>
+            `;
      
             // Add the message element to the chat messages container
             const messageWrapper = document.querySelector('.message-wrapper');
@@ -980,7 +1071,7 @@
                 </div>
             `;
             
-            // Add the loading message to the chat
+            
             messageWrapper.appendChild(loadingElement);
             scrollToBottom();
             
