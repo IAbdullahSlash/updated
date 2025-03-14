@@ -445,116 +445,315 @@ nav {
   align-items: center;
 
 }
-
-
 /* About Section */
 .about {
-height:80vh;
-width:100vw;
-}
-
-.about-content {
-  height:80vh;
-  width:95vw;
-  display:flex;
-}
-.AC{
-  width:50vw;
-  height:90vh;
-}
-.about-content img{
-  height:60vh;
-  width:30vw;
-  margin-left: 10vw;
-  margin-top: 10vh;
-}
-.A{
-  width:45vw;
-  height:80vh;
-  margin-top: 40vh;
-}
-.about-title h2 {
-  font-size: 5rem;
-  color: black;
-  width:50vw;
-  height:10vh;
-}
-.about-content p {
-  color: black;
-  line-height: 1.6;
-  font-size: 20px;
-  width:40vw;
-  height:40vh;
+  height:100vh;
+  width:100%;
   
+  
+  }
+  
+  .about-content {
+      top:0;
+      width:100%;
+  
+  
+  }
+  
+  .about-title{
+      
+      align-items: center;
+  }
+  
+  .about-title h2 {
+      font-family: "Pacifico", cursive;
+      margin-top: 0.5em;
+      
+      font-size: 5rem;
+      color: black;
+      width:100%;
+      margin-left: 40%;
+      font-weight: 800;
+      color: transparent;
+      background: linear-gradient(
+      90deg,
+      #f9ebea 0%,
+      #f2d7d5 7%,
+      #e6b0aa 14%,
+      #d98880 21%,
+      #cd6155 28%,
+      #c0392b 35%,
+      #671e18 42%,
+      #461612 49%,
+      #c0392b 56%,
+      #cd6155 63%,
+      #d98880 70%,
+      #e6b0aa 77%,
+      #f2d7d5 84%,
+      #cd6155 91%,
+      #c0392b 97%,
+      #922b21 100%
+    );
+  
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-size: 500%;
+    animation: color 10s linear infinite;
+  
+  }
+  @keyframes color {
+      from {
+        background-position: 0% 50%;
+      }
+      to {
+        background-position: 100% 50%;
+      }
+    }
+
+/*puzzle-section*/
+.container {
+  display: flex;
+ 
 }
 
-/*
-.AC {
-  margin-left: 9em;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 10%;
+.puzzle-container {
+  width: 25rem;
+  height: 16rem;
+  position: relative;
+  box-sizing: border-box;
+  margin-left: 35%;
+}
+
+.puzzle-piece {
+  position: absolute;
+  background-color: rgb(76, 42, 44);
+  border: 2px solid white;
+  box-sizing: border-box;
+  opacity: 0;
+}
+
+/* Puzzle pieces layout */
+.piece-1 {
+  top: 0;
+  left: 0;
+  width: 33.33%;
+  height: 33.33%;
+  animation: fadeIn 3.0s ease forwards infinite;
+  animation-delay: 1.9s;
+  border-radius: 0 40% 40% 40%;
+}
+
+.piece-2 {
+  top: 0;
+  left: 33.33%;
+  width: 33.33%;
+  height: 33.33%;
+  animation: fadeIn 3s ease forwards infinite;
+  animation-delay: 2.4s;
+  border-radius: 40% 0 40% 40%;
+}
+
+.piece-3 {
+  top: 0;
+  right: 0;
+  width: 33.33%;
+  height: 33.33%;
+  animation: fadeIn 3.0s ease forwards infinite;
+  animation-delay: 2.9s;
+  border-radius: 40% 40% 40% 0;
+}
+
+.piece-4 {
+  top: 33.33%;
+  left: 0;
+  width: 33.33%;
+  height: 33.33%;
+  animation: fadeIn 3.0s ease forwards infinite;
+  animation-delay: 3.3s;
+  border-radius: 40% 40% 0 40%;
+}
+
+.piece-5 {
+  top: 33.33%;
+  left: 33.33%;
+  width: 33.33%;
+  height: 33.33%;
+  animation: fadeIn 3.0s ease forwards infinite;
+  animation-delay: 3.9s;
+  border-radius: 40%;
+}
+
+.piece-6 {
+  top: 33.33%;
+  right: 0;
+  width: 33.33%;
+  height: 33.33%;
+  animation: fadeIn 3.0s ease forwards infinite;
+  animation-delay: 4.3s;
+  border-radius: 40% 40% 40% 0;
+}
+
+.piece-7 {
+  bottom: 0;
+  left: 0;
+  width: 33.33%;
+  height: 33.33%;
+  animation: fadeIn 3.0s ease forwards infinite;
+  animation-delay: 4.9s;
+  border-radius: 40% 0 40% 40%;
+}
+
+.piece-8 {
+  bottom: 0;
+  left: 33.33%;
+  width: 33.33%;
+  height: 33.33%;
+  animation: fadeIn 3.0s ease forwards infinite;
+  animation-delay: 5.3s;
+  border-radius: 0 40% 40% 40%;
+}
+
+.piece-9 {
+  bottom: 0;
+  right: 0;
+  width: 33.33%;
+  height: 33.33%;
+  animation: fadeIn 3s ease forwards infinite;
+  animation-delay: 5.9s;
+  border-radius: 40% 40% 0 40%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.solid-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
-  object-fit: cover;
-
-}
-.A{
- height:500px;
- width:500px;
- left: 0;
-
-}
-*/
-.media{
-  width:100vw;
-  height:90vh;
-}
-.media-div{
-  display:flex;
-  height:90vh;
-  width:100vw;
-  background-color: rgb(245, 234, 234);
+  display: flex;
+  justify-content: center;
   align-items: center;
-
-}
-.media-div img{
-  margin-left:10vw;
-  margin-top: 10vh;
-  border: #333;
-  border-radius: 15%;
+  font-size: 36px;
+  font-weight: 500;
+  color: white;
+  font-family: "Pacifico", cursive;
+  background: linear-gradient(to top, rgb(76, 42, 44), #ceb6b6);
+  opacity: 0;
+  border-radius: 0 10% 0 10%;
   box-shadow: 0 0 25px rgba(167, 165, 165, 0.8);
-  width: 30vw;
-  height:70vh;
+  animation: fadeIn 5.0s ease forwards infinite;
+  animation-delay: 8.5s;
 }
-.media-class{
-  height:80vh;
-  width:50vw;
+.solid-box::after{
+  opacity: 0.5;
 }
-.media-class p{
-  color:black;
-  width:45vw;
-  height:15vh;
-  margin-left: 5vw;
-  margin-top:15vh;
-  font-size: 1.5rem;
-  line-height: 1.4;
-  font-weight: bold;
-}
-.media-class-div{
-  width:45vw;
-  height:60vh;
-  margin-left: 5vw;
-  
+.solid-box::after{
+  opacity: 1;
 }
 
-.media-class ul{
-  color:black;
-  width:45vw;
-  height:60vh;
+
+/*boxes*/
+.media{
+  height:90vh;
+  width:100vw;
+  background: linear-gradient(to top right, #845656, white);
+
+}
+.media-h1{
+  width:90vw;
+  height:20vh;
   
+  
+}
+.media-h1 h1{
+  width:50vw;
+  height:20vh;
+  font-size: 1.6rem;
+margin-left: 22vw;
+
+
+}
+.boxes{
+  width:90vw;
+  height:50vh;
+  display: flex;
+  margin-left: 7vw;
+}
+.box1 {
+  width: 25vw;
+  height: 50vh;
+  background-color: white; /* Red-orange color */
+
+  margin: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  cursor:pointer;
+  transition: all 0.3s ease-in-out;
+}
+.box1:hover{
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(251, 248, 248, 0.8);
+}
+.box1 p{
+  width:18vw;
+  height:30vh;
+  margin-top: 5vh;
+  margin-left:3vw;
+}
+
+.fa-solid{
+  color:white;
+  margin-left: 11vw;
   margin-top: 3vh;
-  font-size: 18px;
-  line-height:1.4;
+}
+
+
+/* Style for the second box */
+.box2 {
+  width: 25vw;
+  height: 50vh;
+  background-color: white; /* Light blue color */
+  
+
+  margin: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  cursor:pointer;
+  transition: all 0.3s ease-in-out;
+}
+.box2:hover{
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(251, 248, 248, 0.8);
+}
+
+/* Style for the third box */
+.box3 {
+  width: 25vw;
+  height: 50vh;
+  background-color: white; /* Green color */
+  margin: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  cursor:pointer;
+  transition: all 0.3s ease-in-out;
+}
+.box3:hover{
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(251, 248, 248, 0.8);
+}
+.box3 p{
+  width:18vw;
+  height:40vh;
+  margin-top: 5vh;
+  margin-left:3vw;
 }
 /* Footer */
 footer {
