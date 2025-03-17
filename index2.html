@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>SafeBrowse</title>
     <style>
         :root {
@@ -147,8 +146,8 @@
             top: 40%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 90%;
-            max-width: 800px;
+            width: 100%;
+            max-width: 1000px;
             height: 75vh;
             max-height: 800px;
             background-color: white;
@@ -802,7 +801,7 @@
                 const botResponse = result.candidates[0].content.parts[0].text;
 
                 // Add bot response to history
-                chatState.history.push({ role: 'assistant', content: botResponse });
+                chatState.history.push({ role: 'SafeBrowse', content: botResponse });
 
                 // Remove the loading message
                 messageWrapper.removeChild(loadingElement);
