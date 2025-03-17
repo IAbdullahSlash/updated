@@ -472,8 +472,7 @@ nav {
       
       font-size: 5rem;
       color: black;
-      width:100%;
-      margin-left: 40%;
+      margin-left: 36%;
       font-weight: 800;
       color: transparent;
       background: linear-gradient(
@@ -514,15 +513,17 @@ nav {
 /*puzzle-section*/
 .container {
   display: flex;
- 
+  gap:5%;
+  width:100%;
+  justify-content: space-evenly;
 }
 
 .puzzle-container {
-  width: 25rem;
+  width: 40rem;
   height: 16rem;
   position: relative;
   box-sizing: border-box;
-  margin-left: 35%;
+  margin-left: 26%;
 }
 
 .puzzle-piece {
@@ -660,7 +661,17 @@ nav {
   opacity: 1;
 }
 
-
+/* about-p*/
+.about-p p{
+  width:35vw;
+  height:38vh;
+  font-size:22px;
+  line-height: 1.2rem;
+  display: flex;
+  justify-content: center;
+  padding:1rem;
+  margin-left: 6rem;
+}
 /*boxes*/
 .media{
   height:90vh;
@@ -916,7 +927,7 @@ border-radius: 5px;
 .container{
 display: flex;
 margin-top: auto;
-justify-content: space-around;
+
 height:300px;
 
 }
@@ -1294,7 +1305,7 @@ font-style: italic;
   .user p{
       width:80vw;
       height:38vh;
-      font-size:17px ;
+      font-size:17px;
       margin-left: 5vw;
       margin-top: 3vh;
   }
@@ -1312,20 +1323,7 @@ font-style: italic;
       width:100vw;
       height:95vh;
    } 
-   .why-needed-1{
-      margin-left: 0;
-   } 
-   .why-needed p{
-      font-size: 20px;
-      line-height: 1.2;
-      
-   }
-   
-   .why-needed-img img{
-      height:15vh;
-      margin-top: 3vh;
-      margin-left: 0;
-   }
+  
    .about{
       display:block;
    }
@@ -1347,13 +1345,10 @@ font-style: italic;
       line-height: 1.4;
       font-size: 18px;
    }
-   .about-title{
-      width:70vw;
-      height:10vh;
-   }
+   
    .about-title h2 {
       font-size: 3rem;
-      width:70vw;
+      width:100%;
       height:10vh;
       margin-left: 12vw;
    }
@@ -1441,7 +1436,7 @@ font-style: italic;
   
 
 /* Tablet View (768px to 1024px) */
-@media (min-width: 768px) and (max-width: 1029px) {
+@media (min-width: 768px) and (max-width: 1029.33px) {
   .hero-content h1 {
       font-size: 4rem;
       flex-wrap: wrap;
@@ -1476,8 +1471,18 @@ font-style: italic;
    
      }
    .username{
-      width:100vw;
+      width:100%;
       height:85vh;
+   }
+   .container{
+    gap:4rem;
+   }
+   .about-p p{
+    margin-left:6rem;
+    width:20vw;
+    height:38vh;
+    font-size:20px;
+    line-height: 1.5rem;
    }
    .footer-content{
       gap:13rem;
