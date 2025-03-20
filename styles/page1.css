@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 *{
   margin: 0;
   padding: 0;
@@ -18,7 +19,13 @@ html {
   --background-color: #f8f9fa;
 }
 /* Navigation */
+nav.navbar{
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 nav {
+  
   display: flex;
   justify-content: space-between;
   padding: 0.5rem 1rem;
@@ -82,7 +89,7 @@ nav {
   width: 45px;
 }
 
-.SB {
+.SB{
   text-decoration: none;
   color: white;
   margin: 2px 0 0 0.5px;
@@ -325,7 +332,7 @@ nav {
 
 /* Why Needed Section */
 .revolution {
-  background-color: rgb(245, 234, 234);
+  background-color: rgb(255, 255, 255);
   padding: 4rem 2rem;
   width:100vw;
   height:90vh;
@@ -336,8 +343,8 @@ nav {
 }
 
 .wrapper {
-  margin-top: 2rem;
-  width: 80%;
+  margin-top: 1rem;
+  width: 90%;
   max-width: 1536px;
   margin-inline: auto;
   height: 170px;
@@ -465,14 +472,17 @@ nav {
       
       align-items: center;
   }
-  
-  .about-title h2 {
-      font-family: "Pacifico", cursive;
+  .words{
+    display: flex;
+  }
+  .word-1{
+      height: 15vh;
       margin-top: 0.5em;
-      
-      font-size: 5rem;
+      font-family: arial;
+      font-style: italic;
+      font-size: 80px;
       color: black;
-      margin-left: 36%;
+      margin-left: 22%;
       font-weight: 800;
       color: transparent;
       background: linear-gradient(
@@ -509,7 +519,16 @@ nav {
         background-position: 100% 50%;
       }
     }
-
+.word-2{
+  height: 15vh;
+      margin-top: 0.5em;
+      font-family: arial;
+      font-style: italic;
+      font-size: 80px;
+      color: black;
+      margin-left: 3%;
+      font-weight: 800;
+}
 /*puzzle-section*/
 .container {
   display: flex;
@@ -518,159 +537,20 @@ nav {
   justify-content: space-evenly;
 }
 
-.puzzle-container {
-  width: 40rem;
-  height: 16rem;
-  position: relative;
-  box-sizing: border-box;
-  margin-left: 26%;
-}
 
-.puzzle-piece {
-  position: absolute;
-  background-color: rgb(76, 42, 44);
-  border: 2px solid white;
-  box-sizing: border-box;
-  opacity: 0;
-}
 
-/* Puzzle pieces layout */
-.piece-1 {
-  top: 0;
-  left: 0;
-  width: 33.33%;
-  height: 33.33%;
-  animation: fadeIn 3.0s ease forwards infinite;
-  animation-delay: 1.9s;
-  border-radius: 0 40% 40% 40%;
-}
-
-.piece-2 {
-  top: 0;
-  left: 33.33%;
-  width: 33.33%;
-  height: 33.33%;
-  animation: fadeIn 3s ease forwards infinite;
-  animation-delay: 2.4s;
-  border-radius: 40% 0 40% 40%;
-}
-
-.piece-3 {
-  top: 0;
-  right: 0;
-  width: 33.33%;
-  height: 33.33%;
-  animation: fadeIn 3.0s ease forwards infinite;
-  animation-delay: 2.9s;
-  border-radius: 40% 40% 40% 0;
-}
-
-.piece-4 {
-  top: 33.33%;
-  left: 0;
-  width: 33.33%;
-  height: 33.33%;
-  animation: fadeIn 3.0s ease forwards infinite;
-  animation-delay: 3.3s;
-  border-radius: 40% 40% 0 40%;
-}
-
-.piece-5 {
-  top: 33.33%;
-  left: 33.33%;
-  width: 33.33%;
-  height: 33.33%;
-  animation: fadeIn 3.0s ease forwards infinite;
-  animation-delay: 3.9s;
-  border-radius: 40%;
-}
-
-.piece-6 {
-  top: 33.33%;
-  right: 0;
-  width: 33.33%;
-  height: 33.33%;
-  animation: fadeIn 3.0s ease forwards infinite;
-  animation-delay: 4.3s;
-  border-radius: 40% 40% 40% 0;
-}
-
-.piece-7 {
-  bottom: 0;
-  left: 0;
-  width: 33.33%;
-  height: 33.33%;
-  animation: fadeIn 3.0s ease forwards infinite;
-  animation-delay: 4.9s;
-  border-radius: 40% 0 40% 40%;
-}
-
-.piece-8 {
-  bottom: 0;
-  left: 33.33%;
-  width: 33.33%;
-  height: 33.33%;
-  animation: fadeIn 3.0s ease forwards infinite;
-  animation-delay: 5.3s;
-  border-radius: 0 40% 40% 40%;
-}
-
-.piece-9 {
-  bottom: 0;
-  right: 0;
-  width: 33.33%;
-  height: 33.33%;
-  animation: fadeIn 3s ease forwards infinite;
-  animation-delay: 5.9s;
-  border-radius: 40% 40% 0 40%;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.solid-box {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 36px;
-  font-weight: 500;
-  color: white;
-  font-family: "Pacifico", cursive;
-  background: linear-gradient(to top, rgb(76, 42, 44), #ceb6b6);
-  opacity: 0;
-  border-radius: 0 10% 0 10%;
-  box-shadow: 0 0 25px rgba(167, 165, 165, 0.8);
-  animation: fadeIn 5.0s ease forwards infinite;
-  animation-delay: 8.5s;
-}
-.solid-box::after{
-  opacity: 0.5;
-}
-.solid-box::after{
-  opacity: 1;
-}
 
 /* about-p*/
 .about-p p{
-  width:35vw;
+  font-family: "Nunito Sans", sans-serif;
+  width:55vw;
   height:38vh;
   font-size:22px;
-  line-height: 1.2rem;
+  line-height: 1.4rem;
   display: flex;
   justify-content: center;
-  padding:1rem;
-  margin-left: 6rem;
+ 
+  margin-left: 11rem;
 }
 /*boxes*/
 .media{
