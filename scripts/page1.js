@@ -45,4 +45,28 @@ function showSidebar(){
   navham.style.display = 'flex'
 }
 
+// Get the modal element
+const modal = document.getElementById("popupModal")
+
+// Add event listener to close modal when clicking outside
+window.addEventListener("click", (event) => {
+  if (event.target === modal) {
+    modal.style.display = "none"
+  }
+})
+
+// Make sure the existing code for opening the modal remains:
+document.getElementById("getStartedBtn").addEventListener("click", () => {
+  modal.style.display = "block"
+})
+
+// Keep any existing functions for the continue buttons
+function continueWithoutLogin() {
+  window.location.href = "without-login.html" // or whatever the destination is
+}
+
+function continueWithLogin() {
+  window.location.href = "login.html" // or whatever the destination is
+}
+
 
