@@ -47,8 +47,6 @@
             <button id="getStartedBtn" class="get-started-btn">Get Started</button>
         </section>
 
-        
-
         <section class="revolution  reveal">
             <div class="wrapper">
                 <div class="itemLeft item1">SafeBrowse is an AI-powered platform designed to detect and identify harmful content across text, images, and files. </div>
@@ -74,7 +72,7 @@
         <section class="username">
             <div class="U1  reveal">
                 <div class="image">
-                  <img src="img3.jpg">
+                  <img src="output.svg">
                 </div>
                 <div class="user">
                     <p>SafeBrowse is an Artificial Intelligence integrated platform which provides real time chatbox interface. SafeBrowse
@@ -87,44 +85,42 @@
                 </div>
             </div>
         </section>
-
-       
-
        
         <div class="media reveal">
+
             <div class="media-h1">
-              <h1>Providing you with features such as image and file upload, text-prompt and AI powered content analysis</h1>
+              <h1>Features You Get! </h1>
             </div>
             <div class="boxes">
                 <!-- First box -->
                 <div class="box1">
-                    <i class="fa-solid fa-image fa-2x"></i>
-                    <p>Users can provide images (Maximum image per prompt: 3,000 and maximun image size is: 7MB)</p>
+                    <i class="fa-solid fa-paperclip fa-2x"></i>
+
+                    <p>Providing you with an option to attach documents(.docs), PDFs(.pdf), spreadsheets(.txt), images (Max. image per prompt: 3,000 and Max.image size is: 7MB) and other file formats.
+                   </p>
                     </div>
                 
                  <!-- Second box -->
                 <div class="box2">
-                    <i class="fa-solid fa-microphone fa-2x"></i>
-                    <p></p>
+                    <i class="fa-solid fa-language fa-2x"></i>                    
+                    <p>SafeBrowse provides multilingual features, allowing users to access and interact with the site in their preferred language.</p>
                     </div>
 
                  <!-- Third box -->
                 <div class="box3">
-                    <i class="fa-solid fa-file-pdf fa-2x"></i>
-                <p>Providing you with an option to attach documents, PDFs, spreadsheets, and other file formats (Maximum number of files per request: 3,000 , Maximum number of pages per files: 1,000 , Maximum file size per file: 50MB) </p>                   
-             </div>
+                    <i class="fa-solid fa-microphone fa-2x"></i>
+                    <p>Tired of typing?  Our new audio recording feature allows you to bypass text and speak directly to the prompt field. Click the record button and let your voice be heard!</p>
                </div>
+            </div>
         </div>
         <section>
             <div class="what-we-do reveal">
-                <div class="what-we-do-img">
-                  <img src="img5.jpg">
+                <div class="what-we-do-img"> 
+                    <video autoplay loop muted src="vdo1.mp4">
+                    </video>
                 </div>
                 <div class="wat-we-do-p">
-                  <p>SafeBrowse is a URL analysis tool to evaluate, analyze and provide detailed reports
-                    about any URL. We provide a comprehensive view of the webpage by scanning it with
-                    various online resources and checking it against malware and phishing databases.
-                    Our tool helps users make informed decisions about the safety of websites they visit.</p>
+                  <p>SafeBrowse Chatbot helps you by taking the input of any format and you'll receive a detailed report highlighting potential misinformation, biased narratives, or harmful language and providing you with the immediate actions as well as suggestions you can follow. Stay informed, stay safe, and browse with confidence—SafeBrowse is here to empower you with the truth..</p>
                 </div>
             </div>
         </section>
@@ -224,7 +220,6 @@
             </div>
         </section>
     </main>
-
     <footer>
         <div id= "footer" class="footer-content">
             <div class="footer-section2">
@@ -233,7 +228,7 @@
             </div>
             <div class="footer-section">
               <h3>Contact Us</h3>
-              <p>Email: contact@safebrowse.com</p>
+              <p>Email: SafeBrowse.contact@gmail.com</p>
             </div>
             <div class="git">
                 <i class="fa-brands fa-github"></i><br><br><br>
@@ -247,8 +242,10 @@
                 </div>
             </div>
         </div>
-</footer>
+    </footer>
+
         <!-- Popup Modal -->
+      
   <div id="popupModal" class="popup-modal">
     <div class="popup-content">
       <h2>Continue with...</h2>
@@ -346,8 +343,19 @@
             });
         });
     </script>
+    <!--navbar scrolling-->
+    <script>
+        window.addEventListener('scroll', function() {
+        var navbar = document.querySelector('.navbar');  
+        var secondPage = document.querySelector('.revolution'); 
+        if (window.scrollY > secondPage.offsetTop) {
+          navbar.classList.add('transparent');  
+        } else {
+        navbar.classList.remove('transparent'); 
+  }
+});
 
-      
+    </script>
 </body>
 
 </html>
