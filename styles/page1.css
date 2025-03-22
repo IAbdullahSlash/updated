@@ -89,7 +89,7 @@ nav {
   width: 45px;
 }
 
-.SB{
+.SB {
   text-decoration: none;
   color: white;
   margin: 2px 0 0 0.5px;
@@ -461,12 +461,10 @@ nav {
   
   }
   
-  .about-content {
+.about-content {
       top:0;
       width:100%;
-  
-  
-  }
+}
   
   .about-title{
       
@@ -1357,6 +1355,7 @@ font-style: italic;
    .container{
     gap:4rem;
    }
+   
    .about-p p{
     margin-left:6rem;
     width:20vw;
