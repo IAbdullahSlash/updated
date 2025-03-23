@@ -246,13 +246,12 @@ nav {
   height:60vh;
 
 }
-.what-we-do img{
-  height:60vh;
-  width:40vw;
-  margin-left: 18vw;
-  box-shadow: 0 0 25px rgba(167, 165, 165, 0.8);
+.what-we-do-vdo{
+  height:80vh;
+  width:100vw;
+  /* box-shadow: 0 0 25px rgba(167, 165, 165, 0.8); */
 
-  border-radius: 15%;
+  display:flex;
   justify-content:  center;
 }
 .what-we-do-p{
@@ -279,7 +278,7 @@ nav {
 .username{
   display:flex;
   padding: 4rem 2rem;
-  height: 120vh;
+  height: 110vh;
   width:100%;
   
 }  
