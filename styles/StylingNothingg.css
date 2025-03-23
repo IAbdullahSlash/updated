@@ -218,12 +218,13 @@ body {
   text-align: center;
   transition: all 0.3s ease;
   position: relative;
+  display:flex;
+  justify-content: center;
 }
 
 .main-title h1 {
   position: relative;
   display: inline-block;
-  margin-bottom: 0.5rem; /* Reduced from 1.5rem */
 }
 
 .main-title span {
@@ -348,12 +349,20 @@ body {
   height: 1.5rem;
   transition: all 0.3s ease;
 }
-
+@media (max-width:468px){
+  .disclaimer{
+     width:60vw;
+     font-size: 0.5rem;
+  }
+}
 @media (max-width: 768px) {
   .nav-links {
     display: none;
   }
-
+  .typing-text{
+    font-size: 1.8rem;
+  }
+  .typing-text
   .main-title {
     font-size: 2rem;
   }
@@ -366,7 +375,7 @@ body {
   }
   
   .disclaimer {
-    width: 95%;
+    width: 60vw;
   }
 }
 
@@ -573,7 +582,7 @@ body {
   opacity: 0;               
   transition: transform 0.3s ease, opacity 0.3s ease; 
   z-index: 100;
-  width: 180px;              
+  width: 11vw;              
 }
 
 .attachment-options.show {
@@ -643,7 +652,6 @@ body {
   left: 50%;
   transform: translateX(-50%);
   width: 51vw;
-  max-width: 600px;
   text-align: center;
   color: #666;
   font-size: 0.8rem;

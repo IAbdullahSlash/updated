@@ -47,6 +47,23 @@
             <button id="getStartedBtn" class="get-started-btn">Get Started</button>
         </section>
 
+        <section class="username">
+            <div class="U1  reveal">
+                <div class="image">
+                  <img src="output.svg">
+                </div>
+                <div class="user">
+                    <p>SafeBrowse is an Artificial Intelligence integrated platform which provides real time chatbox interface. SafeBrowse
+                        provides you with a tool that generate text from a prompt that a user provides. It can process and extracts information 
+                        from documents of various formats and user provided links and also from
+                        the uploaded pdfs and images. In SafeBrowse you can use the power of text prompt of any news
+                        article, research paper or just a rumour and check if it contains any false, misinformation or
+                        any type of harmful content.
+                    </p>
+                </div>
+            </div>
+        </section>
+
         <section class="revolution  reveal">
             <div class="wrapper">
                 <div class="itemLeft item1">SafeBrowse is an AI-powered platform designed to detect and identify harmful content across text, images, and files. </div>
@@ -69,19 +86,13 @@
                 <div class="itemRight item8">SafeBrowse provides real-time corrections, content moderation suggestions, and actionable insights to ensure a safer digital environment.</div>
               </div>
         </section>
-        <section class="username">
-            <div class="U1  reveal">
-                <div class="image">
-                  <img src="output.svg">
+        <section>
+            <div class="what-we-do reveal">
+                <div class="what-we-do-vdo"> 
+                    <video autoplay loop muted src="vdo.mp4"></video>
                 </div>
-                <div class="user">
-                    <p>SafeBrowse is an Artificial Intelligence integrated platform which provides real time chatbox interface. SafeBrowse
-                        provides you with a tool that generate text from a prompt that a user provides. It can process and extracts information 
-                        from documents of various formats and user provided links and also from
-                        the uploaded pdfs and images. In SafeBrowse you can use the power of text prompt of any news
-                        article, research paper or just a rumour and check if it contains any false, misinformation or
-                        any type of harmful content.
-                    </p>
+                <div class="wat-we-do-p">
+                  <p>SafeBrowse Chatbot helps you by taking the input of any format and you'll receive a detailed report highlighting potential misinformation, biased narratives, or harmful language and providing you with the immediate actions as well as suggestions you can follow. Stay informed, stay safe, and browse with confidence—SafeBrowse is here to empower you with the truth..</p>
                 </div>
             </div>
         </section>
@@ -113,18 +124,8 @@
                </div>
             </div>
         </div>
-        <section>
-            <div class="what-we-do reveal">
-                <div class="what-we-do-img"> 
-                    <video autoplay loop muted src="vdo1.mp4">
-                    </video>
-                </div>
-                <div class="wat-we-do-p">
-                  <p>SafeBrowse Chatbot helps you by taking the input of any format and you'll receive a detailed report highlighting potential misinformation, biased narratives, or harmful language and providing you with the immediate actions as well as suggestions you can follow. Stay informed, stay safe, and browse with confidence—SafeBrowse is here to empower you with the truth..</p>
-                </div>
-            </div>
-        </section>
-        <section  class="about">
+       
+        <section  id="about" class="about">
             <div class="about-content reveal">
                     
                     
@@ -347,7 +348,7 @@
     <script>
         window.addEventListener('scroll', function() {
         var navbar = document.querySelector('.navbar');  
-        var secondPage = document.querySelector('.revolution'); 
+        var secondPage = document.querySelector('.hero'); 
         if (window.scrollY > secondPage.offsetTop) {
           navbar.classList.add('transparent');  
         } else {
