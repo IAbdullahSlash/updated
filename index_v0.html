@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Browse</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>SafeBrowse</title>
     <link rel="stylesheet" href="styles/StylingNothingg.css">
     <!--  text extraction libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.0/mammoth.browser.min.js"></script>
@@ -134,7 +135,6 @@
             font-weight: bold;
         }
 
-        /* Enhanced Audio recorder styles */
         .audio-recorder {
             position: fixed;
             top: 50%;
@@ -656,7 +656,7 @@
                             </svg>
                         `;
                         
-                        // Store the full text for copying (without the "SB:" prefix)
+                        // Store the full text for copying 
                         const fullText = text;
                         
                         copyBtn.addEventListener('click', () => {
@@ -751,7 +751,7 @@
             messageElement.classList.add('message', 'sender-message');
             messageElement.innerHTML = `
                 <div class="message-content">
-                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lop2WBke5jRLJead2R60matgDD3rJf.png" alt="User" class="user-avatar">
+                    <i class="fa-solid fa-circle-user fa-2x"></i>
                     <div class="message-text">
                         YOU:<br>${message}
                     </div>
@@ -1089,7 +1089,8 @@
             
             uploadElement.innerHTML = `
                 <div class="message-content">
-                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lop2WBke5jRLJead2R60matgDD3rJf.png" alt="User" class="user-avatar">
+                    <i class="fa-solid fa-circle-user fa-2x"></i>
+
                     <div class="message-text">
                         YOU:<br>Uploading file: ${fileIcon} ${file.name} (${(file.size / 1024).toFixed(1)} KB)
                         <div class="file-progress">
@@ -1123,7 +1124,7 @@
                     
                     uploadElement.innerHTML = `
                         <div class="message-content">
-                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lop2WBke5jRLJead2R60matgDD3rJf.png" alt="User"  alt="User" class="user-avatar">
+                            <i class="fa-solid fa-circle-user fa-2x"></i>
                             <div class="message-text">
                                 YOU:<br>Sent a file: ${fileIcon} ${file.name}
                             </div>
@@ -1151,7 +1152,8 @@
                         
                         uploadElement.innerHTML = `
                             <div class="message-content">
-                                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lop2WBke5jRLJead2R60matgDD3rJf.png" alt="User" class="user-avatar">
+                                <i class="fa-solid fa-circle-user fa-2x"></i>
+
                                 <div class="message-text">
                                     YOU:<br>Sent a file: ${fileIcon} ${file.name}
                                 </div>
@@ -1173,7 +1175,8 @@
                 console.error('Error processing file:', error);
                 uploadElement.innerHTML = `
                     <div class="message-content">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lop2WBke5jRLJead2R60matgDD3rJf.png" alt="User" class="user-avatar">
+                        <i class="fa-solid fa-circle-user fa-2x"></i>
+
                         <div class="message-text">
                             YOU:<br>Failed to process file: ${file.name} - ${error.message}
                         </div>
@@ -1203,7 +1206,8 @@
                         const fileIcon = getFileTypeIcon(file.name);
                         uploadElement.innerHTML = `
                             <div class="message-content">
-                                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lop2WBke5jRLJead2R60matgDD3rJf.png" alt="User" class="user-avatar">
+                                <i class="fa-solid fa-circle-user fa-2x"></i>
+
                                 <div class="message-text">
                                     YOU:<br>Sent a file: ${fileIcon} ${file.name}
                                 </div>
@@ -1252,7 +1256,8 @@
                     // Update the loading message
                     loadingElement.innerHTML = `
                         <div class="message-content">
-                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lop2WBke5jRLJead2R60matgDD3rJf.png" alt="User" class="user-avatar">
+                            <i class="fa-solid fa-circle-user fa-2x"></i>
+
                             <div class="message-text">
                                 YOU:<br>Sent an audio file: ${file.name}
                             </div>
@@ -1264,7 +1269,8 @@
                 console.error('Error processing audio:', error);
                 loadingElement.innerHTML = `
                     <div class="message-content">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lop2WBke5jRLJead2R60matgDD3rJf.png" alt="User" class="user-avatar">
+                        <i class="fa-solid fa-circle-user fa-2x"></i>             
+
                         <div class="message-text">
                             YOU:<br>Failed to process audio file: ${file.name}
                         </div>
@@ -1352,7 +1358,8 @@
             messageElement.classList.add('message', 'sender-message');
             messageElement.innerHTML = `
                 <div class="message-content">
-                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lop2WBke5jRLJead2R60matgDD3rJf.png" alt="User" class="user-avatar">
+                    <i class="fa-solid fa-circle-user fa-2x"></i>
+
                     <div class="message-text">
                         YOU:<br>${displayMessage}
                     </div>
