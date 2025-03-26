@@ -62,11 +62,11 @@ document.getElementById("getStartedBtn").addEventListener("click", () => {
 
 // Keep any existing functions for the continue buttons
 function continueWithoutLogin() {
-  window.location.href = "without-login.html" // or whatever the destination is
+  window.location.href = "index2.html" 
 }
 
 function continueWithLogin() {
-  window.location.href = "login.html" // or whatever the destination is
+  window.location.href = "login.html" 
 }
 // Modal functionality
 document.addEventListener('DOMContentLoaded', function() {
