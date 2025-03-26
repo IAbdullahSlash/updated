@@ -357,8 +357,8 @@ nav {
   mask-image: linear-gradient(
     to right,
     rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 1) 20%,
-    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0.5, 1) 15%,
+    rgba(0, 0, 0.5, 1) 85%,
     rgba(0, 0, 0, 0)
   );
 }
@@ -466,16 +466,20 @@ nav {
   .about-content {
       top:0;
       width:100%;
-  
+      display:grid;
+      justify-content: center;
+      align-items: center;
   
   }
   
   .about-title{
-      
+      width: 100%;
       align-items: center;
   }
   .words{
+    width: 100%;
     display: flex;
+    justify-content: center;
   }
   .word-1{
       height: 15vh;
@@ -484,7 +488,7 @@ nav {
       font-style: italic;
       font-size: 80px;
       color: black;
-      margin-left: 22%;
+      
       font-weight: 800;
       color: transparent;
       background: linear-gradient(
@@ -545,14 +549,14 @@ nav {
 /* about-p*/
 .about-p p{
   font-family: "Nunito Sans", sans-serif;
-  width:55vw;
+  width:50vw;
   height:38vh;
   font-size:19px;
   line-height: 1.59;
   display: flex;
   justify-content: center;
- 
-  margin-left: 11rem;
+  text-align: center;
+  margin-top: 2.5rem;
 }
 /*boxes*/
 .media{
@@ -1253,7 +1257,7 @@ body.modal-open {
       margin-top: 5vh;
   }
   .about {
-      height:vh;
+      height:100vh;
       width:100vw;
       }
   .AC {
@@ -1265,19 +1269,59 @@ body.modal-open {
   }
 }
 @media (max-width: 646px) {
+  .nav-links li{
+    display: none;
+    width: 100%; /* Ensure full width when shown */
+    flex-direction: column; /* Stack the items vertically */
+    background-color: #333;
+    text-align: center;
+    position: absolute;
+    top: 60px; /* Adjust based on navbar height */
+    left: 0;
+}
+.menu-icon {
+  display: block;
+}
+    .word-2{
+      margin-left: 0;
+    }
     .hero-content h1{
       margin-left: -1rem;
 
       font-size: 2rem;
     }
+  
+    .image{
+      height:50vh;
+      margin: 0;
+    }
+    .user{
+      margin:0;
+      width:50vw;
+    }
+    .user p{
+      
+        width:150vw;
+        height:38vh;
+        font-size:17px ;
+        text-align: center;
+        margin:0;
+    
+    }
     .username{
-      height:100vh;
+      height:190vh;
+      width:100%;
+      justify-content: center;
+      align-items: center;
     }
     .U1{
       display: block;
       width:25vw;
       height:95vh;
       
+  }
+  .username img{
+    margin:0;
   }
   .username image{
     height:20vh;
@@ -1335,10 +1379,10 @@ body.modal-open {
       margin: 0;
   }
   .user p{
-      width:80vw;
+      width:100vw;
       height:38vh;
       font-size:17px ;
-      
+      text-align: center;
       margin:0;
   }
   .image{
@@ -1348,7 +1392,7 @@ body.modal-open {
   .username img{
      width:65vw;
      height:34vh;
-     margin-left: 10vw;
+     margin-left: 12vw;
   
     }
     .username{
@@ -1391,7 +1435,8 @@ body.modal-open {
       font-size: 18px;
    }
    .about-title{
-      width:70vw;
+      
+      width:100%;
       height:10vh;
    }
    .about-title h2 {
@@ -1496,26 +1541,31 @@ body.modal-open {
       display:block;
       width:100vw;
       height:75vh;
+      justify-content: center;
   }
   .user{
       width:90vw;
       height:40vh;
-      
+      margin-left: 0;
+      text-align: center;
   }
   .user p{
       font-size:20px ;
-     
+     margin-left: 0;
       width:80vw;
       
   }
   .image{
       width:90vw;
       height:35vh;
+      margin-left: 0;
   }
   .username img{
       width:65vw;
       height:35vh;
-      margin-left: 20vw;
+      margin-left: 12vw;
+      justify-content: center;
+      align-items: center;
    
      }
    .username{
@@ -1527,7 +1577,7 @@ body.modal-open {
    }
    .about-p p{
     margin-left:6rem;
-    width:20vw;
+    width:80vw;
     height:38vh;
     font-size:20px;
     line-height: 1.5rem;
