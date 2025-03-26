@@ -68,5 +68,50 @@ function continueWithoutLogin() {
 function continueWithLogin() {
   window.location.href = "login.html" // or whatever the destination is
 }
+// Modal functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('popupModal');
+  const getStartedBtn = document.getElementById('getStartedBtn');
+  const closeModal = document.querySelector('.close-modal');
+  
+  // Open modal when Get Started is clicked
+  if (getStartedBtn) {
+      getStartedBtn.addEventListener('click', function() {
+          modal.style.display = 'flex';
+          document.body.classList.add('modal-open');
+          
+          // Add animation class
+          setTimeout(() => {
+              document.querySelector('.popup-content').classList.add('show');
+          }, 10);
+      });
+  }
+  
+  // Close modal when X is clicked
+  if (closeModal) {
+      closeModal.addEventListener('click', function() {
+          document.querySelector('.popup-content').classList.remove('show');
+          
+          setTimeout(() => {
+              modal.style.display = 'none';
+              document.body.classList.remove('modal-open');
+          }, 300);
+      });
+  }
+  
+  // Close modal when clicking outside
+  window.addEventListener('click', function(event) {
+      if (event.target === modal) {
+          document.querySelector('.popup-content').classList.remove('show');
+          
+          setTimeout(() => {
+              modal.style.display = 'none';
+              document.body.classList.remove('modal-open');
+          }, 300);
+      }
+  });
+});
+
+
 
 

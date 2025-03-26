@@ -89,7 +89,7 @@
         <section>
             <div class="what-we-do reveal">
                 <div class="what-we-do-vdo"> 
-                    <video autoplay loop muted src="vdo.mp4"></video>
+                    <video autoplay loop muted src="video.mp4"></video>
                 </div>
                 <div class="wat-we-do-p">
                   <p>SafeBrowse Chatbot helps you by taking the input of any format and you'll receive a detailed report highlighting potential misinformation, biased narratives, or harmful language and providing you with the immediate actions as well as suggestions you can follow. Stay informed, stay safe, and browse with confidence—SafeBrowse is here to empower you with the truth..</p>
@@ -245,56 +245,78 @@
         </div>
     </footer>
 
-        <!-- Popup Modal -->
-      
-  <div id="popupModal" class="popup-modal">
+       
+    <!-- Popup Modal -->
+<div id="popupModal" class="popup-modal">
     <div class="popup-content">
-      <h2>Continue with...</h2>
-      <div class="container">
-        <div class="withoutLogin">
-            <div class="point-column">
-                <div class="point">
-                    <i class="fa-solid fa-xmark"></i>
-                    No chat limit</div>
-                <div class="point">
-                    <i class="fa-solid fa-xmark"></i>
-                    Attach files</div>
-                <div class="point">
-                    <i class="fa-solid fa-xmark"></i>
-                    Attach images</div>
-                <div class="point">
-                    <i class="fa-solid fa-check"></i>
-                    Check URL</div>
+        <span class="close-modal">&times;</span>
+        <h2>Choose Your Experience</h2>
+        <div class="modal-options">
+            <div class="option-card without-login">
+                <div class="option-header">
+                    <h3>Basic Access</h3>
+                    <div class="option-badge">Free</div>
+                </div>
+                <div class="option-features">
+                    <div class="feature">
+                        <i class="fa-solid fa-xmark"></i>
+                        <span>No chat limit</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fa-solid fa-xmark"></i>
+                        <span>Attach files</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fa-solid fa-xmark"></i>
+                        <span>Attach images</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fa-solid fa-check"></i>
+                        <span>Check URL</span>
+                    </div>
+                </div>
+                <button id="continueWithoutLoginBtn" class="modal-btn secondary-btn" onclick="continueWithoutLogin()">
+                    Continue without Login
+                </button>
             </div>
-           <button id="continueWithoutLoginBtn" class="continue-button" onclick="continueWithoutLogin()">Continue without Login</button>
+            
+            <div class="option-card with-login">
+                <div class="option-header">
+                    <h3>Full Access</h3>
+                    <div class="option-badge premium">Free</div>
+                </div>
+                <div class="option-features">
+                    <div class="feature">
+                        <i class="fa-solid fa-check"></i>
+                        <span>No chat limit</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fa-solid fa-check"></i>
+                        <span>Attach files</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fa-solid fa-check"></i>
+                        <span>Attach images</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fa-solid fa-check"></i>
+                        <span>Check URL</span>
+                    </div>
+                </div>
+                <button id="continueWithLoginBtn" class="modal-btn primary-btn" onclick="continueWithLogin()">
+                    Continue with Login
+                </button>
+            </div>
         </div>
-        <div class="withLogin">
-            <div class="point-column">
-                <div class="point">
-                    <i class="fa-solid fa-check"></i>
-                    No chat limit</div>
-                <div class="point">
-                    <i class="fa-solid fa-check"></i>
-                    Attach files</div>
-                <div class="point">
-                    <i class="fa-solid fa-check"></i>
-                    Attach images</div>
-                <div class="point">
-                    <i class="fa-solid fa-check"></i>
-                    Check URL</div>
-              </div>
-           <button id="continueWithLoginBtn" class="cancel-button" onclick="continueWithLogin()">Continue with Login</button>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
+
+
 
 
 <script src="scripts/page1.js"></script>
     
    
-
-    
     <script type="text/javascript">
         
         window.addEventListener("scroll",reveal);
