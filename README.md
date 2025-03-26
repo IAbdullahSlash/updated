@@ -1,8 +1,7 @@
 # SafeBrowse
 
 
-:bulb: 
-# Introduction
+:bulb: # Introduction
 
 
 ### Problem Statement: 
@@ -26,4 +25,4 @@ From Integral University, Lucknow.
 # Getting Started
 
 # Technologies Used
-<img width="158" alt="Tech stacks" src="https://github.com/user-attachments/assets/3a5d1a07-488b-493a-9d47-b99b5af4ee5f" />
+<img width="188" alt="Tech stacks" src="https://github.com/user-attachments/assets/3a5d1a07-488b-493a-9d47-b99b5af4ee5f" />
