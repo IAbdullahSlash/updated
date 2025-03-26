@@ -1,7 +1,8 @@
 # SafeBrowse
 
 
-:bulb: ## Introduction
+:bulb: 
+# Introduction
 
 
 ### Problem Statement: 
@@ -18,12 +19,11 @@ Organised By Google Developer Group Project by Team
 From Integral University, Lucknow.
 
 # Our SDG's Goals
-!(<img width="131" alt="goal" src="https://github.com/user-attachments/assets/ca3ff8ff-f17b-4a2a-a4e1-b22c009fabf5" />)!
-(<img width="131" alt="Logo3" src="https://github.com/user-attachments/assets/9bb5ac9f-2134-414e-979a-5db735ecf668" />)!(<img width="131" alt="goal3" src="https://github.com/user-attachments/assets/a5f3f459-78e2-425a-97d4-125243107931" />)
+<img width="131" alt="goal" src="https://github.com/user-attachments/assets/ca3ff8ff-f17b-4a2a-a4e1-b22c009fabf5" />
+<img width="131" alt="Logo3" src="https://github.com/user-attachments/assets/9bb5ac9f-2134-414e-979a-5db735ecf668" /><img width="131" alt="goal3" src="https://github.com/user-attachments/assets/a5f3f459-78e2-425a-97d4-125243107931" />)
 
 
 # Getting Started
 
 # Technologies Used
-!(<img width="158" alt="Tech stacks" src="https://github.com/user-attachments/assets/3a5d1a07-488b-493a-9d47-b99b5af4ee5f" />)
-
+<img width="158" alt="Tech stacks" src="https://github.com/user-attachments/assets/3a5d1a07-488b-493a-9d47-b99b5af4ee5f" />
