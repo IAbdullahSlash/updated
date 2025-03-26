@@ -18,14 +18,12 @@ Organised By Google Developer Group Project by Team
 From Integral University, Lucknow.
 
 # Our SDG's Goals
-![Peace,justice and strong Intuition.]
-(<img width="131" alt="goal" src="https://github.com/user-attachments/assets/ca3ff8ff-f17b-4a2a-a4e1-b22c009fabf5" />)
+!(<img width="131" alt="goal" src="https://github.com/user-attachments/assets/ca3ff8ff-f17b-4a2a-a4e1-b22c009fabf5" />)!
+(<img width="131" alt="Logo3" src="https://github.com/user-attachments/assets/9bb5ac9f-2134-414e-979a-5db735ecf668" />)!(<img width="131" alt="goal3" src="https://github.com/user-attachments/assets/a5f3f459-78e2-425a-97d4-125243107931" />)
 
-![Sustainable Cities and Communities]
-(<img width="131" alt="Logo3" src="https://github.com/user-attachments/assets/9bb5ac9f-2134-414e-979a-5db735ecf668" />)
 
 # Getting Started
 
 # Technologies Used
-![Image of techstacks used including Googel Gemini API, SQL,etc.](<img width="158" alt="Tech stacks" src="https://github.com/user-attachments/assets/224d7a8f-15ea-421f-942e-41865ad8bfb0" />)
+!(<img width="158" alt="Tech stacks" src="https://github.com/user-attachments/assets/3a5d1a07-488b-493a-9d47-b99b5af4ee5f" />)
 
