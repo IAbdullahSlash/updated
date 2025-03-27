@@ -71,4 +71,4 @@ Proposing right actions
 # Hi! We are 404Fixers
 ## 🤝Contributors
 We are a team of four tech enthusiasts from Integral University lucknow and members of GDG.
-| [Rajni Kesheo Katyayani]
+
