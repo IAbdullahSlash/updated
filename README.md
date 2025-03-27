@@ -31,7 +31,7 @@ Organised By Google Developer Groups. Project by **404 Fixers** From Integral Un
 ## Run the web application :  
 
 # Technologies Used
-<img width="850" height:"650" alt="Tech stacks" src="https://github.com/user-attachments/assets/3a5d1a07-488b-493a-9d47-b99b5af4ee5f" />
+<img width="850" alt="Tech stacks" src="https://github.com/user-attachments/assets/3a5d1a07-488b-493a-9d47-b99b5af4ee5f" />
 
 # 🛳️ User Guide
 
@@ -59,3 +59,16 @@ Sign in the already registered account or can using Google credentials.
 
 ## The Chatbot
 provide the suspicious passage or file to detect and identify harmful content such as misinformation, threatening content or cyberbullying.
+
+# Features
+* Structured output: SafeBrowse generates organized specific output where it mainly focuses of 3 points:
+Highlighting the problem
+Providing corrections
+Proposing right actions
+
+* Attach button: The attach button is provided in the chat page which enables the user to send files such as documents, images, pdf, spreadsheets and audio to review.
+
+# Hi! We are 404Fixers
+## 🤝Contributors
+We are a team of four tech enthusiasts from Integral University lucknow and members of GDG.
+
