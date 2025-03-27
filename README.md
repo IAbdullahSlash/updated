@@ -31,7 +31,7 @@ Organised By Google Developer Groups. Project by **404 Fixers** From Integral Un
 ## Run the web application :  
 
 # Technologies Used
-<img width="850" alt="Tech stacks" src="https://github.com/user-attachments/assets/3a5d1a07-488b-493a-9d47-b99b5af4ee5f" />
+<img width="600" alt="Tech stacks" src="https://github.com/user-attachments/assets/3a5d1a07-488b-493a-9d47-b99b5af4ee5f" />
 
 # 🛳️ User Guide
 
@@ -71,4 +71,13 @@ Proposing right actions
 # Hi! We are 404Fixers
 ## 🤝Contributors
 We are a team of four tech enthusiasts from Integral University lucknow and members of GDG.
+|Abdullah (https://github.com/IAbdullahSlash)|Darakhshan (https://github.com/Darakhshan-dev)|Faizan (https://github.com/StriverFaizan)|Rajni (https://github.com/katyayaniRK)|
+|--------------------------------------------|----------------------------------------------|-----------------------------------------|--------------------------------------|
+|![prof1](https://github.com/user-attachments/assets/a3aef975-38e1-4f32-a311-9|![prof2](https://github.com/user-attachments/assets/fa6bc5b1-19b5-4de4-ae25-a491769803cf)
+6a0b5e098d8)|![prof3](https://github.com/user-attachments/assets/9d1af579-7199-46b2-a129-cfd69fcaabbb)
+|![profpic](https://github.com/user-attachments/assets/120307af-983c-4979-9bd1-20c20c2c0ad5)|
+
+![404fixers](https://github.com/user-attachments/assets/8a9d27bd-2d72-40a7-b774-582cc1330b15)
+
+
 
