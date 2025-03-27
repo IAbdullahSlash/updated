@@ -9,7 +9,7 @@ Scaling Trust: AI-Powered Detection of Online Harms.The rapid growth of online p
 
 ### Solution: 
 SafeBrowse is a web application which aims in identifying various types of threats and harms.
-Modern harmful content has evolved beyond traditional threats, now encompassing, day to day online threats, misinformation, cyberbullying, etc. Our platform provide you with a chatbot designed to detect and identify harmful content across various file formats and offer corrections where possible, and suggest appropriate actions to mitigate the harm. It aims at helping users by encouraging a safer environment by identifying the incorrect, harmful and threatning information and promotes exchange of authentic informations.
+Modern harmful content has evolved beyond traditional threats, now encompassing, day to day online threats, misinformation, cyberbullying, etc. Our platform provide you with a chatbot designed to detect and identify harmful content across various file formats and offer corrections where possible, and suggest appropriate actions to mitigate the harm. It aims at helping users by encouraging a safer environment by identifying the incorrect, harmful and threatening information and promotes exchange of authentic informations.
  
 ## Google Solution Challenge Project'25
 Organised By Google Developer Groups. Project by **404 Fixers** From Integral University, Lucknow.
@@ -31,30 +31,44 @@ Organised By Google Developer Groups. Project by **404 Fixers** From Integral Un
 ## Run the web application :  
 
 # Technologies Used
-<img width="850" height:"650" alt="Tech stacks" src="https://github.com/user-attachments/assets/3a5d1a07-488b-493a-9d47-b99b5af4ee5f" />
+<img width="850" alt="Tech stacks" src="https://github.com/user-attachments/assets/3a5d1a07-488b-493a-9d47-b99b5af4ee5f" />
 
 # 🛳️ User Guide
 
-<img width="855" alt="P1" src="https://github.com/user-attachments/assets/61410676-8f67-45c6-8243-52ea0814e763" />
+<img width="755" alt="P1" src="https://github.com/user-attachments/assets/61410676-8f67-45c6-8243-52ea0814e763" />
 
 ## SafeBrowse main page 
 The main landing page to get stated
 
-<img width="855" alt="P4" src="https://github.com/user-attachments/assets/7dd655d6-3047-4b9c-b16c-317a3d642de6" />
+<img width="755" alt="P4" src="https://github.com/user-attachments/assets/7dd655d6-3047-4b9c-b16c-317a3d642de6" />
 
 ## User options
 Select the preferred option from Continue without login and Continue with login.
 
-<img width="855" alt="P5" src="https://github.com/user-attachments/assets/d7e6d1d1-9a11-4b58-9b51-d4e1b20eed58" />
+<img width="755" alt="P5" src="https://github.com/user-attachments/assets/d7e6d1d1-9a11-4b58-9b51-d4e1b20eed58" />
 
 ## Sign-up screen
 Create an account to get started and access all features.
 
-<img width="855" alt="p2" src="https://github.com/user-attachments/assets/96c16564-5a26-4edc-a4e7-d8cd3c8ed259" />
+<img width="755" alt="p2" src="https://github.com/user-attachments/assets/96c16564-5a26-4edc-a4e7-d8cd3c8ed259" />
 
 ## Sign-in screen
 Sign in the already registered account or can using Google credentials. 
 
-<img width="855" alt="P3" src="https://github.com/user-attachments/assets/992d353f-3e2a-4758-8e07-5dded57ad0da" />
+<img width="755" alt="P3" src="https://github.com/user-attachments/assets/992d353f-3e2a-4758-8e07-5dded57ad0da" />
 
 ## The Chatbot
+provide the suspicious passage or file to detect and identify harmful content such as misinformation, threatening content or cyberbullying.
+
+# Features
+* Structured output: SafeBrowse generates organized specific output where it mainly focuses of 3 points:
+Highlighting the problem
+Providing corrections
+Proposing right actions
+
+* Attach button: The attach button is provided in the chat page which enables the user to send files such as documents, images, pdf, spreadsheets and audio to review.
+
+# Hi! We are 404Fixers
+## 🤝Contributors
+We are a team of four tech enthusiasts from Integral University lucknow and members of GDG.
+
