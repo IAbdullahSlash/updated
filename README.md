@@ -73,7 +73,7 @@ Proposing right actions
 We are a team of four tech enthusiasts from Integral University lucknow and members of GDG.
 |Abdullah (https://github.com/IAbdullahSlash)|Darakhshan (https://github.com/Darakhshan-dev)|Faizan (https://github.com/StriverFaizan)|Rajni (https://github.com/katyayaniRK)|
 |--------------------------------------------|----------------------------------------------|-----------------------------------------|--------------------------------------|
-|![prof1](https://github.com/user-attachments/assets/a3aef975-38e1-4f32-a311-9|![prof2](https://github.com/user-attachments/assets/fa6bc5b1-19b5-4de4-ae25-a491769803cf)
+|![prof1](https://github.com/user-attachments/assets/a3aef975-38e1-4f32-a311-9)|![prof2](https://github.com/user-attachments/assets/fa6bc5b1-19b5-4de4-ae25-a491769803cf)
 6a0b5e098d8)|![prof3](https://github.com/user-attachments/assets/9d1af579-7199-46b2-a129-cfd69fcaabbb)
 |![profpic](https://github.com/user-attachments/assets/120307af-983c-4979-9bd1-20c20c2c0ad5)|
 
