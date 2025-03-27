@@ -12,7 +12,7 @@ SafeBrowse is a web application which aims in identifying various types of threa
 Modern harmful content has evolved beyond traditional threats, now encompassing, day to day online threats, misinformation, cyberbullying, etc. Our platform provide you with a chatbot designed to detect and identify harmful content across various file formats and offer corrections where possible, and suggest appropriate actions to mitigate the harm. It aims at helping users by encouraging a safer environment by identifying the incorrect, harmful and threatening information and promotes exchange of authentic informations.
  
 ## Google Solution Challenge Project'25
-Organised By Google Developer Groups. Project by **404 Fixers** From Integral University, Lucknow.
+Organised By Google Developer Groups. Project by **404Fixers** From Integral University, Lucknow.
 
 # Intro video
 
@@ -73,10 +73,11 @@ Proposing right actions
 We are a team of four tech enthusiasts from Integral University lucknow and members of GDG.
 |Abdullah (https://github.com/IAbdullahSlash)|Darakhshan (https://github.com/Darakhshan-dev)|Faizan (https://github.com/StriverFaizan)|Rajni (https://github.com/katyayaniRK)|
 |--------------------------------------------|----------------------------------------------|-----------------------------------------|--------------------------------------|
-![prof1](https://github.com/user-attachments/assets/81a0205b-2e64-4f54-8b77-907ddcbc6b8f)|![prof2](https://github.com/user-attachments/assets/00b08290-f79e-4e4b-a24e-dbda947d6694)
-|![prof3](https://github.com/user-attachments/assets/9d1af579-7199-46b2-a129-cfd69fcaabbb)|![profpic](https://github.com/user-attachments/assets/c3d0c603-9375-4bd3-8ef7-c3ec4d25fbd0)|
+![prof1](https://github.com/user-attachments/assets/81a0205b-2e64-4f54-8b77-907ddcbc6b8f)|![prof2](https://github.com/user-attachments/assets/00b08290-f79e-4e4b-a24e-dbda947d6694)|![prof3](https://github.com/user-attachments/assets/9d1af579-7199-46b2-a129-cfd69fcaabbb)|![profpic](https://github.com/user-attachments/assets/c3d0c603-9375-4bd3-8ef7-c3ec4d25fbd0)|
 
 ![404fixers](https://github.com/user-attachments/assets/8a9d27bd-2d72-40a7-b774-582cc1330b15)
+## SAFEBROWSE- BEFORE YOU BELIEVE
+### Made with Love ❤️ by 404Fixers
 
 
 
