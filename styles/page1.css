@@ -1327,6 +1327,15 @@ body.modal-open {
     height:20vh;
     width:20vw;
   }
+  .what-we-do{
+    height: 98vh;
+  }
+  .what-we-do-vdo{
+    height:45vh;
+    width:70vw;
+    margin-left: 8vw;
+
+}
 }
 @media (min-width: 646px) and (max-width: 768px) {
   .nav-links li{
@@ -1477,19 +1486,18 @@ body.modal-open {
       margin-bottom: 20vw;
       margin-top: 0;
   }
-  .what-we-do p {
+  .what-we-do-p {
      width:90vw;
      height:25vh;
      line-height: 1.4;
      font-size: 17px;
      margin-top: 0; 
+     display: grid;
+     justify-content: center;
+     align-items: center;
    }
-   .what-we-do-img {
-      width:90vw;
-      height:50vh;
    
-  }
-  .what-we-do img{
+  .what-we-do-vdo{
       height:45vh;
       width:70vw;
       margin-left: 8vw;
