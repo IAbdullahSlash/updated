@@ -21,9 +21,8 @@ Organised By Google Developer Groups. Project by **404Fixers** From Integral Uni
     <img width="200" alt="goal" src="https://github.com/user-attachments/assets/ca3ff8ff-f17b-4a2a-a4e1-b22c009fabf5" />
     <img width="200" alt="Logo3" src="https://github.com/user-attachments/assets/9bb5ac9f-2134-414e-979a-5db735ecf668" />
     <img width="200" alt="goal3" src="https://github.com/user-attachments/assets/a5f3f459-78e2-425a-97d4-125243107931" />
-SafeBrowse is an AI-powered web based chatbot committed to creating a safer digital environment by detecting and mitigating harmful content. Our mission is to protect users from misinformation, online threats, and sensitive material while promoting responsible browsing. By leveraging advanced AI, we contribute to a secure and informed digital space, aligning with global efforts to enhance cybersecurity and digital safe enviroment.
 </p>
-
+SafeBrowse is an AI-powered web based chatbot committed to creating a safer digital environment by detecting and mitigating harmful content. Our mission is to protect users from misinformation, online threats, and sensitive material while promoting responsible browsing. By leveraging advanced AI, we contribute to a secure and informed digital space, aligning with global efforts to enhance cybersecurity and digital safe enviroment.
 
 # Getting Started
 
