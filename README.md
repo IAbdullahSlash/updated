@@ -17,9 +17,11 @@ Organised By Google Developer Groups. Project by **404Fixers** From Integral Uni
 # Intro video
 
 # Our SDG's Goals
-<img width="131" alt="goal" src="https://github.com/user-attachments/assets/ca3ff8ff-f17b-4a2a-a4e1-b22c009fabf5" />
-<img width="131" alt="Logo3" src="https://github.com/user-attachments/assets/9bb5ac9f-2134-414e-979a-5db735ecf668" />
-<img width="131" alt="goal3" src="https://github.com/user-attachments/assets/a5f3f459-78e2-425a-97d4-125243107931" />
+<p align="center">
+    <img width="131" alt="goal" src="https://github.com/user-attachments/assets/ca3ff8ff-f17b-4a2a-a4e1-b22c009fabf5" />
+    <img width="131" alt="Logo3" src="https://github.com/user-attachments/assets/9bb5ac9f-2134-414e-979a-5db735ecf668" />
+    <img width="131" alt="goal3" src="https://github.com/user-attachments/assets/a5f3f459-78e2-425a-97d4-125243107931" />
+</p>
 
 
 # Getting Started
