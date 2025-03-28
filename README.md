@@ -27,7 +27,10 @@ SafeBrowse is an AI-powered web based chatbot committed to creating a safer digi
 # Getting Started
 
 # Technologies Used
-<img width="600" alt="Tech stacks" src="https://github.com/user-attachments/assets/3a5d1a07-488b-493a-9d47-b99b5af4ee5f" />
+<p align="center">
+    <img width="600" alt="Tech stacks" src="https://github.com/user-attachments/assets/3a5d1a07-488b-493a-9d47-b99b5af4ee5f" />
+</p>
+    
 
 # 🛳️ User Guide
 
