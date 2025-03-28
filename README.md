@@ -25,12 +25,6 @@ Organised By Google Developer Groups. Project by **404Fixers** From Integral Uni
 
 
 # Getting Started
-## Installation
-1. Clone the repository: `git clone https://github.com/IAbdullahSlash/updated.git`
-2. Navigate to the project directory: `cd updated`
-
-   
-## Run the web application :  
 
 # Technologies Used
 <img width="600" alt="Tech stacks" src="https://github.com/user-attachments/assets/3a5d1a07-488b-493a-9d47-b99b5af4ee5f" />
@@ -63,12 +57,12 @@ Sign in the already registered account or can using Google credentials.
 provide the suspicious passage or file to detect and identify harmful content such as misinformation, threatening content or cyberbullying.
 
 # Features
-* Structured output: SafeBrowse generates organized specific output where it mainly focuses of 3 points:
-Highlighting the problem
-Providing corrections
-Proposing right actions
 
 * Attach button: The attach button is provided in the chat page which enables the user to send files such as documents, images, pdf, spreadsheets and audio to review.
+
+* Multi-language support: SafeBrowse offers extensive multilingual capabilities, empowering users to seamlessly navigate, comprehend, and engage with the platform in the language they feel most comfortable with.
+
+* Audio recording support: Our new audio recording feature allows you to bypass text and speak directly to the prompt field. Click the record button and let your voice be heard!.
 
 # Hi! We are 404Fixers
 ## 🤝Contributors
