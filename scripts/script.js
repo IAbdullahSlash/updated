@@ -233,7 +233,7 @@ async function handleSubmit(e) {
     loadingElement.classList.add('message', 'receiver-message', 'loading-message');
     loadingElement.innerHTML = `
         <div class="message-content">
-            <img src="Images/logo.jpg" alt="SafeBrowse" class="bot-avatar">
+            <img src="media/logo.jpg" alt="SafeBrowse" class="bot-avatar">
             <div class="message-text">
                 SB:<br>Thinking<span class="loading-dots"></span>
             </div>
@@ -300,7 +300,7 @@ async function handleSubmit(e) {
         responseElement.classList.add('message', 'receiver-message');
         responseElement.innerHTML = `
             <div class="message-content">
-                <img src="Images/logo.jpg" alt="SafeBrowse" class="bot-avatar">
+                <img src="media/logo.jpg" alt="SafeBrowse" class="bot-avatar">
                 <div class="message-text">
                     SB:<br>
                 </div>
@@ -838,7 +838,7 @@ async function sendRequestToAI(requestBody, displayMessage) {
     loadingElement.classList.add('message', 'receiver-message', 'loading-message');
     loadingElement.innerHTML = `
         <div class="message-content">
-            <img src="Images/logo.jpg" alt="SafeBrowse" class="bot-avatar">
+            <img src="media/logo.jpg" alt="SafeBrowse" class="bot-avatar">
             <div class="message-text">
                 SB:<br>Thinking<span class="loading-dots"></span>
             </div>
@@ -892,7 +892,7 @@ async function sendRequestToAI(requestBody, displayMessage) {
         responseElement.classList.add('message', 'receiver-message');
         responseElement.innerHTML = `
             <div class="message-content">
-                <img src="Images/logo.jpg" alt="SafeBrowse" class="bot-avatar">
+                <img src="media/logo.jpg" alt="SafeBrowse" class="bot-avatar">
                 <div class="message-text">
                     SB:<br>
                 </div>
