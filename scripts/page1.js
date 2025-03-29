@@ -112,6 +112,100 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+window.addEventListener("scroll",reveal);
+function reveal(){
+  var reveals =document.querySelectorAll('.reveal');
 
+  for(var i=0;i<reveals.length;i++){
+    var windowheight = window.innerHeight;
+    var revealtop = reveals[i].getBoundingClientRect().top;
+    var revealpoint =150;
 
+    if(revealtop < windowheight - revealpoint){
+      reveals[i].classList.add('active');
+    }
+    else{
+      reveals[i].classList.remove('active');
+    }
+}
+}
+
+// Modal functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('popupModal');
+    const getStartedBtn = document.getElementById('getStartedBtn');
+    const closeModal = document.querySelector('.close-modal');
+    
+    // Define the continue functions if they don't exist
+    if (typeof continueWithoutLogin !== 'function') {
+        window.continueWithoutLogin = function() {
+            document.querySelector('.popup-content').classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.classList.remove('modal-open');
+            }, 300);
+            window.location.href = 'url-checker.html';
+        };
+    }
+    
+    if (typeof continueWithLogin !== 'function') {
+        window.continueWithLogin = function() {
+            document.querySelector('.popup-content').classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.classList.remove('modal-open');
+            }, 300);
+            window.location.href = 'login.html';
+        };
+    }
+    
+    // Open modal when Get Started is clicked
+    if (getStartedBtn) {
+        getStartedBtn.addEventListener('click', function() {
+            modal.style.display = 'flex';
+            document.body.classList.add('modal-open');
+            
+            // Add animation class
+            setTimeout(() => {
+                document.querySelector('.popup-content').classList.add('show');
+            }, 10);
+        });
+    }
+    
+    // Close modal when X is clicked
+    if (closeModal) {
+        closeModal.addEventListener('click', function() {
+            document.querySelector('.popup-content').classList.remove('show');
+            
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.classList.remove('modal-open');
+            }, 300);
+        });
+    }
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            document.querySelector('.popup-content').classList.remove('show');
+            
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.classList.remove('modal-open');
+            }, 300);
+        }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && modal.style.display === 'flex') {
+            document.querySelector('.popup-content').classList.remove('show');
+            
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.classList.remove('modal-open');
+            }, 300);
+        }
+    });
+});
 
