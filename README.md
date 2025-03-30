@@ -17,21 +17,20 @@ Organised By Google Developer Groups. Project by **404Fixers** From Integral Uni
 # Intro video
 
 # Our SDG's Goals
-<img width="131" alt="goal" src="https://github.com/user-attachments/assets/ca3ff8ff-f17b-4a2a-a4e1-b22c009fabf5" />
-<img width="131" alt="Logo3" src="https://github.com/user-attachments/assets/9bb5ac9f-2134-414e-979a-5db735ecf668" />
-<img width="131" alt="goal3" src="https://github.com/user-attachments/assets/a5f3f459-78e2-425a-97d4-125243107931" />
-
+<p align="center">
+    <img width="200" alt="goal" src="https://github.com/user-attachments/assets/ca3ff8ff-f17b-4a2a-a4e1-b22c009fabf5" />
+    <img width="200" alt="Logo3" src="https://github.com/user-attachments/assets/9bb5ac9f-2134-414e-979a-5db735ecf668" />
+    <img width="200" alt="goal3" src="https://github.com/user-attachments/assets/a5f3f459-78e2-425a-97d4-125243107931" />
+</p>
+SafeBrowse is an AI-powered web based chatbot committed to creating a safer digital environment by detecting and mitigating harmful content. Our mission is to protect users from misinformation, online threats, and sensitive material while promoting responsible browsing. By leveraging advanced AI, we contribute to a secure and informed digital space, aligning with global efforts to enhance cybersecurity and digital safe enviroment.
 
 # Getting Started
-## Installation
-1. Clone the repository: `git clone https://github.com/IAbdullahSlash/updated.git`
-2. Navigate to the project directory: `cd updated`
-3. Install dependencies: `npm install`
-   
-## Run the web application :  
 
 # Technologies Used
-<img width="600" alt="Tech stacks" src="https://github.com/user-attachments/assets/3a5d1a07-488b-493a-9d47-b99b5af4ee5f" />
+<p align="center">
+    <img width="600" alt="Tech stacks" src="https://github.com/user-attachments/assets/3a5d1a07-488b-493a-9d47-b99b5af4ee5f" />
+</p>
+    
 
 # 🛳️ User Guide
 
@@ -61,12 +60,12 @@ Sign in the already registered account or can using Google credentials.
 provide the suspicious passage or file to detect and identify harmful content such as misinformation, threatening content or cyberbullying.
 
 # Features
-* Structured output: SafeBrowse generates organized specific output where it mainly focuses of 3 points:
-Highlighting the problem
-Providing corrections
-Proposing right actions
 
 * Attach button: The attach button is provided in the chat page which enables the user to send files such as documents, images, pdf, spreadsheets and audio to review.
+
+* Multi-language support: SafeBrowse offers extensive multilingual capabilities, empowering users to seamlessly navigate, comprehend, and engage with the platform in the language they feel most comfortable with.
+
+* Audio recording support: Our new audio recording feature allows you to bypass text and speak directly to the prompt field. Click the record button and let your voice be heard!.
 
 # Hi! We are 404Fixers
 ## 🤝Contributors
@@ -74,7 +73,7 @@ We are a team of four tech enthusiasts from Integral University lucknow and memb
 |Abdullah (https://github.com/IAbdullahSlash)|Darakhshan (https://github.com/Darakhshan-dev)|Faizan (https://github.com/StriverFaizan)|Rajni (https://github.com/katyayaniRK)|
 |--------------------------------------------|----------------------------------------------|-----------------------------------------|--------------------------------------|
 ![prof1](https://github.com/user-attachments/assets/81a0205b-2e64-4f54-8b77-907ddcbc6b8f)|![prof2](https://github.com/user-attachments/assets/00b08290-f79e-4e4b-a24e-dbda947d6694)|![prof3](https://github.com/user-attachments/assets/176822cd-a1f7-45a2-9048-888215b395c0)|![profpic](https://github.com/user-attachments/assets/c3d0c603-9375-4bd3-8ef7-c3ec4d25fbd0)|
-Backend Manager|Frontend Manager|Database Manager|Project Manager|
+Backend Developer|Frontend Developer|Database Manager|Project Lead|
 ![404fixers](https://github.com/user-attachments/assets/8a9d27bd-2d72-40a7-b774-582cc1330b15)
 ## SAFEBROWSE- BEFORE YOU BELIEVE
 ### Made with Love ❤️ by 404Fixers

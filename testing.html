@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeBrowse</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #311a1b;
+            --primary-light: #ceb6b6;
+            --secondary: #f5f5f5;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-light);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .navbar.transparent {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar .SB {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .get-started-btn {
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--radius);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .get-started-btn:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .navham {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 250px;
+            background-color: var(--white);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            z-index: 1001;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .navham.active {
+            transform: translateX(0);
+        }
+
+        .navham li {
+            margin-bottom: 1.5rem;
+            list-style: none;
+        }
+
+        .navham a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .navham a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23311a1b" fill-opacity="0.05" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,218.7C672,235,768,245,864,234.7C960,224,1056,192,1152,176C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-repeat: no-repeat;
+            background-position: bottom;
+            background-size: cover;
+            z-index: 0;
+        }
+
+        .hero-content {
+            z-index: 1;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero-content2 {
+            z-index: 1;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1.2s ease-out 0.3s backwards;
+        }
+
+        .hero-content2 p {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-content2 p strong {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        #getStartedBtn {
+            animation: fadeInUp 1.2s ease-out 0.6s backwards;
+        }
+
+        /* What We Do Section */
+        .what-we-do {
+            display: flex;
+            align-items: center;
+            padding: 5rem 5%;
+            background-color: var(--white);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .what-we-do.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .what-we-do-vdo {
+            flex: 1;
+            padding-right: 2rem;
+        }
+
+        .what-we-do-vdo video {
+            width: 100%;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .what-we-do-p {
+            flex: 1;
+        }
+
+        .what-we-do-p p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Revolution Section */
+        .revolution {
+            padding: 5rem 0;
+            background-color: #f9f9f9;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .revolution.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .wrapper {
+            display: flex;
+            width: calc(250px * 16);
+        }
+
+        .wrapper:first-child {
+            animation: scroll 60s linear infinite;
+        }
+
+        .wrapper:last-child {
+            animation: scroll2 50s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-250px * 8));
+            }
+        }
+
+        @keyframes scroll2 {
+            0% {
+                transform: translateX(calc(-250px * 8));
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .itemLeft, .itemRight {
+            width: 250px;
+            height: 150px;
+            background-color: var(--white);
+            margin: 1rem;
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: var(--transition);
+            transform: translateY(0);
+        }
+
+        .itemLeft:hover, .itemRight:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .itemLeft:nth-child(odd), .itemRight:nth-child(odd) {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .itemLeft:nth-child(even), .itemRight:nth-child(even) {
+            animation: float 8s ease-in-out infinite 1s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Features Section */
+        .media {
+            padding: 5rem 5%;
+            background-color: var(--white);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .media.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .media-h1 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .media-h1 h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            animation: slideInFromBottom 1s ease-out both;
+        }
+
+        .media-h1 h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background-color: var(--primary);
+            animation: lineExpand 1.5s ease-out forwards 0.5s;
+        }
+
+        @keyframes lineExpand {
+            to {
+                width: 80px;
+            }
+        }
+
+        .boxes {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .box1, .box2, .box3 {
+            flex: 1;
+            min-width: 300px;
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            background-color: var(--white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .box1:hover, .box2:hover, .box3:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .box1 i, .box2 i, .box3 i {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+        }
+
+        .box1 p, .box2 p, .box3 p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Username Section */
+        .username {
+            padding: 5rem 5%;
+            background-color: #f9f9f9;
+        }
+
+        .U1 {
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .U1.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .image {
+            flex: 1;
+            padding-right: 2rem;
+        }
+
+        .image img {
+            width: 100%;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .user {
+            flex: 1;
+        }
+
+        .user p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 5%;
+            background-color: var(--white);
+        }
+
+        .about-content {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .about-content.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about-title {
+            margin-bottom: 2rem;
+        }
+
+        .words {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .word-1, .word-2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 0 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .word-1 {
+            animation: slideInFromLeft 1.2s ease-out both;
+        }
+
+        .word-2 {
+            animation: slideInFromRight 1.2s ease-out both;
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInFromRight {
+            0% {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInFromBottom {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .about-p {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-p p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 5rem 5%;
+            background-color: #f9f9f9;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .faq-header h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: fadeInUp 1s ease-out both;
+        }
+
+        .faq-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .faq-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item.active {
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-question h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .faq-toggle {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .faq-toggle:hover {
+            color: var(--primary-light);
+        }
+
+        .faq-item .minus {
+            display: none;
+        }
+
+        .faq-item.active .minus {
+            display: inline;
+        }
+
+        .faq-item.active .plus {
+            display: none;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 1.5rem;
+        }
+
+        .faq-answer p {
+            padding-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 3rem 5%;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-section, .footer-section2 {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-section h3, .footer-section2 h3, .git h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-section h3::after, .footer-section2 h3::after, .git h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-light);
+        }
+
+        .footer-section p, .footer-section2 p {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a, .footer-section2 a, .git a {
+            color: var(--primary-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover, .footer-section2 a:hover, .git a:hover {
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+        .git {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .git svg {
+            width: 2.5rem;
+            height: 2.5rem;
+            margin-bottom: 1rem;
+            fill: var(--white);
+            transition: var(--transition);
+        }
+
+        .git svg:hover {
+            fill: var(--primary-light);
+            transform: scale(1.1);
+        }
+
+        .git hr {
+            border: none;
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.2);
+            margin: 1rem 0;
+        }
+
+        .git_a {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .git_a p {
+            margin: 0;
+        }
+
+        /* Popup Modal */
+        .popup-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .popup-content {
+            background-color: var(--white);
+            border-radius: 16px;
+            width: 90%;
+            max-width: 650px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            animation: modalFade 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-origin: center;
+            opacity: 0;
+            transform: scale(0.95);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .popup-content.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        @keyframes modalFade {
+            from {
+                opacity: 0;
+                transform: scale(0.92);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .popup-content h2 {
+            margin: 0;
+            padding: 20px;
+            font-size: 1.6rem;
+            color: var(--text-dark);
+            text-align: center;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .modal-options {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .option-card {
+            flex: 1;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #eaeaea;
+            transition: all 0.3s ease;
+        }
+
+        .option-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .with-login {
+            background-color: #f0f8ff;
+            border-color: #d1e6fa;
+            position: relative;
+        }
+
+        .with-login::before {
+            content: 'Recommended';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--primary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 5px rgba(52, 152, 219, 0.2);
+        }
+
+        .option-header {
+            margin-bottom: 15px;
+        }
+
+        .option-header h3 {
+            margin: 0;
+            font-size: 1.3rem;
+            color: var(--text-dark);
+        }
+
+        .option-features {
+            margin-bottom: 20px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            color: var(--text-light);
+        }
+
+        .feature i {
+            margin-right: 10px;
+            width: 16px;
+            text-align: center;
+        }
+
+        .feature i.fa-check {
+            color: #2ecc71;
+        }
+
+        .feature i.fa-xmark {
+            color: #e74c3c;
+        }
+
+        .modal-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .secondary-btn {
+            background-color: var(--secondary);
+            color: var(--text-dark);
+            border: 1px solid #ddd;
+        }
+
+        .secondary-btn:hover {
+            background-color: #e9e9e9;
+            transform: translateY(-2px);
+        }
+
+        .primary-btn {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.2);
+        }
+
+        .primary-btn:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.2s;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: #f5f5f5;
+        }
+
+        .close-modal:hover {
+            color: #333;
+            background-color: #e9e9e9;
+            transform: rotate(90deg);
+        }
+
+        body.modal-open {
+            overflow: hidden;
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .what-we-do, .U1 {
+                flex-direction: column;
+            }
+
+            .what-we-do-vdo, .image {
+                padding-right: 0;
+                margin-bottom: 2rem;
+            }
+
+            .boxes {
+                justify-content: center;
+            }
+
+            .box1, .box2, .box3 {
+                min-width: 250px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-icon {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content2 p {
+                font-size: 1rem;
+            }
+
+            .modal-options {
+                flex-direction: column;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-section h3::after, .footer-section2 h3::after, .git h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .modal-options {
+                flex-direction: row;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="menu-icon" id="hamburger-icon" onclick="showSidebar()">
+                &#9776;
+            </div>
+            <span><a href="#" class="SB">SafeBrowse</a></span>
+            <ul class="navham">
+                <li onclick="hideSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#footer">Contacts</a></li>
+            </ul>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#footer">Contacts</a></li>
+            </ul>
+            <button class="get-started-btn" onclick="redirectToLogin()">Register now!</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>SafeBrowse - An Analyzer</h1>
+            </div>
+
+            <div class="hero-content2">
+                <p><strong>SAFEBROWSE- BEFORE YOU BELIEVE</strong></p>
+                <p>chatbot to detect and identify harmful content.</p>
+            </div>
+            <button id="getStartedBtn" class="get-started-btn">Get Started</button>
+        </section>
+        
+        <section>
+            <div class="what-we-do reveal">
+                <div class="what-we-do-vdo"> 
+                    <video autoplay loop muted src="video.mp4"></video>
+                </div>
+                <div class="what-we-do-p">
+                  <p>SafeBrowse is an Artificial Intelligence integrated platform which provides real time chatbox interface. SafeBrowse provides you with a tool that generate text from a prompt that a user provides. It can process and extracts information from documents of various formats and user provided links and also from the uploaded pdfs and images.</p>
+                </div>
+            </div>
+        </section>
+       
+        <section class="revolution reveal">
+            <div class="wrapper">
+                <div class="itemLeft item1">SafeBrowse is an AI-powered platform designed to detect and identify harmful content across text, images, and files.</div>
+                <div class="itemLeft item2">Using cutting-edge machine learning algorithms, it analyzes content for hate speech, misinformation, cyberbullying, and explicit material.</div>
+                <div class="itemLeft item3">SafeBrowse provides real-time corrections, content moderation suggestions, and actionable insights to ensure a safer digital environment.</div>
+                <div class="itemLeft item4">SafeBrowse is an AI-powered platform designed to detect and identify harmful content across text, images, and files.</div>
+                <div class="itemLeft item5">Using cutting-edge machine learning algorithms, it analyzes content for hate speech, misinformation, cyberbullying, and explicit material.</div>
+                <div class="itemLeft item6">SafeBrowse provides real-time corrections, content moderation suggestions, and actionable insights to ensure a safer digital environment.</div>
+                <div class="itemLeft item7">SafeBrowse is an AI-powered platform designed to detect and identify harmful content across text, images, and files.</div>
+                <div class="itemLeft item8">Using cutting-edge machine learning algorithms, it analyzes content for hate speech, misinformation, cyberbullying, and explicit material.</div>
+              </div>
+              <div class="wrapper">
+                <div class="itemRight item1">Using cutting-edge machine learning algorithms, it analyzes content for hate speech, misinformation, cyberbullying, and explicit material.</div>
+                <div class="itemRight item2">SafeBrowse provides real-time corrections, content moderation suggestions, and actionable insights to ensure a safer digital environment.</div>
+                <div class="itemRight item3">SafeBrowse is an AI-powered platform designed to detect and identify harmful content across text, images, and files.</div>
+                <div class="itemRight item4">Using cutting-edge machine learning algorithms, it analyzes content for hate speech, misinformation, cyberbullying, and explicit material.</div>
+                <div class="itemRight item5">SafeBrowse provides real-time corrections, content moderation suggestions, and actionable insights to ensure a safer digital environment.</div>
+                <div class="itemRight item6">SafeBrowse is an AI-powered platform designed to detect and identify harmful content across text, images, and files.</div>
+                <div class="itemRight item7">Using cutting-edge machine learning algorithms, it analyzes content for hate speech, misinformation, cyberbullying, and explicit material.</div>
+                <div class="itemRight item8">SafeBrowse provides real-time corrections, content moderation suggestions, and actionable insights to ensure a safer digital environment.</div>
+              </div>
+        </section>
+    
+        <div class="media reveal">
+            <div class="media-h1">
+              <h1>Features You Get!</h1>
+            </div>
+            <div class="boxes">
+                <!-- First box -->
+                <div class="box1">
+                    <i class="fa-solid fa-paperclip"></i>
+                    <p>Providing you with an attachment option to support various formats of contents such as documents(.docs), PDFs(.pdf), spreadsheets(.txt), templates (PPT), images and other file formats. Note: maximum file size should be 7 MB.</p>
+                </div>
+                
+                <!-- Second box -->
+                <div class="box2">
+                    <i class="fa-solid fa-language"></i>                    
+                    <p>SafeBrowse offers extensive multilingual capabilities, empowering users to seamlessly navigate, comprehend, and engage with the platform in the language they feel most comfortable with.</p>
+                </div>
+
+                <!-- Third box -->
+                <div class="box3">
+                    <i class="fa-solid fa-microphone"></i>
+                    <p>Our new audio recording feature allows you to bypass text and speak directly to the prompt field. Click the record button and let your voice be heard!</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="username">
+            <div class="U1 reveal">
+                <div class="image">
+                  <img src="output.svg" alt="Risk Analysis Diagram">
+                </div>
+                <div class="user">
+                    <p>SafeBrowse's structured risk analysis and correction feature ensures a proactive approach to online safety by systematically analyzing content and guiding users toward secure interactions. It functions in three essential steps: first, it identifies and highlights potentially harmful or risky content, alerting users to threats such as misinformation, inappropriate material, or malicious elements. Next, it provides corrective suggestions, offering revised, safer versions of flagged content to maintain integrity and security. Finally, it recommends appropriate actions to mitigate risks, helping users navigate online spaces responsibly. This structured approach makes SafeBrowse a reliable tool for individuals, businesses, and organizations committed to a safer digital experience.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="about" class="about">
+            <div class="about-content reveal">
+                <div class="about-title">
+                    <div class="words">
+                        <h2 class="word-1">About</h2>
+                        <h2 class="word-2">Us</h2>
+                    </div>
+                    <div class="container">
+                        <div class="about-p">
+                            <p>We are a team of tech enthusiasts with passion in solving real life problems through technology. We are a committed group of students who wants to make the internet browsing safe. Our mission is to create surfing on internet a safe experience for its users. We help you in doing so by providing you with a platform made exclusively for your safety.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="faq-container">
+                <div class="faq-header">
+                    <h2>FAQs</h2>
+                    <h1>Frequently Asked Questions</h1>
+                </div>
+
+                <div class="faq-items">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What do you mean by harmful content?</h3>
+                            <button class="faq-toggle">
+                                <span class="minus">-</span>
+                                <span class="plus">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Harmful content refers to any material—whether text, images, videos, or audio—that can cause physical, emotional, psychological, or societal harm to individuals or communities. This includes content that promotes violence, abuse, hate speech, discrimination, or harassment, as well as misinformation that misleads people on critical issues such as health, politics, or safety.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What service does SafeBrowse provide?</h3>
+                            <button class="faq-toggle">
+                                <span class="minus">-</span>
+                                <span class="plus">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>SafeBrowse provides AI-powered content analysis for text, images, and files to detect and identify any type of harmful content. Our platform offers real-time scanning and detailed reports to help users make informed decisions about online content.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Is there any cost associated in using the platform?</h3>
+                            <button class="faq-toggle">
+                                <span class="minus">-</span>
+                                <span class="plus">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>No, Safebrowse is a completely free platform which is built for the benefit of public and a fact checker tool against the malicious content online.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What file types does SafeBrowse support?</h3>
+                            <button class="faq-toggle">
+                                <span class="minus">−</span>
+                                <span class="plus">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>SafeBrowse supports a wide range of file types including images (JPG, PNG, GIF), documents (PDF, DOCX, PPT, TXT), spreadsheets (XLSX, CSV), and other common file formats. Maximum file size is 7MB per file.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Is my data secure with SafeBrowse?</h3>
+                            <button class="faq-toggle">
+                                <span class="minus">-</span>
+                                <span class="plus">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we take data security very seriously. All uploaded content is encrypted during transmission and storage. We do not store your content longer than necessary for analysis, and we never share your data with third parties without your explicit consent.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-section2">
+                <h3>Support</h3>
+                <p>FAQs</p>
+            </div>
+            <div class="footer-section">
+              <h3>Contact Us</h3>
+              <p>Email: <a href="mailto:support@safebrowse.com">support@safebrowse.com</a></p>
+            </div>
+            <div class="git">
+                <!-- Modern GitHub Icon SVG -->
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg><br><br><br>
+                <hr>
+                <div class="git_a">
+                <p><a href="https://github.com/Darakhshan-dev">Darakhshan</a></p>
+                <p><a href="https://github.com/IAbdullahSlash">Abdullah</a></p>
+                <p><a href="https://github.com/katyayaniRK">katyayani</a></p>
+                <p><a href="https://github.com/StriverFaizan">Faizan</a></p>
+                <p>#Team 404 Fixers</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+ 
+    <!-- Fixed Popup Modal -->
+    <div id="popupModal" class="popup-modal">
+        <div class="popup-content">
+            <span class="close-modal">&times;</span>
+            <h2>Choose Your Experience</h2>
+            <div class="modal-options">
+                <div class="option-card without-login">
+                    <div class="option-header">
+                        <h3>Basic Access</h3>
+                    </div>
+                    <div class="option-features">
+                        <div class="feature">
+                            <i class="fa-solid fa-xmark"></i>
+                            <span>Structured output</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fa-solid fa-xmark"></i>
+                            <span>Attach files</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fa-solid fa-check"></i>
+                            <span>Limited interaction</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fa-solid fa-check"></i>
+                            <span>Text-analysis only</span>
+                        </div>
+                    </div>
+                    <button id="continueWithoutLoginBtn" class="modal-btn secondary-btn">
+                        Continue without Login
+                    </button>
+                </div>
+                
+                <div class="option-card with-login">
+                    <div class="option-header">
+                        <h3>Full Access</h3>
+                    </div>
+                    <div class="option-features">
+                        <div class="feature">
+                            <i class="fa-solid fa-check"></i>
+                            <span>Structured output</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fa-solid fa-check"></i>
+                            <span>Attach files</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fa-solid fa-check"></i>
+                            <span>Attach images</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fa-solid fa-check"></i>
+                            <span>Audio support</span>
+                        </div>
+                    </div>
+                    <button id="continueWithLoginBtn" class="modal-btn primary-btn">
+                        Continue with Login
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Reveal animations on scroll
+        window.addEventListener("scroll", reveal);
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            
+            for(var i = 0; i < reveals.length; i++) {
+                var windowheight = window.innerHeight;
+                var revealtop = reveals[i].getBoundingClientRect().top;
+                var revealpoint = 150;
+                
+                if(revealtop < windowheight - revealpoint) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+
+        // Navbar transparency on scroll
+        window.addEventListener('scroll', function() {
+            var navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('transparent');
+            } else {
+                navbar.classList.remove('transparent');
+            }
+        });
+
+        // Mobile menu functionality
+        function showSidebar() {
+            document.querySelector('.navham').classList.add('active');
+        }
+        
+        function hideSidebar() {
+            document.querySelector('.navham').classList.remove('active');
+        }
+
+        // Modal functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('popupModal');
+            const getStartedBtn = document.getElementById('getStartedBtn');
+            const closeModal = document.querySelector('.close-modal');
+            const continueWithoutLoginBtn = document.getElementById('continueWithoutLoginBtn');
+            const continueWithLoginBtn = document.getElementById('continueWithLoginBtn');
+            
+            // Open modal when Get Started is clicked
+            if (getStartedBtn) {
+                getStartedBtn.addEventListener('click', function() {
+                    modal.style.display = 'flex';
+                    document.body.classList.add('modal-open');
+                    
+                    // Add animation class
+                    setTimeout(() => {
+                        document.querySelector('.popup-content').classList.add('show');
+                    }, 10);
+                });
+            }
+            
+            // Close modal when X is clicked
+            if (closeModal) {
+                closeModal.addEventListener('click', function() {
+                    document.querySelector('.popup-content').classList.remove('show');
+                    
+                    setTimeout(() => {
+                        modal.style.display = 'none';
+                        document.body.classList.remove('modal-open');
+                    }, 300);
+                });
+            }
+            
+            // Continue without login
+            if (continueWithoutLoginBtn) {
+                continueWithoutLoginBtn.addEventListener('click', function() {
+                    document.querySelector('.popup-content').classList.remove('show');
+                    setTimeout(() => {
+                        modal.style.display = 'none';
+                        document.body.classList.remove('modal-open');
+                    }, 300);
+                    window.location.href = 'url-checker.html';
+                });
+            }
+            
+            // Continue with login
+            if (continueWithLoginBtn) {
+                continueWithLoginBtn.addEventListener('click', function() {
+                    document.querySelector('.popup-content').classList.remove('show');
+                    setTimeout(() => {
+                        modal.style.display = 'none';
+                        document.body.classList.remove('modal-open');
+                    }, 300);
+                    window.location.href = 'login.html';
+                });
+            }
+            
+            // Close modal when clicking outside
+            window.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    document.querySelector('.popup-content').classList.remove('show');
+                    
+                    setTimeout(() => {
+                        modal.style.display = 'none';
+                        document.body.classList.remove('modal-open');
+                    }, 300);
+                }
+            });
+            
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && modal.style.display === 'flex') {
+                    document.querySelector('.popup-content').classList.remove('show');
+                    
+                    setTimeout(() => {
+                        modal.style.display = 'none';
+                        document.body.classList.remove('modal-open');
+                    }, 300);
+                }
+            });
+        });
+
+        // FAQ functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const toggle = item.querySelector('.faq-toggle');
+                const answer = item.querySelector('.faq-answer');
+                
+                toggle.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all FAQ items
+                    faqItems.forEach(faqItem => {
+                        faqItem.classList.remove('active');
+                        faqItem.querySelector('.faq-answer').style.maxHeight = null;
+                    });
+                    
+                    // If the clicked item wasn't active, open it
+                    if (!isActive) {
+                        item.classList.add('active');
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    }
+                });
+            });
+        });
+
+        // Redirect to login page
+        function redirectToLogin() {
+            window.location.href = 'login.html';
+        }
+    </script>
+</body>
+
+</html>
+

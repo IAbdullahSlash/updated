@@ -4,227 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <title>SafeBrowse</title>
-    
     <link rel="stylesheet" href="styles/page1.css">
-    <style>
-        /* Modern Popup Modal Styles */
-        .popup-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(5px);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .popup-content {
-            background-color: #ffffff;
-            border-radius: 16px;
-            width: 90%;
-            max-width: 650px;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-            animation: modalFade 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            transform-origin: center;
-            opacity: 0;
-            transform: scale(0.95);
-            transition: all 0.3s ease;
-        }
-        
-        .popup-content.show {
-            opacity: 1;
-            transform: scale(1);
-        }
-        
-        @keyframes modalFade {
-            from {
-                opacity: 0;
-                transform: scale(0.92);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
-        .modal-options {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            padding: 0 20px 20px;
-        }
-        
-        @media (min-width: 768px) {
-            .modal-options {
-                flex-direction: row;
-            }
-        }
-        
-        .option-card {
-            flex: 1;
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid #eaeaea;
-            transition: all 0.3s ease;
-        }
-        
-        .option-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .with-login {
-            background-color: #f0f8ff;
-            border-color: #d1e6fa;
-            position: relative;
-        }
-        
-        .with-login::before {
-            content: 'Recommended';
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #311a1b;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            box-shadow: 0 2px 5px rgba(52, 152, 219, 0.2);
-        }
-        
-        .option-header {
-            margin-bottom: 15px;
-        }
-        
-        .option-header h3 {
-            margin: 0;
-            font-size: 1.3rem;
-            color: #333;
-        }
-        
-        .option-features {
-            margin-bottom: 20px;
-        }
-        
-        .feature {
-            display: flex;
-            align-items: center;
-            margin-bottom: 12px;
-            color: #444;
-        }
-        
-        .feature i {
-            margin-right: 10px;
-            width: 16px;
-            text-align: center;
-        }
-        
-        .feature i.fa-check {
-            color: #2ecc71;
-        }
-        
-        .feature i.fa-xmark {
-            color: #e74c3c;
-        }
-        
-        .modal-btn {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 0.95rem;
-        }
-        
-        .secondary-btn {
-            background-color: #f5f5f5;
-            color: #333;
-            border: 1px solid #ddd;
-        }
-        
-        .secondary-btn:hover {
-            background-color: #e9e9e9;
-            transform: translateY(-2px);
-        }
-        
-        .primary-btn {
-            background: #311a1b;
-            color: white;
-            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.2);
-        }
-        
-        .primary-btn:hover {
-            background: #ceb6b6;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(52, 152, 219, 0.3);
-        }
-        
-        .popup-content h2 {
-            margin: 0;
-            padding: 20px;
-            font-size: 1.6rem;
-            color: #222;
-            text-align: center;
-            border-bottom: 1px solid #eaeaea;
-        }
-        
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 24px;
-            color: #666;
-            cursor: pointer;
-            transition: all 0.2s;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background-color: #f5f5f5;
-        }
-        
-        .close-modal:hover {
-            color: #333;
-            background-color: #e9e9e9;
-            transform: rotate(90deg);
-        }
-        
-        body.modal-open {
-            overflow: hidden;
-        }
-    </style>
+    <title>SafeBrowse</title>
 </head>
 
 <body>
     <header>
         <nav class="navbar">
-            <!-- Hamburger Icon -->
         <div class="menu-icon" id="hamburger-icon" onclick="showSidebar()">
-            &#9776; <!-- Hamburger icon -->
+            &#9776;
         </div>
         <span><a href="page1.html" class="SB">SafeBrowse</a></span>
             <ul class="navham">
-                <li onclick = hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26" ><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
+                <li onclick="hideSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26" ><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#footer">Contacts</a></li>
             </ul>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
+                <li><a href="#">About Us</a></li>
                 <li><a href="#footer">Contacts</a></li>
             </ul>
             <button class="get-started-btn" onclick="redirectToLogin()">Register now!</button>
@@ -247,17 +46,17 @@
         <section>
             <div class="what-we-do reveal">
                 <div class="what-we-do-vdo"> 
-                    <video autoplay loop muted src="video.mp4"></video>
+                    <video autoplay loop muted src="media/video.mp4"></video>
                 </div>
                 <div class="what-we-do-p">
-                  <p>SafeBrowse Chatbot helps you by taking the input of any format and you'll receive a detailed report highlighting potential misinformation, biased narratives, or harmful language and providing you with the immediate actions as well as suggestions you can follow. Stay informed, stay safe, and browse with confidence—SafeBrowse is here to empower you with the truth..</p>
+                  <p>SafeBrowse is an Artificial Intelligence integrated platform which provides real time chatbox interface. SafeBrowse provides you with a tool that generate text from a prompt that a user provides. It can process and extracts information from documents of various formats and user provided links and also from the uploaded pdfs and images </p>
                 </div>
             </div>
         </section>
        
         
 
-        <section class="revolution  reveal">
+        <section class="revolution reveal">
             <div class="wrapper">
                 <div class="itemLeft item1">SafeBrowse is an AI-powered platform designed to detect and identify harmful content across text, images, and files. </div>
                 <div class="itemLeft item2">Using cutting-edge machine learning algorithms, it analyzes content for hate speech, misinformation, cyberbullying, and explicit material.</div>
@@ -279,23 +78,7 @@
                 <div class="itemRight item8">SafeBrowse provides real-time corrections, content moderation suggestions, and actionable insights to ensure a safer digital environment.</div>
               </div>
         </section>
-       
-        <section class="username">
-            <div class="U1  reveal">
-                <div class="image">
-                  <img src="output.svg">
-                </div>
-                <div class="user">
-                    <p>SafeBrowse is an Artificial Intelligence integrated platform which provides real time chatbox interface. SafeBrowse
-                        provides you with a tool that generate text from a prompt that a user provides. It can process and extracts information 
-                        from documents of various formats and user provided links and also from
-                        the uploaded pdfs and images. In SafeBrowse you can use the power of text prompt of any news
-                        article, research paper or just a rumour and check if it contains any false, misinformation or
-                        any type of harmful content.
-                    </p>
-                </div>
-            </div>
-        </section>
+    
         <div class="media reveal">
 
             <div class="media-h1">
@@ -306,35 +89,48 @@
                 <div class="box1">
                     <i class="fa-solid fa-paperclip fa-2x"></i>
 
-                    <p>Providing you with an option to attach documents(.docs), PDFs(.pdf), spreadsheets(.txt), images (Max.image size is: 7MB) and other file formats.
+                    <p align="center">Providing you with an attachment option to support various formats of contents such as documents(.docs), PDFs(.pdf), spreadsheets(.txt), templates (PPT), images and other file formats.
+                        Note: maximum file size should be 7 MB.
                    </p>
                     </div>
                 
                  <!-- Second box -->
                 <div class="box2">
                     <i class="fa-solid fa-language fa-2x"></i>                    
-                    <p>SafeBrowse offers extensive multilingual capabilities, empowering users to seamlessly navigate, comprehend, and engage with the platform in the language they feel most comfortable with.</p>
+                    <p align="center">SafeBrowse offers extensive multilingual capabilities, empowering users to seamlessly navigate, comprehend, and engage with the platform in the language they feel most comfortable with.</p>
                     </div>
 
                  <!-- Third box -->
                 <div class="box3">
                     <i class="fa-solid fa-microphone fa-2x"></i>
-                    <p>Our new audio recording feature allows you to bypass text and speak directly to the prompt field. Click the record button and let your voice be heard!</p>
+                    <p align="center">Our new audio recording feature allows you to bypass text and speak directly to the prompt field. Click the record button and let your voice be heard!</p>
                </div>
             </div>
         </div>
+
+        <section class="username">
+            <div class="U1 reveal">
+                <div class="image">
+                  <img src="media/output.svg">
+                </div>
+                <div class="user">
+                    <p>SafeBrowse's structured risk analysis and correction feature ensures a proactive approach to online safety by systematically analyzing content and guiding users toward secure interactions. It functions in three essential steps: first, it identifies and highlights potentially harmful or risky content, alerting users to threats such as misinformation, inappropriate material, or malicious elements. Next, it provides corrective suggestions, offering revised, safer versions of flagged content to maintain integrity and security. Finally, it recommends appropriate actions to mitigate risks, helping users navigate online spaces responsibly. This structured approach makes SafeBrowse a reliable tool for individuals, businesses, and organizations committed to a safer digital experience.
+                    </p>
+                </div>
+            </div>
+        </section>
         
-        <section  class="about">
+        <section class="about">
             <div class="about-content reveal">
                     
                     
-                    <div class="about-title ">
+                    <div class="about-title">
                         <div class="words">
                             <h2 class="word-1">About </h2>
                             
                             <h2 class="word-2">Us</h2>
                         </div>
-                        <div class="container ">
+                        <div class="container">
                             
                             <div class="about-p">
                                 <p>We are a team of tech enthusiasts with passion in solving real life problems through technology. We are a committed group of students who wants to make the internet browsing safe. Our mission is to create surfing on internet a safe experience for its users. We help you in doing so by providing you with a platform made exclusively for your safety.</p>
@@ -425,14 +221,14 @@
         </section>
     </main>
     <footer>
-        <div id= "footer" class="footer-content">
+        <div id="footer" class="footer-content">
             <div class="footer-section2">
                 <h3>Support</h3>
                 <p>FAQs</p>
             </div>
             <div class="footer-section">
               <h3>Contact Us</h3>
-              <p>Email: SafeBrowse.contact@gmail.com</p>
+              <p>Email: support@safebrowse.com</a></p>
             </div>
             <div class="git">
                 <i class="fa-brands fa-github"></i><br><br><br>
@@ -511,151 +307,10 @@
         </div>
     </div>
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!-- Scripts -->
     <script src="scripts/page1.js"></script>
-    <script type="text/javascript">
-        
-        window.addEventListener("scroll",reveal);
-        function reveal(){
-          var reveals =document.querySelectorAll('.reveal');
-        
-          for(var i=0;i<reveals.length;i++){
-            var windowheight = window.innerHeight;
-            var revealtop = reveals[i].getBoundingClientRect().top;
-            var revealpoint =150;
-        
-            if(revealtop < windowheight - revealpoint){
-              reveals[i].classList.add('active');
-            }
-            else{
-              reveals[i].classList.remove('active');
-            }
-        }
-        }
-
-        // Modal functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const modal = document.getElementById('popupModal');
-            const getStartedBtn = document.getElementById('getStartedBtn');
-            const closeModal = document.querySelector('.close-modal');
-            
-            // Define the continue functions if they don't exist
-            if (typeof continueWithoutLogin !== 'function') {
-                window.continueWithoutLogin = function() {
-                    document.querySelector('.popup-content').classList.remove('show');
-                    setTimeout(() => {
-                        modal.style.display = 'none';
-                        document.body.classList.remove('modal-open');
-                    }, 300);
-                    window.location.href = 'url-checker.html';
-                };
-            }
-            
-            if (typeof continueWithLogin !== 'function') {
-                window.continueWithLogin = function() {
-                    document.querySelector('.popup-content').classList.remove('show');
-                    setTimeout(() => {
-                        modal.style.display = 'none';
-                        document.body.classList.remove('modal-open');
-                    }, 300);
-                    window.location.href = 'login.html';
-                };
-            }
-            
-            // Open modal when Get Started is clicked
-            if (getStartedBtn) {
-                getStartedBtn.addEventListener('click', function() {
-                    modal.style.display = 'flex';
-                    document.body.classList.add('modal-open');
-                    
-                    // Add animation class
-                    setTimeout(() => {
-                        document.querySelector('.popup-content').classList.add('show');
-                    }, 10);
-                });
-            }
-            
-            // Close modal when X is clicked
-            if (closeModal) {
-                closeModal.addEventListener('click', function() {
-                    document.querySelector('.popup-content').classList.remove('show');
-                    
-                    setTimeout(() => {
-                        modal.style.display = 'none';
-                        document.body.classList.remove('modal-open');
-                    }, 300);
-                });
-            }
-            
-            // Close modal when clicking outside
-            window.addEventListener('click', function(event) {
-                if (event.target === modal) {
-                    document.querySelector('.popup-content').classList.remove('show');
-                    
-                    setTimeout(() => {
-                        modal.style.display = 'none';
-                        document.body.classList.remove('modal-open');
-                    }, 300);
-                }
-            });
-            
-            // Close modal with Escape key
-            document.addEventListener('keydown', function(event) {
-                if (event.key === 'Escape' && modal.style.display === 'flex') {
-                    document.querySelector('.popup-content').classList.remove('show');
-                    
-                    setTimeout(() => {
-                        modal.style.display = 'none';
-                        document.body.classList.remove('modal-open');
-                    }, 300);
-                }
-            });
-        });
-    </script>
-
-    <!-- FAQ JavaScript -->
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-
-
-            const faqItems = document.querySelectorAll('.faq-item');
-            
-            faqItems.forEach(item => {
-                const toggle = item.querySelector('.faq-toggle');
-                const answer = item.querySelector('.faq-answer');
-                
-                toggle.addEventListener('click', () => {
-                    const isActive = item.classList.contains('active');
-                    
-                    // Close all FAQ items
-                    faqItems.forEach(faqItem => {
-                        faqItem.classList.remove('active');
-                        faqItem.querySelector('.faq-answer').style.maxHeight = null;
-                    });
-                    
-                    // If the clicked item wasn't active, open it
-                    if (!isActive) {
-                        item.classList.add('active');
-                        answer.style.maxHeight = answer.scrollHeight + 'px';
-                    }
-                });
-            });
-        });
-    </script>
-    <!--navbar scrolling-->
-    <script>
-        window.addEventListener('scroll', function() {
-        var navbar = document.querySelector('.navbar');  
-        var secondPage = document.querySelector('.username'); 
-        var secondPage = document.querySelector('.hero'); 
-        if (window.scrollY > secondPage.offsetTop) {
-          navbar.classList.add('transparent');  
-        } else {
-        navbar.classList.remove('transparent'); 
-  }
-});
-
-    </script>
 </body>
 
 </html>
