@@ -59,10 +59,12 @@ SafeBrowse is an AI-powered web based chatbot committed to creating a safer digi
   </td>
  </tr>
  <tr>
+  <td aliign="center">
   <img width="755" alt="P3" src="https://github.com/user-attachments/assets/992d353f-3e2a-4758-8e07-5dded57ad0da" />
   
   ## The Chatbot
   Provide the suspicious passage or file to detect and identify harmful content such as misinformation, threatening content or cyberbullying.
+  </td>
  </tr>
 </table>
 
