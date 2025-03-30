@@ -33,18 +33,32 @@ SafeBrowse is an AI-powered web based chatbot committed to creating a safer digi
     
 
 # 🛳️ User Guide
-|<img width="755" alt="P1" src="https://github.com/user-attachments/assets/61410676-8f67-45c6-8243-52ea0814e763" />|<img width="755" alt="P4" src="https://github.com/user-attachments/assets/7dd655d6-3047-4b9c-b16c-317a3d642de6" />|
-## SafeBrowse main page |## User options|
-|The main landing page to get stated.|Select the preferred option from Continue without login and Continue with login.|
-|------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
-
-
-|<img width="755" alt="P5" src="https://github.com/user-attachments/assets/d7e6d1d1-9a11-4b58-9b51-d4e1b20eed58" />|<img width="755" alt="p2" src="https://github.com/user-attachments/assets/96c16564-5a26-4edc-a4e7-d8cd3c8ed259" />
-|------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
-## Sign-up screen|## Sign-in screen
-|Create an account to get started and access all features.|Sign in the already registered account or can using Google credentials.|
-
-
+<table style="width: 100%;">
+ <tr>
+  <td align="center" width="25%">
+  <img width="755" alt="P1" src="https://github.com/user-attachments/assets/61410676-8f67-45c6-8243-52ea0814e763" /><br>
+  <b>Sign-up screen</b><br>
+  The main landing page to get stated.
+  </td>
+  <td align="center" width="25%">
+   <img width="755" alt="P4" src="https://github.com/user-attachments/assets/7dd655d6-3047-4b9c-b16c-317a3d642de6" /><br>
+   <b>User options</b><br>
+   Select the preferred option from Continue without login and Continue with login.
+  </td>
+ </tr>
+ <tr>
+  <td align="center" width="25%">
+ <img width="755" alt="P5" src="https://github.com/user-attachments/assets/d7e6d1d1-9a11-4b58-9b51-d4e1b20eed58" /><br>
+  <b>Sign-up screen</b><br>
+  Create an account to get started and access all features.
+  </td>
+  <td align="center" width="25%">
+   <img width="755" alt="p2" src="https://github.com/user-attachments/assets/96c16564-5a26-4edc-a4e7-d8cd3c8ed259" /><br>
+   <b>Sign-in screen</b><br>
+   Sign in the already registered account or can using Google credentials.
+  </td>
+ </tr>
+</table>
 <img width="755" alt="P3" src="https://github.com/user-attachments/assets/992d353f-3e2a-4758-8e07-5dded57ad0da" />
 
 ## The Chatbot
