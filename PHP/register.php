@@ -93,7 +93,7 @@
     
     if ($insertStmt->execute()) {
         // Redirect to index.html after successful registration
-        header("Location: /Hackathon/updated/index.html");
+        header("Location: /Hackathon/updated/index.php");
         exit();
     } else {
         die("Error: " . $conn->error);

@@ -36,17 +36,17 @@
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
 
-    if($user && password_verify($pword, $user["password"])) {
+    if($user && password_verify($pword, $user["hash_password"])) {
         $_SESSION["user_id"] = $user["id"];
         $_SESSION["username"] = $user["username"];
-        // session_write_close();
-        header("Location: /Hackthon/updated/index.html");
+        $_SESSION["logged_in"] = true;
+        header("Location: /Hackathon/updated/index.php");
         exit();
     
         } else {
         $_SESSION["error"]["uname"] = "Invalid username or password.";
        
-        header("Location: /Hackthon/updated/login.php");
+        header("Location: /Hackathon/updated/login.php");
         exit();
      }
     

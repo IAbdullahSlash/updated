@@ -56,7 +56,7 @@
     ></script>
     <link rel="stylesheet" href="styles/login.css"/>
     <title>Sign in & Sign up Form</title>
-    <style> .error {color:red; font-size: 10px; } </style>
+    <style> .error {color:red; font-size: 10px; width:200px; height:25px} </style>
   </head>
   <body>
     <div class="container">
@@ -71,14 +71,14 @@
               <i class="fas fa-user"></i>
               <input type="text" placeholder="Username" name="uname" 
               value="<?php echo htmlspecialchars($old_input['uname'] ?? ''); ?>" />
-              <span class="error"><?php echo htmlspecialchars($unameError); ?> </span>
+              <div class="error" ><?php echo htmlspecialchars($unameError); ?> </div>
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
               <input type="password" placeholder="Password" name="pword" />
               <span class="error"><?php echo $pwordError; ?> </span>
             </div>
-            <a href="#" style="color:grey; left:0;">Forget Password?</a>
+            <a href="forgot_password.php" style="color:grey; left:0;">Forget Password?</a>
             <!-- LOgin BTn -->
             <input type="submit" value="Login" class="btn solid" />
             
@@ -132,7 +132,7 @@
             <hr style="width:130px;">
             <div class="social-media">
               </a>
-              <a href="#"  class="social-icon">
+              <a href="google-login.php"  class="social-icon">
                 <i class="fab fa-google"></i>
               </a>
               </a>

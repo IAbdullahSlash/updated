@@ -86,19 +86,32 @@
                 <div class="nav-links">
 
                     <ul class="nav-links">
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="about.php">About us</a></li>
+                    
 
                     <?php if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === true): ?>
+
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="about.php">About us</a></li>
+
                         <li class="user-info">
                             👋 Welcome, <strong><?php echo htmlspecialchars($_SESSION["username"]); ?></strong>
                         </li>
+
                         <li>
                             <a href="logout.php" class="logout-btn">Logout</a>
                         </li>
                 <?php else: ?>
                     <li>
-                        <a href="register.php" class="register-btn">Register now</a>
+                    
+                        <nav class="nav">
+                           
+                            <div class="nav-links">
+                                <a href="index.php">Home</a>
+                                <a href="page1.html" onclick="scrollToAbout()">About us</a>
+                                <a href="login.php" class="btn-register">Register now</a>
+                            </div>
+                        </nav>
+                   
                     </li>
                     <?php endif; ?>
                     </ul>
@@ -109,7 +122,11 @@
         <section class="main">
             <div class="main-title">
                 <h1>
-                    <span class="typing-text">Hello there, username!</span>
+                    <?php if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === true):?>
+                    <span class="typing-text">Hello there, <?php echo htmlspecialchars($_SESSION["username"])."👋"  ; ?></span>
+                    <?php else: ?>
+                        <span class="typing-text">Hello there! Welcome 👋 </span> 
+                        <?php endif; ?>
                 </h1>
             </div>
             <p class="subtitle">How may I help you?</p>
