@@ -625,7 +625,8 @@ nav {
     height: 45vh;
     justify-content: center;
     display:grid;
-   
+   align-items: center;
+   margin: 0;
   }
   .box1 p{
     font-size: 15px;
@@ -1039,6 +1040,7 @@ body.modal-open {
   transform: translateY(-2px);
 }
 
+
 /* Responsive styles for popup */
 @media (max-width: 768px) {
   .popup-content {
@@ -1184,7 +1186,6 @@ body.modal-open {
   line-height: 1.6;
   font-size: 1rem;
 }
-
 .popup-modal {
   display: none;
   position: fixed;
@@ -1381,100 +1382,10 @@ body.modal-open {
   overflow: hidden;
 }
 
-/* Responsive styles for FAQ section */
-@media (max-width: 768px) {
-  .faq-header h1 {
-    font-size: 2rem;
-  }
-  
-  .faq-question h3 {
-    font-size: 1.1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .faq-section {
-    padding: 3rem 1rem;
-  }
-  
-  .faq-header h1 {
-    font-size: 1.8rem;
-  }
-  
-  .faq-question {
-    padding: 1.2rem;
-  }
-  
-  .faq-question h3 {
-    font-size: 1rem;
-  }
-}
 
 
 
 
-
-/* Mobile styles */
-@media (max-width: 468px) {
-  .hero-content h1{
-      font-size:2rem;
-      flex-direction: column;
-      margin-left:9%;
- 
-  }
-  .why-needed{
-      height:90vh;
-     
-  }
-
-  .why-needed-1 p{
-      font-size: 16px;
-      margin-bottom: 5rem;
-  }
-  .why-needed-img{
-      margin-top: 5vh;
-  }
- 
-  .AC {
-    width: 100%;
-    height: auto;
-  }
-  .footer-content{
-      gap:13rem;
-  }
-  .username{
-    height:190vh;
-    width:100%;
-    justify-content: center;
-    align-items: center;
-  }
-  .U1{
-    display: block;
-    width:90vw;
-    height:95vh;
-    
-}
-.image{
-  width:35vw;
-  height:30vh ;
-}
-.username image{
-  height:23vh;
-  width:26vw;
-}
-.user{
-  width:45vw;
-  height:35vh;
-}
-.user p{
-  width:45vw;
-  height:35vh;
-  line-height: 1.49;
-
-  font-size: 15px;
-}
-
-}
 @media (max-width: 646px) {
   .nav-links li{
     display: none;
@@ -1493,8 +1404,6 @@ body.modal-open {
       margin-left: 0;
     }
     .hero-content h1{
-      margin-left: -1rem;
-
       font-size: 2rem;
     }
     .U1{
@@ -1527,7 +1436,8 @@ body.modal-open {
     }
     .username{
       width:100vw;
-      height:75vh;
+      height:90vh;
+      padding:2rem 1rem;
    } 
    .about {
     height:100vh;
@@ -1538,19 +1448,30 @@ body.modal-open {
       height:50vh;
       
     }
-    .about-p p{
-      width:70vw;
-      height:30vh;
-      font-size:17px;
-      line-height: 1.55;
-     
-    }
-    .word-1{
-      font-size:700;
-    }
-    .word-2{
-      font-size:700;
-    }
+    .U1{
+      display: block;
+      width:25vw;
+      height:95vh;
+      
+  }
+ 
+  .username image{
+    height:20vh;
+    width:20vw;
+  }
+  .about-p p{
+    width:70vw;
+    height:30vh;
+    font-size:17px;
+    line-height: 1.55;
+   
+  }
+  .word-1{
+    font-size:700;
+  }
+  .word-2{
+    font-size:700;
+  }
 }
 @media (min-width: 646px) and (max-width: 768px) {
   .nav-links li{
@@ -1621,23 +1542,21 @@ body.modal-open {
       width:100vw;
       height:75vh;
    } 
-   .why-needed-1{
-      margin-left: 0;
-   } 
-   .why-needed p{
-      font-size: 20px;
-      line-height: 1.2;
-      
-   }
+  
    
-   .why-needed-img img{
-      height:15vh;
-      margin-top: 3vh;
-      margin-left: 0;
-   }
-   .about{
-      display:block;
-   }
+   .about-p p{
+    width:70vw;
+    height:30vh;
+    font-size:17px;
+    line-height: 1.55;
+   
+  }
+  .word-1{
+    font-size:700;
+  }
+  .word-2{
+    font-size:700;
+  }
    .about-content {
     flex-direction: column;
   }
@@ -1658,12 +1577,7 @@ body.modal-open {
       width:100%;
       height:10vh;
    }
-   .about-title h2 {
-      font-size: 3rem;
-      width:70vw;
-      height:10vh;
-      margin-left: 12vw;
-   }
+  
    .media-div{
       display: block;
    }
@@ -1696,15 +1610,21 @@ body.modal-open {
       margin-bottom: 20vw;
       margin-top: 0;
   }
-  .what-we-do p {
+  .what-we-do-p {
      width:90vw;
      height:25vh;
      line-height: 1.4;
      font-size: 17px;
      margin-top: 0; 
+     display: grid;
+     justify-content: center;
+     align-items: center;
    }
- 
- 
+   .what-we-do-vdo{
+    height:45vh;
+    width:70vw;
+    margin-left: 8vw;
+}
   .footer-content{
       gap:5rem;
   }
@@ -1846,4 +1766,152 @@ body.modal-open {
 .reveal.active{
   transform:translateY(0px);
   opacity: 1;
+}
+/* Mobile styles */
+@media (max-width: 468px) {
+  .navbar{
+      width:100%;
+  }
+  .hero-content h1{
+      font-size: 6.9vw;
+
+      text-align: center;
+ 
+  }
+  .what-we-do p{
+    font-size: 16px;
+  }
+ 
+  .what-we-do {
+    height:130vh;
+  }
+  .what-we-do video{
+    height:55vh;
+    width:80vw;
+  }
+ 
+  .image img{
+    margin:0;
+  }
+  .AC {
+    width: 100%;
+    height: auto;
+  }
+  
+  .U1{
+    display:block;
+    width:100vw;
+    height:75vh;
+    justify-content: center;
+}
+.user{
+    width:90vw;
+    height:40vh;
+    margin-left: 0;
+    text-align: center;
+}
+.user p{
+    font-size:20px ;
+   margin-left: 0;
+    width:80vw;
+    
+}
+.image{
+    width:90vw;
+    height:35vh;
+    margin-left: 0;
+}
+.username img{
+    width:65vw;
+    height:35vh;
+    margin-left: 12vw;
+    justify-content: center;
+    align-items: center;
+ 
+   }
+ .username{
+    width:100vw;
+    height:140vh;
+ }
+ .box2 p{
+  width:40vw;
+ }
+ .box1 p{
+  font-size: 0.69rem;
+}
+.box2 p{
+  font-size: 0.69rem;
+}
+.box3 p{
+  font-size: 0.69rem;
+}
+
+.box2 i{
+  margin: 0;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.user p{
+  font-size: 16px;
+}
+
+/* Responsive styles for FAQ section */
+
+.faq-section {
+  padding: 3rem 1rem;
+}
+
+.faq-header h1 {
+  font-size: 1.8rem;
+}
+
+.faq-question {
+  padding: 1.2rem;
+}
+
+.faq-question h3 {
+  font-size: 1rem;
+}
+footer{
+  height:43vh;
+}
+.footer-section2{
+  height:10vh;
+  margin:0;
+}
+.footer-section{
+  height:17vh;
+  margin:0;
+}
+.git i{
+  font-size: 2rem;
+}
+.git hr{
+  width: 0;
+  height: 0;
+}
+.git{
+  display: flex;
+  height:10vh;
+  gap:1rem;
+  margin-top: 0.8rem;
+}
+.git_a{
+  display: flex;
+  height: 5vh;
+  
+}
+.git_a p{
+  display: flex;
+ gap:2rem;
+
+}
+
+.footer-content{
+  gap:0;
+  display: grid;
+
+}
 }
