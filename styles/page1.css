@@ -156,7 +156,6 @@ nav {
 
 /* Hero Section */
 .hero {
-  /* background-attachment: fixed; */
   width:100%;
   background-size: cover;
   height: 710px;
@@ -173,6 +172,7 @@ nav {
   width: 100%;
   justify-content: center;
 }
+
 .hero-content h1{
   margin-top: 12rem;
   font-size:5rem;
@@ -181,7 +181,6 @@ nav {
   font-style: oblique;
   white-space: nowrap;
   display: inline-block,flex;
-
   text-align: center;
   justify-content: center;
 
