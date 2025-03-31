@@ -80,14 +80,30 @@ SafeBrowse is an AI-powered web based chatbot committed to creating a safer digi
 # Hi! We are 404Fixers
 ## 🤝Contributors
 We are a team of four tech enthusiasts from Integral University lucknow and members of GDG.
-| [Abdullah](https://www.linkedin.com/in/abdullah-azmi-492120359?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app) |
-[Darakhshan](https://www.linkedin.com/in/darakhshan-ifraque-6287a1320?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)| 
-[Faizan](https://linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=faizan-raza-a1265526a)| 
-[Rajni](https://www.linkedin.com/in/katyayani-r-75129423b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)|
+<table style= "width:100%">
+<tr>
+  <td align="center" width="25%">
+   [Rajni](https://www.linkedin.com/in/katyayani-r-75129423b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)<br>
+   <img width="555" src="https://github.com/user-attachments/assets/96d42523-293b-4ca4-b3a7-df2706d822a5" /><br>
+   <b>Project Lead</b>
+ </td>
+ <td align="center" width="25%">
+   [Abdullah](https://www.linkedin.com/in/abdullah-azmi-492120359?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)<br>
+   <img width="555" src="https://github.com/user-attachments/assets/7762296c-eeba-40ea-b873-ebd6141a5b1a" /><br>
+   <b>Backend Developer</b><br>
+ </td>
+ <td align="center" width="25%">
+    [Darakhshan](https://www.linkedin.com/in/darakhshan-ifraque-6287a1320?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)<br>
+   <img width="555" src="https://github.com/user-attachments/assets/b7d067fe-1081-4c2a-b655-c2f67a9e2e9d" /><br>
+  <b>Frontend Developer</b>
+ </td>
+ <td align="center" width="25%">
+   [Faizan](https://linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=faizan-raza-a1265526a)<br>
+   <img width="555" src="https://github.com/user-attachments/assets/10463ab4-b9b6-416e-848b-ba50e20d80e0" /><br>
+  <b>Database Manager</b>
+ </td>
 
-| Backend Developer|Frontend Developer|Database Manager|Project Lead
-|![prof1](https://github.com/user-attachments/assets/7762296c-eeba-40ea-b873-ebd6141a5b1a)|![prof2](https://github.com/user-attachments/assets/b7d067fe-1081-4c2a-b655-c2f67a9e2e9d)|![prof3](https://github.com/user-attachments/assets/10463ab4-b9b6-416e-848b-ba50e20d80e0)|![profpic](https://github.com/user-attachments/assets/96d42523-293b-4ca4-b3a7-df2706d822a5)|
-
+</tr>
 ![404fixers](https://github.com/user-attachments/assets/8a9d27bd-2d72-40a7-b774-582cc1330b15)
 We are a team of tech enthusiasts with passion in solving real life problems through technology. We are a committed group of students who wants to make the internet browsing safe. Our mission is to create surfing on internet a safe experience for its users. We help you in doing so by providing you with a platform made exclusively for your safety.
 ## SAFEBROWSE- BEFORE YOU BELIEVE
