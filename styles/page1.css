@@ -1,3 +1,9 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Boldonse&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Boldonse&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Boldonse&family=Catamaran:wght@100..900&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Karla:ital,wght@0,200..800;1,200..800&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Boldonse&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Karla:ital,wght@0,200..800;1,200..800&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
 *{
   margin: 0;
   padding: 0;
@@ -171,11 +177,15 @@ nav {
 .hero-content{
   width: 100%;
   justify-content: center;
+  display: flex;
 }
 
 .hero-content h1{
+  font-family: "Boldonse", system-ui;
+  font-weight: 400;
+  font-style: normal;
   margin-top: 12rem;
-  font-size:5rem;
+  font-size:3rem;
   margin-bottom: 1.5rem;
   color: rgb(31, 28, 28);
   font-style: oblique;
@@ -253,13 +263,13 @@ nav {
   display:flex;
   justify-content:  center;
 }
-.what-we-do-p{
-  height:30vh;
-  width:70vw;
- 
-}
+
 
 .what-we-do p {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
   color:black;
   line-height: 1.4;
   font-size: 18px;
@@ -303,22 +313,23 @@ nav {
 .user{
   width:35vw;
   height:50vh;
-  margin-top: 12vh;
+  margin-top: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 13vw;
+  margin-left: 5vw;
 }
 .user p{
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  font-style: normal;
   color:black;
   width:35vw;
   height:50vh;
   line-height: 1.59;
-  
   font-optical-sizing: auto;
   font-size: 17px;
- 
- 
 }
 
 /* Why Needed Section */
@@ -533,7 +544,9 @@ nav {
   justify-content: space-evenly;
 }
 .about-p p{
-  font-family: "Nunito Sans", sans-serif;
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
   width:50vw;
   height:40vh;
   font-size:19px;
@@ -569,6 +582,7 @@ nav {
 
 }
 .boxes{
+  
   width:90vw;
   
   display: flex;
@@ -576,6 +590,7 @@ nav {
   margin-left: 7vw;
 }
 .box1 {
+  
   width: 25vw;
   height: 50vh;
   background-color: white; /* Red-orange color */
@@ -591,6 +606,10 @@ nav {
   box-shadow: 0 0 10px rgba(251, 248, 248, 0.8);
 }
 .box1 p{
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
   width:18vw;
   height:30vh;
   margin-top: 3vh;
@@ -654,6 +673,10 @@ nav {
   box-shadow: 0 0 10px rgba(251, 248, 248, 0.8);
 }
 .box2 p{
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
   width:18vw;
   height:30vh;
   margin-top: 3vh;
@@ -696,6 +719,10 @@ nav {
   box-shadow: 0 0 10px rgba(251, 248, 248, 0.8);
 }
 .box3 p{
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
   width:18vw;
   height:30vh;
   margin-top: 3vh;
@@ -1106,6 +1133,9 @@ body.modal-open {
 }
 
 .faq-header h1 {
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 1rem;
@@ -1181,10 +1211,18 @@ body.modal-open {
 }
 
 .faq-answer p {
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
   padding: 0 1.5rem 1.5rem;
   color: #d1d1d1;
   line-height: 1.6;
   font-size: 1rem;
+}
+.Que{
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
 }
 .popup-modal {
   display: none;
@@ -1404,7 +1442,7 @@ body.modal-open {
       margin-left: 0;
     }
     .hero-content h1{
-      font-size: 2rem;
+      font-size: 1rem;
     }
     .U1{
       display: block;
@@ -1418,6 +1456,9 @@ body.modal-open {
       margin: 0;
   }
   .user p{
+    font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
       width:100vw;
       height:38vh;
       font-size:17px ;
@@ -1502,7 +1543,7 @@ body.modal-open {
   }
 
   .hero-content h1 {
-      font-size: 3rem;
+      font-size: 2rem;
       
       flex-direction: column;
   }
@@ -1540,7 +1581,7 @@ body.modal-open {
     }
     .username{
       width:100vw;
-      height:75vh;
+      height:95vh;
    } 
   
    
@@ -1661,7 +1702,7 @@ body.modal-open {
 /* Tablet View (768px to 1024px) */
 @media (min-width: 768px) and (max-width: 1029px) {
   .hero-content h1 {
-      font-size: 4rem;
+      font-size: 3rem;
       flex-wrap: wrap;
   }
   .hero-content2 p {
@@ -1700,13 +1741,13 @@ body.modal-open {
      }
    .username{
       width:100vw;
-      height:85vh;
+      height:100vh;
    }
    .container{
     gap:4rem;
    }
    .about-p p{
-    margin-left:6rem;
+    
     width:80vw;
     height:38vh;
     font-size:20px;
@@ -1773,7 +1814,7 @@ body.modal-open {
       width:100%;
   }
   .hero-content h1{
-      font-size: 6.9vw;
+      font-size: 5.8vw;
 
       text-align: center;
  
@@ -1783,13 +1824,15 @@ body.modal-open {
   }
  
   .what-we-do {
-    height:130vh;
+    height:85vh;
   }
   .what-we-do video{
-    height:55vh;
-    width:80vw;
+    height:45vh;
+    width:90vw;
   }
- 
+  .what-we-do-vdo{
+    height:40vh;
+  }
   .image img{
     margin:0;
   }
@@ -1833,20 +1876,45 @@ body.modal-open {
     width:100vw;
     height:140vh;
  }
- .box2 p{
-  width:40vw;
+ .revolution{
+  height:80vh;
  }
- .box1 p{
-  font-size: 0.69rem;
+ .box1{
+  width:60vw;
 }
+.box1 p{
+  width:10rem;
+ font-size: 0.90rem;
+}
+.box1 i{
+  margin: 0;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+.box2{
+  width:60vw;
+ }
+ 
 .box2 p{
-  font-size: 0.69rem;
+  width:10rem;
+  font-size: 0.90rem;
 }
+.box2 i{
+  margin: 0;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+.box3{
+  width:60vw;
+ }
 .box3 p{
-  font-size: 0.69rem;
+  width:10rem;
+  font-size: 0.90rem;
 }
 
-.box2 i{
+.box3 i{
   margin: 0;
   display: grid;
   align-items: center;
