@@ -83,27 +83,28 @@ We are a team of four tech enthusiasts from Integral University lucknow and memb
 <table style= "width:100%">
 <tr>
   <td align="center" width="25%">
-   <b src="https://www.linkedin.com/in/katyayani-r-75129423b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Rajni</b><br>
+   <b href="https://www.linkedin.com/in/katyayani-r-75129423b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Rajni</b><br>
    <img width="255" src="https://github.com/user-attachments/assets/96d42523-293b-4ca4-b3a7-df2706d822a5" /><br>
    <b>Project Lead</b>
  </td>
  <td align="center" width="25%">
-   <b src="https://www.linkedin.com/in/abdullah-azmi-492120359?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Abdullah</b><br>
+   <b href="https://www.linkedin.com/in/abdullah-azmi-492120359?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Abdullah</b><br>
    <img width="255" src="https://github.com/user-attachments/assets/7762296c-eeba-40ea-b873-ebd6141a5b1a" /><br>
    <b>Backend Developer</b><br>
  </td>
  <td align="center" width="25%">
-    <b src=https://www.linkedin.com/in/darakhshan-ifraque-6287a1320?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Darakhshan</b><br>
+    <b href=https://www.linkedin.com/in/darakhshan-ifraque-6287a1320?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Darakhshan</b><br>
    <img width="255" src="https://github.com/user-attachments/assets/b7d067fe-1081-4c2a-b655-c2f67a9e2e9d" /><br>
   <b>Frontend Developer</b>
  </td>
  <td align="center" width="25%">
-   <b src="https://linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=faizan-raza-a1265526a">Faizan</b><br>
+   <b href="https://linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=faizan-raza-a1265526a">Faizan</b><br>
    <img width="255" src="https://github.com/user-attachments/assets/10463ab4-b9b6-416e-848b-ba50e20d80e0" /><br>
   <b>Database Manager</b>
  </td>
-
 </tr>
+</table>
+
 ![404fixers](https://github.com/user-attachments/assets/8a9d27bd-2d72-40a7-b774-582cc1330b15)
 We are a team of tech enthusiasts with passion in solving real life problems through technology. We are a committed group of students who wants to make the internet browsing safe. Our mission is to create surfing on internet a safe experience for its users. We help you in doing so by providing you with a platform made exclusively for your safety.
 ## SAFEBROWSE- BEFORE YOU BELIEVE
