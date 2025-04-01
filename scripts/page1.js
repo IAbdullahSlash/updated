@@ -9,7 +9,7 @@ function continueWithoutLogin() {
     document.getElementById('popupModal').style.display = 'none';
     document.body.classList.remove('modal-open');
   }, 300);
-  window.location.href = 'index2.html';
+  window.location.href = 'url-checker.html';
 }
 
 function continueWithLogin() {
