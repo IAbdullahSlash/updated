@@ -93,7 +93,7 @@ We are a team of four tech enthusiasts from Integral University lucknow and memb
    <b>Backend Developer</b><br>
  </td>
  <td align="center" width="25%">
-    <b href=https://www.linkedin.com/in/darakhshan-ifraque-6287a1320?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Darakhshan</b><br>
+    <b href="https://www.linkedin.com/in/darakhshan-ifraque-6287a1320?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Darakhshan</b><br>
    <img width="255" src="https://github.com/user-attachments/assets/b7d067fe-1081-4c2a-b655-c2f67a9e2e9d" /><br>
   <b>Frontend Developer</b>
  </td>
