@@ -2,7 +2,7 @@
     <?php
     
     session_start();
-    include("db.php");
+    require'db.php';
 
     $error = [] ;
     
@@ -49,9 +49,7 @@
 
         if(!empty($error)) {
             
-            // $hashed_pword = password_hash($pword, PASSWORD_BCRYPT);
-
-            // Process to insert the data
+    
 
             $_SESSION["error"] = $error;
             $_SESSION["old_input"] = $_POST;
@@ -60,7 +58,7 @@
 
         }
     
-        echo "Your account has been successfully created!";
+        // echo "Your account has been successfully created!";
     
     }
 
@@ -87,13 +85,15 @@
     }
     
     // Insert new user into Userinfo table
-    $insertQuery = "INSERT INTO Userinfo (username, email, password) VALUES (?, ?, ?)";
+    $insertQuery = "INSERT INTO Userinfo (username, email, hash_password) VALUES (?, ?, ?)";
     $insertStmt = $conn->prepare($insertQuery);
     $insertStmt->bind_param("sss", $uname, $email, $pword);
     
     if ($insertStmt->execute()) {
         // Redirect to index.html after successful registration
-        header("Location: /Hackathon/updated/index.php");
+        $_SESSION['username']= $uname;
+        $_SESSION['logged_in'] = true;
+        header("Location: /Hackathon/updated/home_page.php");
         exit();
     } else {
         die("Error: " . $conn->error);

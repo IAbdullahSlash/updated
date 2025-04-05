@@ -40,7 +40,7 @@
         $_SESSION["user_id"] = $user["id"];
         $_SESSION["username"] = $user["username"];
         $_SESSION["logged_in"] = true;
-        header("Location: /Hackathon/updated/index.php");
+        header("Location: /Hackathon/updated/home_page.php");
         exit();
     
         } else {
