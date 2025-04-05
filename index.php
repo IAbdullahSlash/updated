@@ -1,3 +1,10 @@
+    
+    
+    <?php 
+    session_start();
+    
+    ?>
+    
     <!DOCTYPE html>
     <html lang="en">
 
@@ -25,8 +32,13 @@
                     <li><a href="index.php">Home</a></li>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#footer">Contacts</a></li>
-                </ul>
+                
+                <?php if(isset($_SESSION["logged_in"]) && $_SESSION['logged_in']): ?>
+                    <a class="nav-links" href="logout.php">Logout</a>
+                    
+                    <?php else: ?>
                 <button class="get-started-btn" onclick="redirectToLogin()">Register now!</button>
+                <?php endif; ?>
             </nav>
         </header>
 
@@ -41,7 +53,12 @@
                     <p><strong>SAFEBROWSE- BEFORE YOU BELIEVE</strong></p>
                     <p>chatbot to detect and identify harmful content.</p>
                 </div>
+                <?php if(isset($_SESSION["logged_in"])&& $_SESSION["logged_in"]): ?>
+                    <a href="home_page.php"><button  class="get-started-btn">Back to chatbot</button></a>
+
+                    <?php else: ?>
                 <button id="getStartedBtn" class="get-started-btn">Get Started</button>
+                <?php endif; ?>
             </section>
             <section>
                 <div class="what-we-do reveal">
@@ -220,7 +237,7 @@
                 </div>
             </section>
         </main>
-        <footer>
+        <!-- <footer>
             <div id="footer" class="footer-content">
                 <div class="footer-section2">
                     <h3>Support</h3>
@@ -242,7 +259,31 @@
                     </div>
                 </div>
             </div>
-        </footer>
+        </footer> -->
+
+        <footer>
+        <div id="footer" class="footer-content">
+            <div class="footer-section2">
+                <h3>Support</h3>
+                <p>FAQs</p>
+            </div>
+            <div class="footer-section">
+              <h3>Contact Us</h3>
+              <p>Email: support@safebrowse.com</a></p>
+            </div>
+            <div class="LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i><br><br>    
+                
+                <div class="LinkedIn_a">
+                <p><a href="https://www.linkedin.com/in/darakhshan-ifraque-6287a1320?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Darakhshan</a></p>
+                <p><a href="https://www.linkedin.com/in/abdullah-azmi-492120359?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"> Abdullah</a></p>
+                <p><a href="https://www.linkedin.com/in/katyayani-r-75129423b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"> katyayani </a></p>
+                <p><a href="https://linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=faizan-raza-a1265526a"> Faizan </a></p>
+                <p>#Team 404Fixers</p>
+                </div>
+            </div>
+        </div>
+    </footer>
     
         <!-- Fixed Popup Modal -->
         <div id="popupModal" class="popup-modal">
