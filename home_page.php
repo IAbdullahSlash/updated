@@ -11,7 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <title>SafeBrowse</title>
-        <link rel="stylesheet" href="styles/Style.css">
+        <link rel="stylesheet" href="styles/Style.css?v=<?php echo time(); ?>">
         <style>
             /* Additional styles for loading animation and stop button */
             .loading-dots {
@@ -65,6 +65,20 @@
                 <li><a href="#" class="chat-item">Classify harmful content</a></li>
                 <li><a href="#" class="chat-item">How does AI detect and recognize such content?</a></li>
             </ul>
+                <div class="extra-menu hidden">
+                    <ul>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="index.php#about">About Us</a></li>
+                        <!-- <li><a href="services.php">Services</a></li> -->
+                        <li><a href="index.php#footer">Contact</a></li>
+                        <!-- <li><a href="profile.php">Profile</a></li> -->
+                        <?php if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === true): ?>
+                          <li><a href="logout.php">Logout</a></li>
+
+                        <?php endif; ?>
+
+                    </ul>
+                </div>
             <div class="show-more">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="6 9 12 15 18 9"></polyline>
@@ -75,49 +89,28 @@
 
         <header class="header">
             <nav class="nav">
-                <div style="display: flex; align-items: center;">
-                    <svg class="sidebar-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="3" y1="12" x2="21" y2="12"></line>
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <line x1="3" y1="18" x2="21" y2="18"></line>
-                    </svg>
-                    <span class="title">SafeBrowse</span>
+                <div class="nav-left">
+                <svg class="sidebar-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" 
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <span class="title">SafeBrowse</span>
                 </div>
-                <div class="nav-links">
 
-                    <ul class="nav-links">
-                    
-
-                    <?php if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === true): ?>
-
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="index.php#about">About us</a></li>
-
-                        <li class="user-info">
-                            👋 Welcome, <strong><?php echo htmlspecialchars($_SESSION["username"]); ?></strong>
-                        </li>
-
-                        <li>
-                            <a href="logout.php" class="logout-btn">Logout</a>
-                        </li>
+                <ul class="nav-links">
+                <?php if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === true): ?>
+                    <li><a href="index.php"><img width="20px" src="media/home-button-svgrepo-com.svg"> </a></li>
                 <?php else: ?>
-                    <li>
-                    
-                        <nav class="nav">
-                           
-                            <div class="nav-links">
-                                <a href="index.php">Home</a>
-                                <a href="index.php#about" onclick="scrollToAbout()">About us</a>
-                                <a href="login.php" class="btn-register">Register now</a>
-                            </div>
-                        </nav>
-                   
-                    </li>
-                    <?php endif; ?>
-                    </ul>
-                </div>
+            
+                    <li><a href="login.php" class="btn-register">Register now</a></li>
+                <?php endif; ?>
+                </ul>
             </nav>
-        </header>
+            </header>
+
 
         <section class="main">
             <div class="main-title">
@@ -193,6 +186,30 @@
 
             sidebarIcon.addEventListener('click', toggleSidebar);
             overlay.addEventListener('click', toggleSidebar);
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const showMoreDiv = document.querySelector(".show-more"); // Target div instead of button
+            const extraMenu = document.querySelector(".extra-menu");
+
+            if (showMoreDiv && extraMenu) { 
+                showMoreDiv.addEventListener("click", function() {
+                    extraMenu.classList.toggle("hidden"); // Toggle menu visibility
+
+                    // Change arrow icon based on visibility
+                    if (!extraMenu.classList.contains("hidden")) {
+                        showMoreDiv.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="18 15 12 9 6 15"></polyline>
+                        </svg> Show less`;
+                    } else {
+                        showMoreDiv.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg> Show more`;
+                    }
+                });
+            } else {
+                console.error("Show More div or Extra Menu not found!");
+            }
+        });
 
             // Replace the Google AI initialization code with this:
             const API_KEY = "AIzaSyCqc3zIUa59r7UvNbn7gy6rhRXbsZ6NcxE";
@@ -294,7 +311,7 @@
                 if (loadingElement) {
                     loadingElement.innerHTML = `
                         <div class="message-content">
-                            <img src="Images/posslogo.jpg" alt="SafeBrowse" class="bot-avatar">
+                            <img src="media/logo.jpg" alt="SafeBrowse" class="bot-avatar">
                             <div class="message-text">
                                 SB:<br>Response generation stopped.
                             </div>
@@ -343,7 +360,7 @@
                 loadingElement.classList.add('message', 'receiver-message', 'loading-message');
                 loadingElement.innerHTML = `
                     <div class="message-content">
-                        <img src="Images/posslogo.jpg" alt="SafeBrowse" class="bot-avatar">
+                        <img src="media/logo.jpg" alt="SafeBrowse" class="bot-avatar">
                         <div class="message-text">
                             SB:<br>Thinking<span class="loading-dots"></span>
                         </div>
@@ -413,7 +430,7 @@
                     responseElement.classList.add('message', 'receiver-message');
                     responseElement.innerHTML = `
                         <div class="message-content">
-                            <img src="Images/posslogo.jpg" alt="SafeBrowse" class="bot-avatar">
+                            <img src="media/logo.jpg" alt="SafeBrowse" class="bot-avatar">
                             <div class="message-text">
                                 SB:<br>
                             </div>
@@ -679,7 +696,7 @@
                 loadingElement.classList.add('message', 'receiver-message', 'loading-message');
                 loadingElement.innerHTML = `
                     <div class="message-content">
-                        <img src="Images/posslogo.jpg" alt="SafeBrowse" class="bot-avatar">
+                        <img src="media/logo.jpg" alt="SafeBrowse" class="bot-avatar">
                         <div class="message-text">
                             SB:<br>Thinking<span class="loading-dots"></span>
                         </div>
@@ -735,7 +752,7 @@
                     responseElement.classList.add('message', 'receiver-message');
                     responseElement.innerHTML = `
                         <div class="message-content">
-                            <img src="Images/posslogo.jpg" alt="SafeBrowse" class="bot-avatar">
+                            <img src="media/logo.jpg" alt="SafeBrowse" class="bot-avatar">
                             <div class="message-text">
                                 SB:<br>
                             </div>

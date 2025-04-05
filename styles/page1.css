@@ -1435,9 +1435,9 @@ body.modal-open {
     top: 60px; /* Adjust based on navbar height */
     left: 0;
 }
-.menu-icon {
+/* .menu-icon {
   display: block;
-}
+} */
     .word-2{
       margin-left: 0;
     }
@@ -1534,9 +1534,9 @@ body.modal-open {
   }
 
   /* Show the hamburger icon on mobile */
-  .menu-icon {
+  /* .menu-icon {
       display: block;
-  }
+  } */
 
   .hero{
       display:block;

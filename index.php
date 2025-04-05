@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles/page1.css">
+        <link rel="stylesheet" href="styles/page1.css?v=<?php echo time()?>">
         <title>SafeBrowse</title>
     </head>
 
@@ -14,7 +14,7 @@
             <div class="menu-icon" id="hamburger-icon" onclick="showSidebar()">
                 &#9776;
             </div>
-            <span><a href="page1.html" class="SB">SafeBrowse</a></span>
+            <span><a href="index.php" class="SB">SafeBrowse</a></span>
                 <!-- <ul class="navham">
                     <li onclick="hideSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26" ><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
                     <li><a href="index.php">Home</a></li>
