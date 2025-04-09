@@ -14,8 +14,6 @@ Modern harmful content has evolved beyond traditional threats, now encompassing,
 ## Google Solution Challenge Project'25
 Organised By Google Developer Groups. Project by **404Fixers** From Integral University, Lucknow.
 
-# 🎥 Intro video
-
 # 🎯 Our SDG's Goals
 <p align="center">
     <img width="200" alt="goal" src="https://github.com/user-attachments/assets/ca3ff8ff-f17b-4a2a-a4e1-b22c009fabf5" />
@@ -24,7 +22,9 @@ Organised By Google Developer Groups. Project by **404Fixers** From Integral Uni
 </p>
 SafeBrowse is an AI-powered web based chatbot committed to creating a safer digital environment by detecting and mitigating harmful content. Our mission is to protect users from misinformation, online threats, and sensitive material while promoting responsible browsing. By leveraging advanced AI, we contribute to a secure and informed digital space, aligning with global efforts to enhance cybersecurity and digital safe enviroment.
 
-# 📌 Getting Started
+# 📌 Getting Started : 
+SafeBrowse Link- [click here](http://safebrowse.wuaze.com/)
+
 
 # 🔧 Technologies Used
 <p align="left">
